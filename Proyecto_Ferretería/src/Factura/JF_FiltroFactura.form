@@ -69,7 +69,7 @@
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="btnSubMenu" min="-2" pref="54" max="-2" attributes="0"/>
                       <EmptySpace pref="1235" max="32767" attributes="0"/>
-                      <Component id="BtnMinimizar" min="-2" max="-2" attributes="0"/>
+                      <Component id="BtnMinimizar" min="-2" pref="48" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="BtnSalir" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -77,12 +77,14 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnSubMenu" pref="50" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="BtnSalir" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSubMenu" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="BtnMinimizar" alignment="0" max="32767" attributes="0"/>
+                          <Component id="BtnSalir" alignment="0" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="BtnMinimizar" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -119,7 +121,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="PanelMenuRU">
+        <Container class="javax.swing.JPanel" name="PanelMenuFFac">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>

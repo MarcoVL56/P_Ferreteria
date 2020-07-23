@@ -1,6 +1,8 @@
 package Menú;
 
+import Factura.JF_FiltroFactura;
 import Inventario.JF_Inventario;
+import Login.JF_Login;
 import Proformas.JF_Proformas;
 import RegistrarEmpleado.JF_RegistrarCliente;
 import RegistrarUsuario.JF_RegistrarUsuario;
@@ -20,13 +22,6 @@ public class JF_Menú extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        PanelMenu = new javax.swing.JPanel();
-        BtnFiltrarFactura = new rsbuttom.RSButtonMetro();
-        BtnRegistrarCliente = new rsbuttom.RSButtonMetro();
-        BtnProforma = new rsbuttom.RSButtonMetro();
-        BtnVentas = new rsbuttom.RSButtonMetro();
-        jPanel3 = new javax.swing.JPanel();
-        btnSubMenu = new javax.swing.JLabel();
         btnReporteProductos = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -51,6 +46,14 @@ public class JF_Menú extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        PanelMenuI = new javax.swing.JPanel();
+        btnMenú = new rsbuttom.RSButtonMetro();
+        jLabel2 = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        btnSubMenu = new javax.swing.JLabel();
+        BtnSalir = new javax.swing.JLabel();
+        BtnMinimizar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -60,62 +63,7 @@ public class JF_Menú extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelMenu.setBackground(new java.awt.Color(204, 204, 204));
-        PanelMenu.setForeground(new java.awt.Color(255, 255, 255));
-        PanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        BtnFiltrarFactura.setBackground(new java.awt.Color(153, 153, 153));
-        BtnFiltrarFactura.setText("Filtrar factura");
-        BtnFiltrarFactura.setColorHover(new java.awt.Color(255, 102, 51));
-        BtnFiltrarFactura.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenu.add(BtnFiltrarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
-
-        BtnRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
-        BtnRegistrarCliente.setText("Registrar Cliente");
-        BtnRegistrarCliente.setColorHover(new java.awt.Color(255, 102, 51));
-        BtnRegistrarCliente.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenu.add(BtnRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
-
-        BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
-        BtnProforma.setText("Profromas");
-        BtnProforma.setColorHover(new java.awt.Color(255, 102, 51));
-        BtnProforma.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenu.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
-
-        BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
-        BtnVentas.setText("Ventas");
-        BtnVentas.setColorHover(new java.awt.Color(255, 102, 51));
-        BtnVentas.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenu.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
-
-        jPanel1.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
-
-        jPanel3.setBackground(new java.awt.Color(255, 102, 51));
-
-        btnSubMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Menu_35px_2.png"))); // NOI18N
-        btnSubMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSubMenuMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(btnSubMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1338, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnSubMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 50));
-
-        btnReporteProductos.setBackground(new java.awt.Color(255, 102, 51));
+        btnReporteProductos.setBackground(new java.awt.Color(0, 102, 255));
         btnReporteProductos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnReporteProductosMouseClicked(evt);
@@ -132,7 +80,7 @@ public class JF_Menú extends javax.swing.JFrame {
 
         jPanel1.add(btnReporteProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 690, 140));
 
-        jPanel6.setBackground(new java.awt.Color(255, 102, 51));
+        jPanel6.setBackground(new java.awt.Color(0, 102, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setBackground(new java.awt.Color(0, 0, 0));
@@ -142,7 +90,7 @@ public class JF_Menú extends javax.swing.JFrame {
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 240, 30));
 
-        btnProformas.setBackground(new java.awt.Color(255, 102, 51));
+        btnProformas.setBackground(new java.awt.Color(0, 102, 255));
         btnProformas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnProformasMouseClicked(evt);
@@ -159,7 +107,7 @@ public class JF_Menú extends javax.swing.JFrame {
 
         jPanel1.add(btnProformas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 280, 140));
 
-        btnFiltroFacturas.setBackground(new java.awt.Color(255, 102, 51));
+        btnFiltroFacturas.setBackground(new java.awt.Color(0, 102, 255));
         btnFiltroFacturas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnFiltroFacturasMouseClicked(evt);
@@ -176,7 +124,7 @@ public class JF_Menú extends javax.swing.JFrame {
 
         jPanel1.add(btnFiltroFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 420, 410, 140));
 
-        btnInventario.setBackground(new java.awt.Color(255, 102, 51));
+        btnInventario.setBackground(new java.awt.Color(0, 102, 255));
         btnInventario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnInventarioMouseClicked(evt);
@@ -193,7 +141,7 @@ public class JF_Menú extends javax.swing.JFrame {
 
         jPanel1.add(btnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 240, 270, 140));
 
-        btnVentas.setBackground(new java.awt.Color(255, 102, 51));
+        btnVentas.setBackground(new java.awt.Color(0, 102, 255));
         btnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnVentasMouseClicked(evt);
@@ -210,7 +158,7 @@ public class JF_Menú extends javax.swing.JFrame {
 
         jPanel1.add(btnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 240, 270, 140));
 
-        btnRUsuario.setBackground(new java.awt.Color(255, 102, 51));
+        btnRUsuario.setBackground(new java.awt.Color(0, 102, 204));
         btnRUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRUsuarioMouseClicked(evt);
@@ -227,7 +175,7 @@ public class JF_Menú extends javax.swing.JFrame {
 
         jPanel1.add(btnRUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 120, 100));
 
-        btnRCliente.setBackground(new java.awt.Color(255, 102, 51));
+        btnRCliente.setBackground(new java.awt.Color(0, 102, 255));
         btnRCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRClienteMouseClicked(evt);
@@ -250,6 +198,83 @@ public class JF_Menú extends javax.swing.JFrame {
         jLabel1.setText("Bienvenido ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, -1, -1));
 
+        PanelMenuI.setBackground(new java.awt.Color(204, 204, 204));
+        PanelMenuI.setForeground(new java.awt.Color(255, 255, 255));
+        PanelMenuI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnMenú.setBackground(new java.awt.Color(255, 51, 51));
+        btnMenú.setText("Cerrar sesión");
+        btnMenú.setColorHover(new java.awt.Color(255, 51, 51));
+        btnMenú.setColorNormal(new java.awt.Color(255, 51, 51));
+        btnMenú.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMenúMouseClicked(evt);
+            }
+        });
+        btnMenú.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenúActionPerformed(evt);
+            }
+        });
+        PanelMenuI.add(btnMenú, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 150, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-usuario-100.png"))); // NOI18N
+        PanelMenuI.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 110, 150));
+
+        txtUsuario.setEditable(false);
+        txtUsuario.setBackground(new java.awt.Color(245, 245, 245));
+        txtUsuario.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        txtUsuario.setBorder(null);
+        PanelMenuI.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 160, 40));
+
+        jPanel1.add(PanelMenuI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
+
+        jPanel3.setBackground(new java.awt.Color(0, 102, 255));
+
+        btnSubMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Menu_35px_2.png"))); // NOI18N
+        btnSubMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSubMenuMouseClicked(evt);
+            }
+        });
+
+        BtnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-cerrar-ventana-48.png"))); // NOI18N
+        BtnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnSalirMouseClicked(evt);
+            }
+        });
+
+        BtnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-minimizar-la-ventana-48 (1).png"))); // NOI18N
+        BtnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnMinimizarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(btnSubMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1235, Short.MAX_VALUE)
+                .addComponent(BtnMinimizar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BtnSalir))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnSubMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(BtnSalir)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(BtnMinimizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -265,11 +290,11 @@ public class JF_Menú extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubMenuMouseClicked
-        int posicion = PanelMenu.getX();
+        int posicion = PanelMenuI.getX();
         if (posicion > -1) {
-            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelMenu);
+            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelMenuI);
         } else {
-            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenu);
+            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenuI);
         }
     }//GEN-LAST:event_btnSubMenuMouseClicked
 
@@ -316,11 +341,29 @@ public class JF_Menú extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReporteProductosMouseClicked
 
     private void btnFiltroFacturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFiltroFacturasMouseClicked
-        JF_RegistrarUsuario m = new JF_RegistrarUsuario();
+        JF_FiltroFactura m = new JF_FiltroFactura();
         m.setVisible(true);
         dispose();
 
     }//GEN-LAST:event_btnFiltroFacturasMouseClicked
+
+    private void BtnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSalirMouseClicked
+      System.exit(0);
+    }//GEN-LAST:event_BtnSalirMouseClicked
+
+    private void BtnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMinimizarMouseClicked
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_BtnMinimizarMouseClicked
+
+    private void btnMenúMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenúMouseClicked
+        JF_Login m = new JF_Login();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnMenúMouseClicked
+
+    private void btnMenúActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenúActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenúActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -355,13 +398,12 @@ public class JF_Menú extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rsbuttom.RSButtonMetro BtnFiltrarFactura;
-    private rsbuttom.RSButtonMetro BtnProforma;
-    private rsbuttom.RSButtonMetro BtnRegistrarCliente;
-    private rsbuttom.RSButtonMetro BtnVentas;
-    private javax.swing.JPanel PanelMenu;
+    private javax.swing.JLabel BtnMinimizar;
+    private javax.swing.JLabel BtnSalir;
+    private javax.swing.JPanel PanelMenuI;
     private javax.swing.JPanel btnFiltroFacturas;
     private javax.swing.JPanel btnInventario;
+    private rsbuttom.RSButtonMetro btnMenú;
     private javax.swing.JPanel btnProformas;
     private javax.swing.JPanel btnRCliente;
     private javax.swing.JPanel btnRUsuario;
@@ -378,6 +420,7 @@ public class JF_Menú extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -387,5 +430,6 @@ public class JF_Menú extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
+    public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -33,7 +33,9 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnSubMenu = new javax.swing.JLabel();
-        PanelMenuE = new javax.swing.JPanel();
+        BtnSalir = new javax.swing.JLabel();
+        BtnMinimizar = new javax.swing.JLabel();
+        PanelMenuRC = new javax.swing.JPanel();
         BtnFiltrarFactura = new rsbuttom.RSButtonMetro();
         BtnRegistrarCliente = new rsbuttom.RSButtonMetro();
         BtnProforma = new rsbuttom.RSButtonMetro();
@@ -47,12 +49,26 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(255, 102, 51));
+        jPanel3.setBackground(new java.awt.Color(0, 102, 255));
 
         btnSubMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Menu_35px_2.png"))); // NOI18N
         btnSubMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSubMenuMouseClicked(evt);
+            }
+        });
+
+        BtnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-cerrar-ventana-48.png"))); // NOI18N
+        BtnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnSalirMouseClicked(evt);
+            }
+        });
+
+        BtnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-minimizar-la-ventana-48 (1).png"))); // NOI18N
+        BtnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnMinimizarMouseClicked(evt);
             }
         });
 
@@ -63,42 +79,49 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(btnSubMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1338, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1235, Short.MAX_VALUE)
+                .addComponent(BtnMinimizar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BtnSalir))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnSubMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(btnSubMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(BtnSalir)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(BtnMinimizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 50));
 
-        PanelMenuE.setBackground(new java.awt.Color(204, 204, 204));
-        PanelMenuE.setForeground(new java.awt.Color(255, 255, 255));
-        PanelMenuE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PanelMenuRC.setBackground(new java.awt.Color(204, 204, 204));
+        PanelMenuRC.setForeground(new java.awt.Color(255, 255, 255));
+        PanelMenuRC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnFiltrarFactura.setBackground(new java.awt.Color(153, 153, 153));
         BtnFiltrarFactura.setText("Filtrar factura");
-        BtnFiltrarFactura.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnFiltrarFactura.setColorHover(new java.awt.Color(0, 102, 255));
         BtnFiltrarFactura.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuE.add(BtnFiltrarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+        PanelMenuRC.add(BtnFiltrarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
 
         BtnRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
         BtnRegistrarCliente.setText("Registrar Cliente");
-        BtnRegistrarCliente.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnRegistrarCliente.setColorHover(new java.awt.Color(0, 102, 255));
         BtnRegistrarCliente.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuE.add(BtnRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        PanelMenuRC.add(BtnRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
         BtnProforma.setText("Profromas");
-        BtnProforma.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnProforma.setColorHover(new java.awt.Color(0, 102, 255));
         BtnProforma.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuE.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        PanelMenuRC.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
         BtnVentas.setText("Ventas");
-        BtnVentas.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnVentas.setColorHover(new java.awt.Color(0, 102, 255));
         BtnVentas.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuE.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        PanelMenuRC.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
         btnMenú.setBackground(new java.awt.Color(255, 51, 51));
         btnMenú.setText("Menú");
@@ -109,9 +132,9 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
                 btnMenúMouseClicked(evt);
             }
         });
-        PanelMenuE.add(btnMenú, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 150, 30));
+        PanelMenuRC.add(btnMenú, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 150, 30));
 
-        jPanel1.add(PanelMenuE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
+        jPanel1.add(PanelMenuRC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,13 +151,21 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubMenuMouseClicked
-        int posicion = PanelMenuE.getX();
+        int posicion = PanelMenuRC.getX();
         if (posicion > -1) {
-            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelMenuE);
+            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelMenuRC);
         } else {
-            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenuE);
+            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenuRC);
         }
     }//GEN-LAST:event_btnSubMenuMouseClicked
+
+    private void BtnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSalirMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_BtnSalirMouseClicked
+
+    private void BtnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMinimizarMouseClicked
+      this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_BtnMinimizarMouseClicked
 
     private void btnMenúMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenúMouseClicked
         JF_Menú m = new JF_Menú();
@@ -180,10 +211,12 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rsbuttom.RSButtonMetro BtnFiltrarFactura;
+    private javax.swing.JLabel BtnMinimizar;
     private rsbuttom.RSButtonMetro BtnProforma;
     private rsbuttom.RSButtonMetro BtnRegistrarCliente;
+    private javax.swing.JLabel BtnSalir;
     private rsbuttom.RSButtonMetro BtnVentas;
-    private javax.swing.JPanel PanelMenuE;
+    private javax.swing.JPanel PanelMenuRC;
     private rsbuttom.RSButtonMetro btnMenú;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JPanel jPanel1;

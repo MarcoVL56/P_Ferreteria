@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Proformas;
+package Factura;
 
 import Menú.JF_Menú;
 
@@ -11,14 +11,14 @@ import Menú.JF_Menú;
  *
  * @author MarcoVL20
  */
-public class JF_Proformas extends javax.swing.JFrame {
+public class JF_Factura extends javax.swing.JFrame {
 
     /**
-     * Creates new form JF_Proformas
+     * Creates new form JF_Factura
      */
-    public JF_Proformas() {
+    public JF_Factura() {
         initComponents();
-            setLocationRelativeTo(null);
+          setLocationRelativeTo(null);
     }
 
     /**
@@ -35,7 +35,7 @@ public class JF_Proformas extends javax.swing.JFrame {
         btnSubMenu = new javax.swing.JLabel();
         BtnSalir = new javax.swing.JLabel();
         BtnMinimizar = new javax.swing.JLabel();
-        PanelMenuP = new javax.swing.JPanel();
+        PanelMenuFac = new javax.swing.JPanel();
         BtnFiltrarFactura = new rsbuttom.RSButtonMetro();
         BtnRegistrarCliente = new rsbuttom.RSButtonMetro();
         BtnProforma = new rsbuttom.RSButtonMetro();
@@ -80,48 +80,49 @@ public class JF_Proformas extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(btnSubMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1235, Short.MAX_VALUE)
-                .addComponent(BtnMinimizar)
+                .addComponent(BtnMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtnSalir))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnSubMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(btnSubMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(BtnSalir)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(BtnMinimizar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnSalir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(BtnMinimizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 50));
 
-        PanelMenuP.setBackground(new java.awt.Color(204, 204, 204));
-        PanelMenuP.setForeground(new java.awt.Color(255, 255, 255));
-        PanelMenuP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PanelMenuFac.setBackground(new java.awt.Color(204, 204, 204));
+        PanelMenuFac.setForeground(new java.awt.Color(255, 255, 255));
+        PanelMenuFac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnFiltrarFactura.setBackground(new java.awt.Color(153, 153, 153));
         BtnFiltrarFactura.setText("Filtrar factura");
         BtnFiltrarFactura.setColorHover(new java.awt.Color(0, 102, 255));
         BtnFiltrarFactura.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuP.add(BtnFiltrarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+        PanelMenuFac.add(BtnFiltrarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
 
         BtnRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
         BtnRegistrarCliente.setText("Registrar Cliente");
         BtnRegistrarCliente.setColorHover(new java.awt.Color(0, 102, 255));
         BtnRegistrarCliente.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuP.add(BtnRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        PanelMenuFac.add(BtnRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
         BtnProforma.setText("Profromas");
         BtnProforma.setColorHover(new java.awt.Color(0, 102, 255));
         BtnProforma.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuP.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        PanelMenuFac.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
         BtnVentas.setText("Ventas");
         BtnVentas.setColorHover(new java.awt.Color(0, 102, 255));
         BtnVentas.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuP.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        PanelMenuFac.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
         btnMenú.setBackground(new java.awt.Color(255, 51, 51));
         btnMenú.setText("Menú");
@@ -132,9 +133,9 @@ public class JF_Proformas extends javax.swing.JFrame {
                 btnMenúMouseClicked(evt);
             }
         });
-        PanelMenuP.add(btnMenú, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 150, 30));
+        PanelMenuFac.add(btnMenú, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 150, 30));
 
-        jPanel1.add(PanelMenuP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
+        jPanel1.add(PanelMenuFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,16 +152,16 @@ public class JF_Proformas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubMenuMouseClicked
-        int posicion = PanelMenuP.getX();
+        int posicion = PanelMenuFac.getX();
         if (posicion > -1) {
-            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelMenuP);
+            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelMenuFac);
         } else {
-            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenuP);
+            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenuFac);
         }
     }//GEN-LAST:event_btnSubMenuMouseClicked
 
     private void BtnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSalirMouseClicked
-         System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_BtnSalirMouseClicked
 
     private void BtnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMinimizarMouseClicked
@@ -190,20 +191,20 @@ public class JF_Proformas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JF_Proformas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JF_Factura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JF_Proformas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JF_Factura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JF_Proformas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JF_Factura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JF_Proformas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JF_Factura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JF_Proformas().setVisible(true);
+                new JF_Factura().setVisible(true);
             }
         });
     }
@@ -215,7 +216,7 @@ public class JF_Proformas extends javax.swing.JFrame {
     private rsbuttom.RSButtonMetro BtnRegistrarCliente;
     private javax.swing.JLabel BtnSalir;
     private rsbuttom.RSButtonMetro BtnVentas;
-    private javax.swing.JPanel PanelMenuP;
+    private javax.swing.JPanel PanelMenuFac;
     private rsbuttom.RSButtonMetro btnMenú;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JPanel jPanel1;
