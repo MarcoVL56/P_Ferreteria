@@ -15,10 +15,10 @@ public class JF_Menú extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         PanelMenu = new javax.swing.JPanel();
-        RC = new rsbuttom.RSButtonMetro();
-        P = new rsbuttom.RSButtonMetro();
-        V = new rsbuttom.RSButtonMetro();
-        FF = new rsbuttom.RSButtonMetro();
+        BtnFiltrarFactura = new rsbuttom.RSButtonMetro();
+        BtnRegistrarCliente = new rsbuttom.RSButtonMetro();
+        BtnProforma = new rsbuttom.RSButtonMetro();
+        BtnVentas = new rsbuttom.RSButtonMetro();
         jPanel3 = new javax.swing.JPanel();
         btnSubMenu = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -56,54 +56,33 @@ public class JF_Menú extends javax.swing.JFrame {
 
         PanelMenu.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenu.setForeground(new java.awt.Color(255, 255, 255));
+        PanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        RC.setBackground(new java.awt.Color(153, 153, 153));
-        RC.setText("Registrar Cliente");
-        RC.setColorHover(new java.awt.Color(255, 102, 0));
-        RC.setColorNormal(new java.awt.Color(153, 153, 153));
+        BtnFiltrarFactura.setBackground(new java.awt.Color(153, 153, 153));
+        BtnFiltrarFactura.setText("Filtrar factura");
+        BtnFiltrarFactura.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnFiltrarFactura.setColorNormal(new java.awt.Color(153, 153, 153));
+        PanelMenu.add(BtnFiltrarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
 
-        P.setBackground(new java.awt.Color(153, 153, 153));
-        P.setText("Proformas");
-        P.setColorHover(new java.awt.Color(255, 102, 51));
-        P.setColorNormal(new java.awt.Color(153, 153, 153));
+        BtnRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
+        BtnRegistrarCliente.setText("Registrar Cliente");
+        BtnRegistrarCliente.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnRegistrarCliente.setColorNormal(new java.awt.Color(153, 153, 153));
+        PanelMenu.add(BtnRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
-        V.setText("Ventas");
-        V.setColorHover(new java.awt.Color(255, 102, 0));
-        V.setColorNormal(new java.awt.Color(153, 153, 153));
+        BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
+        BtnProforma.setText("Profromas");
+        BtnProforma.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnProforma.setColorNormal(new java.awt.Color(153, 153, 153));
+        PanelMenu.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
-        FF.setBackground(new java.awt.Color(153, 153, 153));
-        FF.setText("Filtrar  facturas");
-        FF.setColorHover(new java.awt.Color(255, 102, 51));
-        FF.setColorNormal(new java.awt.Color(153, 153, 153));
+        BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
+        BtnVentas.setText("Ventas");
+        BtnVentas.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnVentas.setColorNormal(new java.awt.Color(153, 153, 153));
+        PanelMenu.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
-        javax.swing.GroupLayout PanelMenuLayout = new javax.swing.GroupLayout(PanelMenu);
-        PanelMenu.setLayout(PanelMenuLayout);
-        PanelMenuLayout.setHorizontalGroup(
-            PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelMenuLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(FF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(V, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(P, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-        PanelMenuLayout.setVerticalGroup(
-            PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelMenuLayout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(RC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(P, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(V, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(FF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(273, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 200, 660));
+        jPanel1.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
         jPanel3.setBackground(new java.awt.Color(255, 102, 51));
 
@@ -140,7 +119,7 @@ public class JF_Menú extends javax.swing.JFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-producto-nuevo-80.png"))); // NOI18N
         jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 90, 90));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 660, 140));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 690, 140));
 
         jPanel6.setBackground(new java.awt.Color(255, 102, 51));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -150,7 +129,7 @@ public class JF_Menú extends javax.swing.JFrame {
         jLabel12.setText("Registrar");
         jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 80, 30));
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 240, 30));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 240, 30));
 
         jPanel7.setBackground(new java.awt.Color(255, 102, 51));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -162,7 +141,7 @@ public class JF_Menú extends javax.swing.JFrame {
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-herramienta-de-pintura-en-línea-64.png"))); // NOI18N
         jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 120, 90));
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 270, 140));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 280, 140));
 
         jPanel8.setBackground(new java.awt.Color(255, 102, 51));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -186,7 +165,7 @@ public class JF_Menú extends javax.swing.JFrame {
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-almacén-64.png"))); // NOI18N
         jPanel9.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 120, 90));
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 240, 260, 140));
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 240, 270, 140));
 
         jPanel10.setBackground(new java.awt.Color(255, 102, 51));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -210,7 +189,7 @@ public class JF_Menú extends javax.swing.JFrame {
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-añadir-usuario-masculino-64.png"))); // NOI18N
         jPanel11.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 60, 60));
 
-        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 120, 100));
+        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 120, 100));
 
         jPanel12.setBackground(new java.awt.Color(255, 102, 51));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -222,7 +201,7 @@ public class JF_Menú extends javax.swing.JFrame {
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-carpeta-de-usuario-64.png"))); // NOI18N
         jPanel12.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 70, 60));
 
-        jPanel1.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 110, 100));
+        jPanel1.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 110, 100));
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 48)); // NOI18N
@@ -286,11 +265,11 @@ public class JF_Menú extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rsbuttom.RSButtonMetro FF;
-    private rsbuttom.RSButtonMetro P;
+    private rsbuttom.RSButtonMetro BtnFiltrarFactura;
+    private rsbuttom.RSButtonMetro BtnProforma;
+    private rsbuttom.RSButtonMetro BtnRegistrarCliente;
+    private rsbuttom.RSButtonMetro BtnVentas;
     private javax.swing.JPanel PanelMenu;
-    private rsbuttom.RSButtonMetro RC;
-    private rsbuttom.RSButtonMetro V;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

@@ -16,6 +16,7 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
      */
     public JF_RegistrarUsuario() {
         initComponents();
+            setLocationRelativeTo(null);
     }
 
     /**
@@ -27,21 +28,99 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        btnSubMenu = new javax.swing.JLabel();
+        PanelMenu = new javax.swing.JPanel();
+        BtnFiltrarFactura = new rsbuttom.RSButtonMetro();
+        BtnRegistrarCliente = new rsbuttom.RSButtonMetro();
+        BtnProforma = new rsbuttom.RSButtonMetro();
+        BtnVentas = new rsbuttom.RSButtonMetro();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 102, 51));
+
+        btnSubMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Menu_35px_2.png"))); // NOI18N
+        btnSubMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSubMenuMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(btnSubMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1338, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnSubMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 50));
+
+        PanelMenu.setBackground(new java.awt.Color(204, 204, 204));
+        PanelMenu.setForeground(new java.awt.Color(255, 255, 255));
+        PanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnFiltrarFactura.setBackground(new java.awt.Color(153, 153, 153));
+        BtnFiltrarFactura.setText("Filtrar factura");
+        BtnFiltrarFactura.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnFiltrarFactura.setColorNormal(new java.awt.Color(153, 153, 153));
+        PanelMenu.add(BtnFiltrarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+
+        BtnRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
+        BtnRegistrarCliente.setText("Registrar Cliente");
+        BtnRegistrarCliente.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnRegistrarCliente.setColorNormal(new java.awt.Color(153, 153, 153));
+        PanelMenu.add(BtnRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+
+        BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
+        BtnProforma.setText("Profromas");
+        BtnProforma.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnProforma.setColorNormal(new java.awt.Color(153, 153, 153));
+        PanelMenu.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+
+        BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
+        BtnVentas.setText("Ventas");
+        BtnVentas.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnVentas.setColorNormal(new java.awt.Color(153, 153, 153));
+        PanelMenu.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+
+        jPanel1.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSubMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubMenuMouseClicked
+        int posicion = PanelMenu.getX();
+        if (posicion > -1) {
+            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelMenu);
+        } else {
+            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenu);
+        }
+    }//GEN-LAST:event_btnSubMenuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -79,5 +158,13 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rsbuttom.RSButtonMetro BtnFiltrarFactura;
+    private rsbuttom.RSButtonMetro BtnProforma;
+    private rsbuttom.RSButtonMetro BtnRegistrarCliente;
+    private rsbuttom.RSButtonMetro BtnVentas;
+    private javax.swing.JPanel PanelMenu;
+    private javax.swing.JLabel btnSubMenu;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
