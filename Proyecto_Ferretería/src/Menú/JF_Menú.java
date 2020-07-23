@@ -49,7 +49,7 @@ public class JF_Menú extends javax.swing.JFrame {
         PanelMenuI = new javax.swing.JPanel();
         btnMenú = new rsbuttom.RSButtonMetro();
         jLabel2 = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
+        txtUsuarioIniciado = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         btnSubMenu = new javax.swing.JLabel();
         BtnSalir = new javax.swing.JLabel();
@@ -57,7 +57,6 @@ public class JF_Menú extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1418, 713));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -221,11 +220,17 @@ public class JF_Menú extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-usuario-100.png"))); // NOI18N
         PanelMenuI.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 110, 150));
 
-        txtUsuario.setEditable(false);
-        txtUsuario.setBackground(new java.awt.Color(245, 245, 245));
-        txtUsuario.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        txtUsuario.setBorder(null);
-        PanelMenuI.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 160, 40));
+        txtUsuarioIniciado.setEditable(false);
+        txtUsuarioIniciado.setBackground(new java.awt.Color(245, 245, 245));
+        txtUsuarioIniciado.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        txtUsuarioIniciado.setText("      ");
+        txtUsuarioIniciado.setBorder(null);
+        txtUsuarioIniciado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioIniciadoActionPerformed(evt);
+            }
+        });
+        PanelMenuI.add(txtUsuarioIniciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 160, 40));
 
         jPanel1.add(PanelMenuI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
@@ -365,6 +370,10 @@ public class JF_Menú extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMenúActionPerformed
 
+    private void txtUsuarioIniciadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioIniciadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioIniciadoActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -430,6 +439,6 @@ public class JF_Menú extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
-    public javax.swing.JTextField txtUsuario;
+    public javax.swing.JTextField txtUsuarioIniciado;
     // End of variables declaration//GEN-END:variables
 }
