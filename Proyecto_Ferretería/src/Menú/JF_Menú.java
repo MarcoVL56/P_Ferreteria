@@ -50,6 +50,7 @@ public class JF_Menú extends javax.swing.JFrame {
         btnMenú = new rsbuttom.RSButtonMetro();
         jLabel2 = new javax.swing.JLabel();
         txtUsuarioIniciado = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnSubMenu = new javax.swing.JLabel();
         BtnSalir = new javax.swing.JLabel();
@@ -230,7 +231,11 @@ public class JF_Menú extends javax.swing.JFrame {
                 txtUsuarioIniciadoActionPerformed(evt);
             }
         });
-        PanelMenuI.add(txtUsuarioIniciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 160, 40));
+        PanelMenuI.add(txtUsuarioIniciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 120, 40));
+
+        jLabel26.setBackground(new java.awt.Color(245, 245, 245));
+        jLabel26.setOpaque(true);
+        PanelMenuI.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 40, 40));
 
         jPanel1.add(PanelMenuI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
@@ -436,6 +441,7 @@ public class JF_Menú extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
