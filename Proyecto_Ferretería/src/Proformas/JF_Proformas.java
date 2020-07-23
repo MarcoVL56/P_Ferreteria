@@ -5,6 +5,8 @@
  */
 package Proformas;
 
+import Menú.JF_Menú;
+
 /**
  *
  * @author MarcoVL20
@@ -31,11 +33,12 @@ public class JF_Proformas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnSubMenu = new javax.swing.JLabel();
-        PanelMenu = new javax.swing.JPanel();
-        BtnFiltrarFactura = new rsbuttom.RSButtonMetro();
-        BtnRegistrarCliente = new rsbuttom.RSButtonMetro();
-        BtnProforma = new rsbuttom.RSButtonMetro();
-        BtnVentas = new rsbuttom.RSButtonMetro();
+        PanelMenuP = new javax.swing.JPanel();
+        BtnFiltrarFactura2 = new rsbuttom.RSButtonMetro();
+        BtnRegistrarCliente2 = new rsbuttom.RSButtonMetro();
+        BtnProforma2 = new rsbuttom.RSButtonMetro();
+        BtnVentas2 = new rsbuttom.RSButtonMetro();
+        btnMenú4 = new rsbuttom.RSButtonMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -69,35 +72,46 @@ public class JF_Proformas extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 50));
 
-        PanelMenu.setBackground(new java.awt.Color(204, 204, 204));
-        PanelMenu.setForeground(new java.awt.Color(255, 255, 255));
-        PanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PanelMenuP.setBackground(new java.awt.Color(204, 204, 204));
+        PanelMenuP.setForeground(new java.awt.Color(255, 255, 255));
+        PanelMenuP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtnFiltrarFactura.setBackground(new java.awt.Color(153, 153, 153));
-        BtnFiltrarFactura.setText("Filtrar factura");
-        BtnFiltrarFactura.setColorHover(new java.awt.Color(255, 102, 51));
-        BtnFiltrarFactura.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenu.add(BtnFiltrarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+        BtnFiltrarFactura2.setBackground(new java.awt.Color(153, 153, 153));
+        BtnFiltrarFactura2.setText("Filtrar factura");
+        BtnFiltrarFactura2.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnFiltrarFactura2.setColorNormal(new java.awt.Color(153, 153, 153));
+        PanelMenuP.add(BtnFiltrarFactura2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
 
-        BtnRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
-        BtnRegistrarCliente.setText("Registrar Cliente");
-        BtnRegistrarCliente.setColorHover(new java.awt.Color(255, 102, 51));
-        BtnRegistrarCliente.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenu.add(BtnRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        BtnRegistrarCliente2.setBackground(new java.awt.Color(153, 153, 153));
+        BtnRegistrarCliente2.setText("Registrar Cliente");
+        BtnRegistrarCliente2.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnRegistrarCliente2.setColorNormal(new java.awt.Color(153, 153, 153));
+        PanelMenuP.add(BtnRegistrarCliente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
-        BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
-        BtnProforma.setText("Profromas");
-        BtnProforma.setColorHover(new java.awt.Color(255, 102, 51));
-        BtnProforma.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenu.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        BtnProforma2.setBackground(new java.awt.Color(153, 153, 153));
+        BtnProforma2.setText("Profromas");
+        BtnProforma2.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnProforma2.setColorNormal(new java.awt.Color(153, 153, 153));
+        PanelMenuP.add(BtnProforma2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
-        BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
-        BtnVentas.setText("Ventas");
-        BtnVentas.setColorHover(new java.awt.Color(255, 102, 51));
-        BtnVentas.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenu.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        BtnVentas2.setBackground(new java.awt.Color(153, 153, 153));
+        BtnVentas2.setText("Ventas");
+        BtnVentas2.setColorHover(new java.awt.Color(255, 102, 51));
+        BtnVentas2.setColorNormal(new java.awt.Color(153, 153, 153));
+        PanelMenuP.add(BtnVentas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
-        jPanel1.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
+        btnMenú4.setBackground(new java.awt.Color(255, 51, 51));
+        btnMenú4.setText("Menú");
+        btnMenú4.setColorHover(new java.awt.Color(255, 51, 51));
+        btnMenú4.setColorNormal(new java.awt.Color(255, 51, 51));
+        btnMenú4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMenú4MouseClicked(evt);
+            }
+        });
+        PanelMenuP.add(btnMenú4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 150, 30));
+
+        jPanel1.add(PanelMenuP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,13 +128,19 @@ public class JF_Proformas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubMenuMouseClicked
-        int posicion = PanelMenu.getX();
+        int posicion = PanelMenuP.getX();
         if (posicion > -1) {
-            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelMenu);
+            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelMenuP);
         } else {
-            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenu);
+            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenuP);
         }
     }//GEN-LAST:event_btnSubMenuMouseClicked
+
+    private void btnMenú4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenú4MouseClicked
+        JF_Menú m = new JF_Menú();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnMenú4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -158,11 +178,12 @@ public class JF_Proformas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rsbuttom.RSButtonMetro BtnFiltrarFactura;
-    private rsbuttom.RSButtonMetro BtnProforma;
-    private rsbuttom.RSButtonMetro BtnRegistrarCliente;
-    private rsbuttom.RSButtonMetro BtnVentas;
-    private javax.swing.JPanel PanelMenu;
+    private rsbuttom.RSButtonMetro BtnFiltrarFactura2;
+    private rsbuttom.RSButtonMetro BtnProforma2;
+    private rsbuttom.RSButtonMetro BtnRegistrarCliente2;
+    private rsbuttom.RSButtonMetro BtnVentas2;
+    private javax.swing.JPanel PanelMenuP;
+    private rsbuttom.RSButtonMetro btnMenú4;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

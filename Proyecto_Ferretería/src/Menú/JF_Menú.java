@@ -1,11 +1,17 @@
 package Menú;
 
+import Inventario.JF_Inventario;
+import Proformas.JF_Proformas;
+import RegistrarEmpleado.JF_RegistrarCliente;
+import RegistrarUsuario.JF_RegistrarUsuario;
+import ReporteProducto.JF_ReporteProducto;
+import Ventas.JF_Ventas;
+
 public class JF_Menú extends javax.swing.JFrame {
 
     public JF_Menú() {
         initComponents();
         setLocationRelativeTo(null);
-
 
     }
 
@@ -21,27 +27,27 @@ public class JF_Menú extends javax.swing.JFrame {
         BtnVentas = new rsbuttom.RSButtonMetro();
         jPanel3 = new javax.swing.JPanel();
         btnSubMenu = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        btnReporteProductos = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
+        btnProformas = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
+        btnFiltroFacturas = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
+        btnInventario = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
+        btnVentas = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
+        btnRUsuario = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
+        btnRCliente = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -109,17 +115,22 @@ public class JF_Menú extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 50));
 
-        jPanel5.setBackground(new java.awt.Color(255, 102, 51));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnReporteProductos.setBackground(new java.awt.Color(255, 102, 51));
+        btnReporteProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReporteProductosMouseClicked(evt);
+            }
+        });
+        btnReporteProductos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jLabel11.setText("Reporte de productos");
-        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 190, 30));
+        btnReporteProductos.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 190, 30));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-producto-nuevo-80.png"))); // NOI18N
-        jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 90, 90));
+        btnReporteProductos.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 90, 90));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 690, 140));
+        jPanel1.add(btnReporteProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 690, 140));
 
         jPanel6.setBackground(new java.awt.Color(255, 102, 51));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -131,77 +142,107 @@ public class JF_Menú extends javax.swing.JFrame {
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 240, 30));
 
-        jPanel7.setBackground(new java.awt.Color(255, 102, 51));
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnProformas.setBackground(new java.awt.Color(255, 102, 51));
+        btnProformas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnProformasMouseClicked(evt);
+            }
+        });
+        btnProformas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jLabel13.setText("Proformas");
-        jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 80, 30));
+        btnProformas.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 80, 30));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-herramienta-de-pintura-en-línea-64.png"))); // NOI18N
-        jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 120, 90));
+        btnProformas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 120, 90));
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 280, 140));
+        jPanel1.add(btnProformas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 280, 140));
 
-        jPanel8.setBackground(new java.awt.Color(255, 102, 51));
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnFiltroFacturas.setBackground(new java.awt.Color(255, 102, 51));
+        btnFiltroFacturas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnFiltroFacturasMouseClicked(evt);
+            }
+        });
+        btnFiltroFacturas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jLabel17.setText("Filtro de facturas");
-        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 140, 30));
+        btnFiltroFacturas.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 140, 30));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-comportamiento-de-las-ventas-50.png"))); // NOI18N
-        jPanel8.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 70, 90));
+        btnFiltroFacturas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 70, 90));
 
-        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 420, 410, 140));
+        jPanel1.add(btnFiltroFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 420, 410, 140));
 
-        jPanel9.setBackground(new java.awt.Color(255, 102, 51));
-        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnInventario.setBackground(new java.awt.Color(255, 102, 51));
+        btnInventario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnInventarioMouseClicked(evt);
+            }
+        });
+        btnInventario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jLabel19.setText("Inventario ");
-        jPanel9.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 80, 30));
+        btnInventario.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 80, 30));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-almacén-64.png"))); // NOI18N
-        jPanel9.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 120, 90));
+        btnInventario.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 120, 90));
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 240, 270, 140));
+        jPanel1.add(btnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 240, 270, 140));
 
-        jPanel10.setBackground(new java.awt.Color(255, 102, 51));
-        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnVentas.setBackground(new java.awt.Color(255, 102, 51));
+        btnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVentasMouseClicked(evt);
+            }
+        });
+        btnVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel15.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jLabel15.setText("Ventas");
-        jPanel10.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 80, 30));
+        btnVentas.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 80, 30));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-dinero-64.png"))); // NOI18N
-        jPanel10.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 120, 90));
+        btnVentas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 120, 90));
 
-        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 240, 270, 140));
+        jPanel1.add(btnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 240, 270, 140));
 
-        jPanel11.setBackground(new java.awt.Color(255, 102, 51));
-        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnRUsuario.setBackground(new java.awt.Color(255, 102, 51));
+        btnRUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRUsuarioMouseClicked(evt);
+            }
+        });
+        btnRUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel22.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jLabel22.setText("Usuario");
-        jPanel11.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 30));
+        btnRUsuario.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 30));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-añadir-usuario-masculino-64.png"))); // NOI18N
-        jPanel11.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 60, 60));
+        btnRUsuario.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 60, 60));
 
-        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 120, 100));
+        jPanel1.add(btnRUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 120, 100));
 
-        jPanel12.setBackground(new java.awt.Color(255, 102, 51));
-        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnRCliente.setBackground(new java.awt.Color(255, 102, 51));
+        btnRCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRClienteMouseClicked(evt);
+            }
+        });
+        btnRCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel24.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jLabel24.setText("Cliente");
-        jPanel12.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 30));
+        btnRCliente.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 30));
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-carpeta-de-usuario-64.png"))); // NOI18N
-        jPanel12.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 70, 60));
+        btnRCliente.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 70, 60));
 
-        jPanel1.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 110, 100));
+        jPanel1.add(btnRCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 110, 100));
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 48)); // NOI18N
@@ -224,13 +265,62 @@ public class JF_Menú extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubMenuMouseClicked
-    int posicion = PanelMenu.getX();
+        int posicion = PanelMenu.getX();
         if (posicion > -1) {
             Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelMenu);
         } else {
             Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenu);
         }
     }//GEN-LAST:event_btnSubMenuMouseClicked
+
+    private void btnRUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRUsuarioMouseClicked
+        JF_RegistrarUsuario m = new JF_RegistrarUsuario();
+        m.setVisible(true);
+        dispose();
+
+    }//GEN-LAST:event_btnRUsuarioMouseClicked
+
+    private void btnRClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRClienteMouseClicked
+        JF_RegistrarCliente m = new JF_RegistrarCliente();
+        m.setVisible(true);
+        dispose();
+
+    }//GEN-LAST:event_btnRClienteMouseClicked
+
+    private void btnProformasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProformasMouseClicked
+        JF_Proformas m = new JF_Proformas();
+        m.setVisible(true);
+        dispose();
+
+    }//GEN-LAST:event_btnProformasMouseClicked
+
+    private void btnInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInventarioMouseClicked
+        JF_Inventario m = new JF_Inventario();
+        m.setVisible(true);
+        dispose();
+
+    }//GEN-LAST:event_btnInventarioMouseClicked
+
+    private void btnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseClicked
+        JF_Ventas m = new JF_Ventas();
+        m.setVisible(true);
+        dispose();
+
+    }//GEN-LAST:event_btnVentasMouseClicked
+
+    private void btnReporteProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReporteProductosMouseClicked
+        JF_ReporteProducto m = new JF_ReporteProducto();
+        m.setVisible(true);
+        dispose();
+
+    }//GEN-LAST:event_btnReporteProductosMouseClicked
+
+    private void btnFiltroFacturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFiltroFacturasMouseClicked
+        JF_RegistrarUsuario m = new JF_RegistrarUsuario();
+        m.setVisible(true);
+        dispose();
+
+    }//GEN-LAST:event_btnFiltroFacturasMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -270,7 +360,14 @@ public class JF_Menú extends javax.swing.JFrame {
     private rsbuttom.RSButtonMetro BtnRegistrarCliente;
     private rsbuttom.RSButtonMetro BtnVentas;
     private javax.swing.JPanel PanelMenu;
+    private javax.swing.JPanel btnFiltroFacturas;
+    private javax.swing.JPanel btnInventario;
+    private javax.swing.JPanel btnProformas;
+    private javax.swing.JPanel btnRCliente;
+    private javax.swing.JPanel btnRUsuario;
+    private javax.swing.JPanel btnReporteProductos;
     private javax.swing.JLabel btnSubMenu;
+    private javax.swing.JPanel btnVentas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -288,14 +385,7 @@ public class JF_Menú extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     // End of variables declaration//GEN-END:variables
 }
