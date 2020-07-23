@@ -1,4 +1,3 @@
-
 package Login;
 
 import Conexion.datosP;
@@ -13,10 +12,9 @@ import javax.swing.JOptionPane;
 
 public class JF_Login extends javax.swing.JFrame {
 
-   
     public JF_Login() {
         initComponents();
-             setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
     }
 
     void acceder(String usuario, String clave) {
@@ -29,28 +27,22 @@ public class JF_Login extends javax.swing.JFrame {
                 cap = rs.getString("Fk_TipoUsuario");
             }
             if (cap.equals("1")) {
-                JF_Menú m = new  JF_Menú();
+                JF_Menú m = new JF_Menú();
                 m.setVisible(true);
                 dispose();
-            
 
-               
             } else if (cap.equals("2")) {
-               JF_Menú m = new  JF_Menú();
+                JF_Menú m = new JF_Menú();
                 m.setVisible(true);
                 dispose();
-
 
             }
-         } catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(JF_Login.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
-    
-    
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -68,7 +60,7 @@ public class JF_Login extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        BtnRecuperación = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -159,9 +151,14 @@ public class JF_Login extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Contraseña");
 
-        jLabel1.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Recuperar credenciales");
+        BtnRecuperación.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        BtnRecuperación.setForeground(new java.awt.Color(255, 255, 255));
+        BtnRecuperación.setText("Recuperar credenciales");
+        BtnRecuperación.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnRecuperaciónMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -183,7 +180,7 @@ public class JF_Login extends javax.swing.JFrame {
                                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(94, 94, 94))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(BtnRecuperación)
                         .addContainerGap())))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -205,7 +202,7 @@ public class JF_Login extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addComponent(BtnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91)
-                .addComponent(jLabel1)
+                .addComponent(BtnRecuperación)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -231,11 +228,11 @@ public class JF_Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSalirMouseClicked
-           System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_BtnSalirMouseClicked
 
     private void BtnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIngresarMouseClicked
-           String usu = txtUsuario.getText();
+        String usu = txtUsuario.getText();
         String cla = txtContraseña.getText();
         acceder(usu, cla);
 
@@ -243,9 +240,15 @@ public class JF_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnIngresarMouseClicked
 
     private void BtnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMinimizarMouseClicked
-         this.setExtendedState(ICONIFIED);
+        this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_BtnMinimizarMouseClicked
 
+    private void BtnRecuperaciónMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnRecuperaciónMouseClicked
+        JF_Recuperación_Credencial m = new JF_Recuperación_Credencial();
+        m.setVisible(true);
+        dispose();
+
+    }//GEN-LAST:event_BtnRecuperaciónMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -282,8 +285,8 @@ public class JF_Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BtnIngresar;
     private javax.swing.JLabel BtnMinimizar;
+    private javax.swing.JLabel BtnRecuperación;
     private javax.swing.JLabel BtnSalir;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
