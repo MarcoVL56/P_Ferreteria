@@ -122,7 +122,7 @@ public class JF_Menú extends javax.swing.JFrame {
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-comportamiento-de-las-ventas-50.png"))); // NOI18N
         btnFiltroFacturas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 70, 90));
 
-        jPanel1.add(btnFiltroFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 420, 410, 140));
+        jPanel1.add(btnFiltroFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 420, 390, 140));
 
         btnInventario.setBackground(new java.awt.Color(0, 102, 255));
         btnInventario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -156,7 +156,7 @@ public class JF_Menú extends javax.swing.JFrame {
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-dinero-64.png"))); // NOI18N
         btnVentas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 120, 90));
 
-        jPanel1.add(btnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 240, 270, 140));
+        jPanel1.add(btnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 240, 250, 140));
 
         btnRUsuario.setBackground(new java.awt.Color(0, 102, 204));
         btnRUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -302,7 +302,9 @@ public class JF_Menú extends javax.swing.JFrame {
     private void btnSubMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubMenuMouseClicked
         int posicion = PanelMenuI.getX();
         if (posicion > -1) {
+            
             Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelMenuI);
+            
         } else {
             Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenuI);
         }
