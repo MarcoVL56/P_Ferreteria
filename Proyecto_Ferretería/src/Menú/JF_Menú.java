@@ -158,7 +158,7 @@ public class JF_Menú extends javax.swing.JFrame {
 
         jPanel1.add(btnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 240, 250, 140));
 
-        btnRUsuario.setBackground(new java.awt.Color(0, 102, 204));
+        btnRUsuario.setBackground(new java.awt.Color(0, 102, 255));
         btnRUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRUsuarioMouseClicked(evt);
