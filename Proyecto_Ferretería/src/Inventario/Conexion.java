@@ -12,7 +12,7 @@ import java.sql.DriverManager;
 public class Conexion {
      Connection conectar=null;
     
-    public Connection conexion(){
+    public Connection conectar(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             conectar=DriverManager.getConnection("jdbc:mysql://localhost/bd_ferreteria"+

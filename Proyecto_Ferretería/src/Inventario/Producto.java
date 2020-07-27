@@ -285,27 +285,23 @@ Conexion con= new Conexion();
     }//GEN-LAST:event_BtnMinimizarMouseClicked
 
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
-       con.conectar =null;
        
-        try {
-          ps=con.conectar.prepareStatement("INSERT INTO producto (Nombre,Presentacion,PrecioUnitario) "
-                  + "VALUES(?,?,?)");
-          ps.setString(1,txtnombre.getText());
-          ps.setString(2, cbpresentacion.getSelectedItem().toString());
-          ps.setInt(3, Integer.parseInt(txtprecio.getText()));
-          
-         int rs= ps.executeUpdate();
-          
-         
-         if(rs>0){
-             JOptionPane.showMessageDialog(null,"Producto guardado");
-         }else{
-             JOptionPane.showMessageDialog(null,"Error al ingresar producto");
 
-         }
-          
-         con.Desconectar();
+        try {
+            ps = con.conectar.prepareStatement("INSERT INTO producto (Nombre,Presentacion,PrecioUnitario) "
+                    + "VALUES(?,?,?)");
+            ps.setString(1, txtnombre.getText());
+            ps.setString(2, cbpresentacion.getSelectedItem().toString());
+            ps.setInt(3, Integer.valueOf(txtprecio.getText()));
+
+            ps.execute();
+            ps.close();
+
+            JOptionPane.showMessageDialog(null, "Producto guardado");
+
+            con.Desconectar();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al ingresar producto: " + e);
         }
         
     }//GEN-LAST:event_btningresarActionPerformed
