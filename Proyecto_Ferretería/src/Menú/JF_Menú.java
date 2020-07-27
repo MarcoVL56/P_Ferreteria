@@ -47,7 +47,6 @@ public class JF_Menú extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         PanelMenuI = new javax.swing.JPanel();
-        btnMenú = new rsbuttom.RSButtonMetro();
         jLabel2 = new javax.swing.JLabel();
         txtUsuarioIniciado = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
@@ -202,22 +201,6 @@ public class JF_Menú extends javax.swing.JFrame {
         PanelMenuI.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnMenú.setBackground(new java.awt.Color(255, 51, 51));
-        btnMenú.setText("Cerrar sesión");
-        btnMenú.setColorHover(new java.awt.Color(255, 51, 51));
-        btnMenú.setColorNormal(new java.awt.Color(255, 51, 51));
-        btnMenú.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnMenúMouseClicked(evt);
-            }
-        });
-        btnMenú.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenúActionPerformed(evt);
-            }
-        });
-        PanelMenuI.add(btnMenú, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 150, 30));
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-usuario-100.png"))); // NOI18N
         PanelMenuI.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 110, 150));
 
@@ -367,16 +350,6 @@ public class JF_Menú extends javax.swing.JFrame {
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_BtnMinimizarMouseClicked
 
-    private void btnMenúMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenúMouseClicked
-        JF_Login m = new JF_Login();
-        m.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnMenúMouseClicked
-
-    private void btnMenúActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenúActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMenúActionPerformed
-
     private void txtUsuarioIniciadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioIniciadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioIniciadoActionPerformed
@@ -419,7 +392,6 @@ public class JF_Menú extends javax.swing.JFrame {
     private javax.swing.JPanel PanelMenuI;
     private javax.swing.JPanel btnFiltroFacturas;
     private javax.swing.JPanel btnInventario;
-    private rsbuttom.RSButtonMetro btnMenú;
     private javax.swing.JPanel btnProformas;
     private javax.swing.JPanel btnRCliente;
     private javax.swing.JPanel btnRUsuario;

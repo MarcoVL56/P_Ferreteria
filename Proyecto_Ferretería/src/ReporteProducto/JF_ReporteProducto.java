@@ -36,11 +36,6 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         BtnSalir = new javax.swing.JLabel();
         BtnMinimizar = new javax.swing.JLabel();
         PanelMenuRPro = new javax.swing.JPanel();
-        BtnFiltrarFactura = new rsbuttom.RSButtonMetro();
-        BtnRegistrarCliente = new rsbuttom.RSButtonMetro();
-        BtnProforma = new rsbuttom.RSButtonMetro();
-        BtnVentas = new rsbuttom.RSButtonMetro();
-        btnMenú = new rsbuttom.RSButtonMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -98,42 +93,6 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         PanelMenuRPro.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuRPro.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuRPro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        BtnFiltrarFactura.setBackground(new java.awt.Color(153, 153, 153));
-        BtnFiltrarFactura.setText("Filtrar factura");
-        BtnFiltrarFactura.setColorHover(new java.awt.Color(0, 102, 255));
-        BtnFiltrarFactura.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuRPro.add(BtnFiltrarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
-
-        BtnRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
-        BtnRegistrarCliente.setText("Registrar Cliente");
-        BtnRegistrarCliente.setColorHover(new java.awt.Color(0, 102, 255));
-        BtnRegistrarCliente.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuRPro.add(BtnRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
-
-        BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
-        BtnProforma.setText("Profromas");
-        BtnProforma.setColorHover(new java.awt.Color(0, 102, 255));
-        BtnProforma.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuRPro.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
-
-        BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
-        BtnVentas.setText("Ventas");
-        BtnVentas.setColorHover(new java.awt.Color(0, 102, 255));
-        BtnVentas.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuRPro.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
-
-        btnMenú.setBackground(new java.awt.Color(255, 51, 51));
-        btnMenú.setText("Menú");
-        btnMenú.setColorHover(new java.awt.Color(255, 51, 51));
-        btnMenú.setColorNormal(new java.awt.Color(255, 51, 51));
-        btnMenú.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnMenúMouseClicked(evt);
-            }
-        });
-        PanelMenuRPro.add(btnMenú, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 150, 30));
-
         jPanel1.add(PanelMenuRPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -166,12 +125,6 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
     private void BtnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMinimizarMouseClicked
          this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_BtnMinimizarMouseClicked
-
-    private void btnMenúMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenúMouseClicked
-        JF_Menú m = new JF_Menú();
-        m.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnMenúMouseClicked
 
     /**
      * @param args the command line arguments
@@ -209,14 +162,9 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rsbuttom.RSButtonMetro BtnFiltrarFactura;
     private javax.swing.JLabel BtnMinimizar;
-    private rsbuttom.RSButtonMetro BtnProforma;
-    private rsbuttom.RSButtonMetro BtnRegistrarCliente;
     private javax.swing.JLabel BtnSalir;
-    private rsbuttom.RSButtonMetro BtnVentas;
     private javax.swing.JPanel PanelMenuRPro;
-    private rsbuttom.RSButtonMetro btnMenú;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

@@ -76,7 +76,6 @@ public class JF_Recuperación_Credencial extends javax.swing.JFrame {
         BtnSalir = new javax.swing.JLabel();
         BtnMinimizar = new javax.swing.JLabel();
         PanelMenuRCreden = new javax.swing.JPanel();
-        btnMenú = new rsbuttom.RSButtonMetro();
         jLabel2 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -191,22 +190,6 @@ public class JF_Recuperación_Credencial extends javax.swing.JFrame {
         PanelMenuRCreden.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuRCreden.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnMenú.setBackground(new java.awt.Color(255, 51, 51));
-        btnMenú.setText("Volver al Login");
-        btnMenú.setColorHover(new java.awt.Color(255, 51, 51));
-        btnMenú.setColorNormal(new java.awt.Color(255, 51, 51));
-        btnMenú.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnMenúMouseClicked(evt);
-            }
-        });
-        btnMenú.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenúActionPerformed(evt);
-            }
-        });
-        PanelMenuRCreden.add(btnMenú, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 150, 30));
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-olvidó-su-contraseña-100.png"))); // NOI18N
         PanelMenuRCreden.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 110, 130));
 
@@ -286,16 +269,6 @@ public class JF_Recuperación_Credencial extends javax.swing.JFrame {
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_BtnMinimizarMouseClicked
 
-    private void btnMenúMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenúMouseClicked
-        JF_Login m = new JF_Login();
-        m.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnMenúMouseClicked
-
-    private void btnMenúActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenúActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMenúActionPerformed
-
     private void tbusuKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbusuKeyPressed
 
     }//GEN-LAST:event_tbusuKeyPressed
@@ -340,7 +313,6 @@ public class JF_Recuperación_Credencial extends javax.swing.JFrame {
     private javax.swing.JLabel BtnMinimizar;
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel PanelMenuRCreden;
-    private rsbuttom.RSButtonMetro btnMenú;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
