@@ -292,14 +292,15 @@ Conexion con= new Conexion();
                   + "VALUES(?,?,?)");
           ps.setString(1,txtnombre.getText());
           ps.setString(2, cbpresentacion.getSelectedItem().toString());
-          //ps.setInt(3, txtprecio.getText());
+          ps.setInt(3, Integer.parseInt(txtprecio.getText()));
           
          int rs= ps.executeUpdate();
           
+         
          if(rs>0){
              JOptionPane.showMessageDialog(null,"Producto guardado");
          }else{
-                          JOptionPane.showMessageDialog(null,"Error al ingresar producto");
+             JOptionPane.showMessageDialog(null,"Error al ingresar producto");
 
          }
           
