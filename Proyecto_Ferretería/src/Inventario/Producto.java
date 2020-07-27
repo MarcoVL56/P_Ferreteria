@@ -5,12 +5,18 @@
  */
 package Inventario;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Klope
  */
 public class Producto extends javax.swing.JFrame {
-
+Conexion con= new Conexion();
+    PreparedStatement ps;
+    ResultSet rs;
     /**
      * Creates new form Producto
      */
@@ -37,7 +43,7 @@ public class Producto extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        btnnombre = new javax.swing.JTextField();
+        txtnombre = new javax.swing.JTextField();
         txtprecio = new javax.swing.JTextField();
         cbpresentacion = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
@@ -210,7 +216,7 @@ public class Producto extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtproveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                    .addComponent(btnnombre))
+                                    .addComponent(txtnombre))
                                 .addGap(9, 9, 9)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -244,7 +250,7 @@ public class Producto extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
-                            .addComponent(btnnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtprecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbpresentacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(59, 59, 59)
@@ -279,10 +285,25 @@ public class Producto extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnMinimizarMouseClicked
 
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
-       Conexion conexion= new Conexion();
+       con.conectar =null;
        
         try {
-            
+          ps=con.conectar.prepareStatement("INSERT INTO producto (Nombre,Presentacion,PrecioUnitario) "
+                  + "VALUES(?,?,?)");
+          ps.setString(1,txtnombre.getText());
+          ps.setString(2, cbpresentacion.getSelectedItem().toString());
+          //ps.setInt(3, txtprecio.getText());
+          
+         int rs= ps.executeUpdate();
+          
+         if(rs>0){
+             JOptionPane.showMessageDialog(null,"Producto guardado");
+         }else{
+                          JOptionPane.showMessageDialog(null,"Error al ingresar producto");
+
+         }
+          
+         con.Desconectar();
         } catch (Exception e) {
         }
         
@@ -333,7 +354,6 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btningresar;
     private javax.swing.JButton btnmodificar;
-    private javax.swing.JTextField btnnombre;
     private javax.swing.JComboBox<String> cbpresentacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -346,6 +366,7 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txtprecio;
     private javax.swing.JTextField txtproveedor;
     // End of variables declaration//GEN-END:variables

@@ -38,7 +38,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="txtproveedor" pref="99" max="32767" attributes="0"/>
-                                  <Component id="btnnombre" max="32767" attributes="0"/>
+                                  <Component id="txtnombre" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -83,7 +83,7 @@
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnnombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtnombre" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtprecio" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cbpresentacion" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -231,7 +231,7 @@
         <Property name="text" type="java.lang.String" value="Precio Unitario"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="btnnombre">
+    <Component class="javax.swing.JTextField" name="txtnombre">
     </Component>
     <Component class="javax.swing.JTextField" name="txtprecio">
     </Component>
