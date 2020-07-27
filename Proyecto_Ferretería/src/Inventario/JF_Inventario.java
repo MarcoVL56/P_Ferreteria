@@ -2,12 +2,14 @@ package Inventario;
 
 import Menú.JF_Menú;
 import RegistrarUsuario.JF_RegistrarUsuario;
+import Conexion.datosP;
 
 public class JF_Inventario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form JF_Inventario
-     */
+   
+    
+    
+    
     public JF_Inventario() {
         initComponents();
         setLocationRelativeTo(null);
@@ -31,10 +33,10 @@ public class JF_Inventario extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        btnbuscar = new javax.swing.JButton();
+        txtID = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtInventario = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -110,14 +112,14 @@ public class JF_Inventario extends javax.swing.JFrame {
         jLabel2.setText("Inventario");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, 150, 50));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 51));
-        jButton1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        jButton1.setText("Buscar");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51)));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, 100, 40));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 210, 160, 30));
+        btnbuscar.setBackground(new java.awt.Color(255, 255, 51));
+        btnbuscar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        btnbuscar.setText("Buscar");
+        btnbuscar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51)));
+        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, 100, 40));
+        jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 210, 160, 30));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -128,7 +130,7 @@ public class JF_Inventario extends javax.swing.JFrame {
                 "ID", "Nombre", "Presentación", "Proveedor", "Precio", "I.V.A"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtInventario);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 680, 419));
 
@@ -203,14 +205,14 @@ public class JF_Inventario extends javax.swing.JFrame {
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel PanelMenuI;
     private javax.swing.JLabel btnSubMenu;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnbuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable jtInventario;
+    private javax.swing.JTextField txtID;
     // End of variables declaration//GEN-END:variables
 }
