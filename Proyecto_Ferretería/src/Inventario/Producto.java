@@ -140,6 +140,11 @@ public class Producto extends javax.swing.JFrame {
 
         btningresar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         btningresar.setText("Ingresar");
+        btningresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btningresarActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel8.setText("ID del producto");
@@ -272,6 +277,16 @@ public class Producto extends javax.swing.JFrame {
     private void BtnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMinimizarMouseClicked
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_BtnMinimizarMouseClicked
+
+    private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
+       Conexion conexion= new Conexion();
+       
+        try {
+            
+        } catch (Exception e) {
+        }
+        
+    }//GEN-LAST:event_btningresarActionPerformed
 
     /**
      * @param args the command line arguments
