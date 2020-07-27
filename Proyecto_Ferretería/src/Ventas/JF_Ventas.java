@@ -179,7 +179,7 @@ public class JF_Ventas extends javax.swing.JFrame {
         tbDatos.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tbDatos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 110, 520, 190));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 110, 540, 190));
 
         jLabel2.setText("Productos en inventario ");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, -1, -1));
