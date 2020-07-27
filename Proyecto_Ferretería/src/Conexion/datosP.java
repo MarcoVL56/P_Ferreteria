@@ -19,6 +19,13 @@ public class datosP {
         }
         return conectar;
     }
+    //Por aquello....
+     public void Desconectar(){
+        conectar=null;
+        if(conectar==null){
+            System.out.println("Conexion terminada...");
+        }
+    }
     
     
 }
