@@ -5,6 +5,7 @@
  */
 package Inventario;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
@@ -14,9 +15,11 @@ import javax.swing.JOptionPane;
  * @author Klope
  */
 public class Producto extends javax.swing.JFrame {
-Conexion con= new Conexion();
+
+    Conexion con = new Conexion();
     PreparedStatement ps;
     ResultSet rs;
+
     /**
      * Creates new form Producto
      */
@@ -46,9 +49,6 @@ Conexion con= new Conexion();
         txtnombre = new javax.swing.JTextField();
         txtprecio = new javax.swing.JTextField();
         cbpresentacion = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        txtproveedor = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnborrar = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
@@ -127,12 +127,6 @@ Conexion con= new Conexion();
 
         cbpresentacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Litro", "Kilo", "Unidad", "Gramo" }));
 
-        jLabel6.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
-        jLabel6.setText("Proveedor");
-
-        jLabel7.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        jLabel7.setText("Nombre Proveedor");
-
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51)));
 
         btnborrar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
@@ -210,15 +204,12 @@ Conexion con= new Conexion();
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(208, 208, 208)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel7))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtproveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                    .addComponent(txtnombre))
+                                .addComponent(jLabel3)
+                                .addGap(87, 87, 87)
+                                .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(9, 9, 9)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addGap(18, 18, 18)
@@ -226,9 +217,7 @@ Conexion con= new Conexion();
                                         .addGap(26, 26, 26)
                                         .addComponent(jLabel5)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel6)))
+                                        .addComponent(txtprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(166, 166, 166)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -253,13 +242,7 @@ Conexion con= new Conexion();
                             .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtprecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbpresentacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(59, 59, 59)
-                        .addComponent(jLabel6)
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(40, 40, 40)
+                        .addGap(174, 174, 174)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -285,17 +268,19 @@ Conexion con= new Conexion();
     }//GEN-LAST:event_BtnMinimizarMouseClicked
 
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
-       
 
+        
         try {
-            ps = con.conectar.prepareStatement("INSERT INTO producto (Nombre,Presentacion,PrecioUnitario) "
+            
+            ps = con.conectar().prepareStatement("INSERT INTO producto (Nombre,Presentacion,PrecioUnitario) "
                     + "VALUES(?,?,?)");
             ps.setString(1, txtnombre.getText());
-            ps.setString(2, cbpresentacion.getSelectedItem().toString());
-            ps.setInt(3, Integer.valueOf(txtprecio.getText()));
-
+            
+            int seleccion=cbpresentacion.getSelectedIndex();
+            ps.setString(2, cbpresentacion.getItemAt(seleccion));
+            
+            ps.setInt(3, Integer.parseInt(txtprecio.getText()));
             ps.execute();
-            ps.close();
 
             JOptionPane.showMessageDialog(null, "Producto guardado");
 
@@ -303,7 +288,7 @@ Conexion con= new Conexion();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al ingresar producto: " + e);
         }
-        
+
     }//GEN-LAST:event_btningresarActionPerformed
 
     /**
@@ -357,14 +342,11 @@ Conexion con= new Conexion();
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txtprecio;
-    private javax.swing.JTextField txtproveedor;
     // End of variables declaration//GEN-END:variables
 }
