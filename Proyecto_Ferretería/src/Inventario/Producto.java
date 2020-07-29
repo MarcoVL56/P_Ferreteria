@@ -150,6 +150,11 @@ public class Producto extends javax.swing.JFrame {
 
         btnborrar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         btnborrar.setText("Borrar");
+        btnborrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnborrarActionPerformed(evt);
+            }
+        });
 
         btnmodificar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         btnmodificar.setText("Modificar");
@@ -323,6 +328,7 @@ public class Producto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Producto guardado");
 
             con.Desconectar();
+            Limpiar();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al ingresar producto: " + e);
         }
@@ -338,22 +344,22 @@ public class Producto extends javax.swing.JFrame {
 
             if (rs.next()) {
                 txtnombre.setText(rs.getString("Nombre"));
-               cbpresentacion.setSelectedItem(rs.getString("Presentacion"));
+                cbpresentacion.setSelectedItem(rs.getString("Presentacion"));
                 txtprecio.setText(rs.getString("PrecioUnitario"));
 
-            }else{
-                JOptionPane.showMessageDialog(null,"No existe un producto con el codigo ingresado...");
-                
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe un producto con el codigo ingresado...");
+
             }
         } catch (Exception e) {
         }
-        
+
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        try{
-        ps = con.conectar().prepareStatement("UPDATE producto SET  "
-                + "Nombre=?,Presentacion=?,PrecioUnitario=? ");
+        try {
+            ps = con.conectar().prepareStatement("UPDATE producto SET  "
+                    + "Nombre=?,Presentacion=?,PrecioUnitario=? ");
             ps.setString(1, txtnombre.getText());
 
             int seleccion = cbpresentacion.getSelectedIndex();
@@ -365,15 +371,39 @@ public class Producto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Producto Modificado");
 
             con.Desconectar();
+            Limpiar();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al Modificar producto: " + e);
         }
-        
+
     }//GEN-LAST:event_btnmodificarActionPerformed
 
+    private void btnborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnborrarActionPerformed
+        try {
+            ps = con.conectar().prepareStatement("DELETE FROM producto WHERE Id_Producto=?");
+            ps.setInt(1, Integer.parseInt(txtIdbuscar.getText()));
+
+           
+            ps.execute();
+
+            JOptionPane.showMessageDialog(null, "Producto Eliminado");
+
+            con.Desconectar();
+            Limpiar();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al Eliminar producto: " + e);
+        }
+    }//GEN-LAST:event_btnborrarActionPerformed
+    private void Limpiar() {
+        txtnombre.setText("");
+        txtprecio.setText("");
+        txtIdbuscar.setText("");
+
+    }
+
     /**
-         * @param args the command line arguments
-         */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
