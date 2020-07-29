@@ -25,6 +25,7 @@ public class Proveedor extends javax.swing.JFrame {
      */
     public Proveedor() {
         initComponents();
+          setLocationRelativeTo(null);
     }
 
     /**
@@ -40,9 +41,10 @@ public class Proveedor extends javax.swing.JFrame {
         btnSubMenu = new javax.swing.JLabel();
         BtnSalir = new javax.swing.JLabel();
         BtnMinimizar = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        txtproveedor = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        txtproveedor = new javax.swing.JTextField();
         btningresar = new javax.swing.JButton();
         PanelMenuProveed = new javax.swing.JPanel();
         BtnMenu = new javax.swing.JPanel();
@@ -57,6 +59,7 @@ public class Proveedor extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 255));
@@ -106,14 +109,18 @@ public class Proveedor extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel6.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
         jLabel6.setText("Proveedor");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 76, -1, -1));
-        getContentPane().add(txtproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(669, 226, 308, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 70, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel7.setText("Nombre Proveedor");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(753, 156, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(753, 156, -1, -1));
+        jPanel1.add(txtproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(669, 226, 308, -1));
 
         btningresar.setBackground(new java.awt.Color(255, 255, 51));
         btningresar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
@@ -123,18 +130,13 @@ public class Proveedor extends javax.swing.JFrame {
                 btningresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btningresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(752, 294, 110, 48));
+        jPanel1.add(btningresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 310, 110, 48));
 
         PanelMenuProveed.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuProveed.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuProveed.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnMenu.setBackground(new java.awt.Color(255, 0, 0));
-        BtnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnMenuMouseClicked(evt);
-            }
-        });
         BtnMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setBackground(new java.awt.Color(67, 81, 141));
@@ -146,11 +148,6 @@ public class Proveedor extends javax.swing.JFrame {
         PanelMenuProveed.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 150, 30));
 
         BtnFiltrarF.setBackground(new java.awt.Color(153, 153, 153));
-        BtnFiltrarF.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnFiltrarFMouseClicked(evt);
-            }
-        });
         BtnFiltrarF.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setBackground(new java.awt.Color(67, 81, 141));
@@ -162,11 +159,6 @@ public class Proveedor extends javax.swing.JFrame {
         PanelMenuProveed.add(BtnFiltrarF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 150, -1));
 
         BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
-        BtnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnVentasMouseClicked(evt);
-            }
-        });
         BtnVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setBackground(new java.awt.Color(67, 81, 141));
@@ -178,11 +170,6 @@ public class Proveedor extends javax.swing.JFrame {
         PanelMenuProveed.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 150, -1));
 
         BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
-        BtnProforma.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnProformaMouseClicked(evt);
-            }
-        });
         BtnProforma.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setBackground(new java.awt.Color(67, 81, 141));
@@ -194,11 +181,6 @@ public class Proveedor extends javax.swing.JFrame {
         PanelMenuProveed.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, -1));
 
         BtnIRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
-        BtnIRegistrarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnIRegistrarClienteMouseClicked(evt);
-            }
-        });
         BtnIRegistrarCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel18.setBackground(new java.awt.Color(67, 81, 141));
@@ -209,7 +191,9 @@ public class Proveedor extends javax.swing.JFrame {
 
         PanelMenuProveed.add(BtnIRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 150, 30));
 
-        getContentPane().add(PanelMenuProveed, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
+        jPanel1.add(PanelMenuProveed, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 660));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1420, 660));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -245,28 +229,6 @@ public class Proveedor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btningresarActionPerformed
 
-    private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
-        JF_Menú m = new JF_Menú();
-        m.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_BtnMenuMouseClicked
-
-    private void BtnFiltrarFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFiltrarFMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnFiltrarFMouseClicked
-
-    private void BtnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnVentasMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnVentasMouseClicked
-
-    private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnProformaMouseClicked
-
-    private void BtnIRegistrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -278,7 +240,7 @@ public class Proveedor extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -320,6 +282,7 @@ public class Proveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtproveedor;
     // End of variables declaration//GEN-END:variables
