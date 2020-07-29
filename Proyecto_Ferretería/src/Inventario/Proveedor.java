@@ -5,11 +5,19 @@
  */
 package Inventario;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Klope
  */
 public class Proveedor extends javax.swing.JFrame {
+
+    Conexion con = new Conexion();
+    PreparedStatement ps;
+    ResultSet rs;
 
     /**
      * Creates new form Proveedor
@@ -33,7 +41,7 @@ public class Proveedor extends javax.swing.JFrame {
         BtnMinimizar = new javax.swing.JLabel();
         PanelMenuI = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtproveedor = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         btningresar = new javax.swing.JButton();
 
@@ -118,7 +126,7 @@ public class Proveedor extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addGap(535, 535, 535))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(444, 444, 444))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btningresar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,7 +148,7 @@ public class Proveedor extends javax.swing.JFrame {
                         .addGap(51, 51, 51)
                         .addComponent(jLabel7)
                         .addGap(52, 52, 52)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
                         .addComponent(btningresar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -168,7 +176,16 @@ public class Proveedor extends javax.swing.JFrame {
 
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
 
-        
+        try {
+            ps = con.conectar().prepareStatement("INSERT INTO proveedor (Nombre) "
+                    + "VALUES(?)");
+            ps.setString(1, txtproveedor.getText());
+            ps.execute();
+            JOptionPane.showMessageDialog(null, "Proveedor ingresado...");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en la base de datos...");
+
+        }
     }//GEN-LAST:event_btningresarActionPerformed
 
     /**
@@ -215,6 +232,6 @@ public class Proveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtproveedor;
     // End of variables declaration//GEN-END:variables
 }
