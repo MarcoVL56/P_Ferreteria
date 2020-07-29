@@ -153,6 +153,11 @@ public class Producto extends javax.swing.JFrame {
 
         btnmodificar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         btnmodificar.setText("Modificar");
+        btnmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodificarActionPerformed(evt);
+            }
+        });
 
         btnbuscar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         btnbuscar.setText("Buscar");
@@ -344,6 +349,27 @@ public class Producto extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
+        try{
+        ps = con.conectar().prepareStatement("UPDATE producto SET  "
+                + "Nombre=?,Presentacion=?,PrecioUnitario=? ");
+            ps.setString(1, txtnombre.getText());
+
+            int seleccion = cbpresentacion.getSelectedIndex();
+            ps.setString(2, cbpresentacion.getItemAt(seleccion));
+
+            ps.setInt(3, Integer.parseInt(txtprecio.getText()));
+            ps.execute();
+
+            JOptionPane.showMessageDialog(null, "Producto Modificado");
+
+            con.Desconectar();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al Modificar producto: " + e);
+        }
+        
+    }//GEN-LAST:event_btnmodificarActionPerformed
 
     /**
          * @param args the command line arguments
