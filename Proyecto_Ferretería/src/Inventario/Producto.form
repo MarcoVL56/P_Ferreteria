@@ -224,11 +224,10 @@
     <Component class="javax.swing.JComboBox" name="cbpresentacion">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Litro"/>
-            <StringItem index="1" value="Kilo"/>
-            <StringItem index="2" value="Unidad"/>
-            <StringItem index="3" value="Gramo"/>
+          <StringArray count="3">
+            <StringItem index="0" value="Kilo"/>
+            <StringItem index="1" value="Unidad"/>
+            <StringItem index="2" value="Gramo"/>
           </StringArray>
         </Property>
       </Properties>

@@ -125,7 +125,7 @@ public class Producto extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel5.setText("Precio Unitario");
 
-        cbpresentacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Litro", "Kilo", "Unidad", "Gramo" }));
+        cbpresentacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kilo", "Unidad", "Gramo" }));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51)));
 

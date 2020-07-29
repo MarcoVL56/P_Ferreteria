@@ -177,7 +177,7 @@ public class Proveedor extends javax.swing.JFrame {
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
 
         try {
-            ps = con.conectar().prepareStatement("INSERT INTO proveedor (Nombre) "
+            ps = con.conectar().prepareStatement("INSERT INTO proveedor (NombreProveedor) "
                     + "VALUES(?)");
             ps.setString(1, txtproveedor.getText());
             ps.execute();
