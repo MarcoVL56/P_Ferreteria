@@ -222,7 +222,7 @@ public class Proveedor extends javax.swing.JFrame {
                     + "VALUES(?)");
             ps.setString(1, txtproveedor.getText());
             ps.execute();
-            JOptionPane.showMessageDialog(null, "Proveedor ingresado...");
+            JOptionPane.showMessageDialog(null, "Proveedor Ingresado...");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error en la base de datos...");
 

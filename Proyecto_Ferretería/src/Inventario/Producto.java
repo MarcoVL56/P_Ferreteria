@@ -26,7 +26,7 @@ public class Producto extends javax.swing.JFrame {
      */
     public Producto() {
         initComponents();
-          setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -56,7 +56,7 @@ public class Producto extends javax.swing.JFrame {
         btnbuscar = new javax.swing.JButton();
         btningresar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        btnIDproducto = new javax.swing.JTextField();
+        txtIdbuscar = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         PanelMenuProducto = new javax.swing.JPanel();
         BtnMenu = new javax.swing.JPanel();
@@ -156,6 +156,11 @@ public class Producto extends javax.swing.JFrame {
 
         btnbuscar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         btnbuscar.setText("Buscar");
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
 
         btningresar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         btningresar.setText("Ingresar");
@@ -187,7 +192,7 @@ public class Producto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                    .addComponent(btnIDproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(261, 261, 261)
@@ -207,7 +212,7 @@ public class Producto extends javax.swing.JFrame {
                     .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btningresar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnIDproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
 
@@ -298,16 +303,15 @@ public class Producto extends javax.swing.JFrame {
 
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
 
-        
         try {
-            
+
             ps = con.conectar().prepareStatement("INSERT INTO producto (Nombre,Presentacion,PrecioUnitario) "
                     + "VALUES(?,?,?)");
             ps.setString(1, txtnombre.getText());
-            
-            int seleccion=cbpresentacion.getSelectedIndex();
+
+            int seleccion = cbpresentacion.getSelectedIndex();
             ps.setString(2, cbpresentacion.getItemAt(seleccion));
-            
+
             ps.setInt(3, Integer.parseInt(txtprecio.getText()));
             ps.execute();
 
@@ -320,9 +324,30 @@ public class Producto extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btningresarActionPerformed
 
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        try {
+            ps = con.conectar().prepareStatement("SELECT * FROM producto WHERE Id_Producto= ?");
+            ps.setInt(1, Integer.parseInt(txtIdbuscar.getText()));
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                txtnombre.setText(rs.getString("Nombre"));
+               cbpresentacion.setSelectedItem(rs.getString("Presentacion"));
+                txtprecio.setText(rs.getString("PrecioUnitario"));
+
+            }else{
+                JOptionPane.showMessageDialog(null,"No existe un producto con el codigo ingresado...");
+                
+            }
+        } catch (Exception e) {
+        }
+        
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
     /**
-     * @param args the command line arguments
-     */
+         * @param args the command line arguments
+         */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -364,7 +389,6 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel BtnVentas;
     private javax.swing.JPanel PanelMenuProducto;
-    private javax.swing.JTextField btnIDproducto;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JButton btnborrar;
     private javax.swing.JButton btnbuscar;
@@ -385,6 +409,7 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField txtIdbuscar;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txtprecio;
     // End of variables declaration//GEN-END:variables
