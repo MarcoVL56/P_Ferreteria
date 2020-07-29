@@ -36,6 +36,14 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         BtnSalir = new javax.swing.JLabel();
         BtnMinimizar = new javax.swing.JLabel();
         PanelMenuFFac = new javax.swing.JPanel();
+        BtnMenu = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        BtnVentas = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        BtnProforma = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        BtnIRegistrarCliente = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -94,6 +102,71 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         PanelMenuFFac.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuFFac.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuFFac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnMenu.setBackground(new java.awt.Color(255, 0, 0));
+        BtnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnMenuMouseClicked(evt);
+            }
+        });
+        BtnMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Menú");
+        BtnMenu.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 60, 30));
+
+        PanelMenuFFac.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 150, 30));
+
+        BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
+        BtnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnVentasMouseClicked(evt);
+            }
+        });
+        BtnVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel16.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Ventas");
+        BtnVentas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 60, 30));
+
+        PanelMenuFFac.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 150, -1));
+
+        BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
+        BtnProforma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnProformaMouseClicked(evt);
+            }
+        });
+        BtnProforma.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel17.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Proformas");
+        BtnProforma.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 90, 30));
+
+        PanelMenuFFac.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, -1));
+
+        BtnIRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
+        BtnIRegistrarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnIRegistrarClienteMouseClicked(evt);
+            }
+        });
+        BtnIRegistrarCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel18.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel18.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Registrar cliente");
+        BtnIRegistrarCliente.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 140, 30));
+
+        PanelMenuFFac.add(BtnIRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 150, 30));
+
         jPanel1.add(PanelMenuFFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -126,6 +199,24 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
     private void BtnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMinimizarMouseClicked
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_BtnMinimizarMouseClicked
+
+    private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
+        JF_Menú m = new JF_Menú();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnMenuMouseClicked
+
+    private void BtnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnVentasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnVentasMouseClicked
+
+    private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnProformaMouseClicked
+
+    private void BtnIRegistrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -163,10 +254,18 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BtnIRegistrarCliente;
+    private javax.swing.JPanel BtnMenu;
     private javax.swing.JLabel BtnMinimizar;
+    private javax.swing.JPanel BtnProforma;
     private javax.swing.JLabel BtnSalir;
+    private javax.swing.JPanel BtnVentas;
     private javax.swing.JPanel PanelMenuFFac;
     private javax.swing.JLabel btnSubMenu;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables

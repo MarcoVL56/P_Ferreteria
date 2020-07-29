@@ -77,6 +77,8 @@ public class JF_Recuperación_Credencial extends javax.swing.JFrame {
         BtnMinimizar = new javax.swing.JLabel();
         PanelMenuRCreden = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        BtnMenu = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -193,6 +195,22 @@ public class JF_Recuperación_Credencial extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-olvidó-su-contraseña-100.png"))); // NOI18N
         PanelMenuRCreden.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 110, 130));
 
+        BtnMenu.setBackground(new java.awt.Color(255, 0, 0));
+        BtnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnMenuMouseClicked(evt);
+            }
+        });
+        BtnMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Login");
+        BtnMenu.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 60, 30));
+
+        PanelMenuRCreden.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 150, 30));
+
         jPanel1.add(PanelMenuRCreden, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -273,6 +291,12 @@ public class JF_Recuperación_Credencial extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tbusuKeyPressed
 
+    private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
+        JF_Login m = new JF_Login();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnMenuMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -310,12 +334,14 @@ public class JF_Recuperación_Credencial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BtnEnviarCorreo;
+    private javax.swing.JPanel BtnMenu;
     private javax.swing.JLabel BtnMinimizar;
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel PanelMenuRCreden;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

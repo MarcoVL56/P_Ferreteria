@@ -50,6 +50,8 @@ public class JF_Menú extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtUsuarioIniciado = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
+        BtnMenu = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnSubMenu = new javax.swing.JLabel();
         BtnSalir = new javax.swing.JLabel();
@@ -220,6 +222,22 @@ public class JF_Menú extends javax.swing.JFrame {
         jLabel26.setOpaque(true);
         PanelMenuI.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 40, 40));
 
+        BtnMenu.setBackground(new java.awt.Color(255, 0, 0));
+        BtnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnMenuMouseClicked(evt);
+            }
+        });
+        BtnMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel27.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel27.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText("Cerrar sesión");
+        BtnMenu.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 130, 30));
+
+        PanelMenuI.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 150, 30));
+
         jPanel1.add(PanelMenuI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 255));
@@ -354,6 +372,12 @@ public class JF_Menú extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioIniciadoActionPerformed
 
+    private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
+        JF_Login m = new JF_Login();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnMenuMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -387,6 +411,7 @@ public class JF_Menú extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BtnMenu;
     private javax.swing.JLabel BtnMinimizar;
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel PanelMenuI;
@@ -416,6 +441,7 @@ public class JF_Menú extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
