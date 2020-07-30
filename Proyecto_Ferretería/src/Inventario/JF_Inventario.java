@@ -3,16 +3,53 @@ package Inventario;
 import Menú.JF_Menú;
 import RegistrarUsuario.JF_RegistrarUsuario;
 import Conexion.datosP;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class JF_Inventario extends javax.swing.JFrame {
 
-   
-    
-    
-    
+  Conexion con = new Conexion();
     public JF_Inventario() {
         initComponents();
         setLocationRelativeTo(null);
+
+        //Carga de tabla -----------
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+       
+        DefaultTableModel modelo = new DefaultTableModel();
+        TbInventario.setModel(modelo);
+
+        try {
+            ps = con.conectar().prepareStatement("SELECT * FROM inventario a INNER JOIN producto b on "
+                    + "(b.Id_Producto = a.Fk_Productos) INNER Join proveedor c on (c.Id_Proveedor = a.Fk_Proveedor)");
+            rs = ps.executeQuery();
+
+            ResultSetMetaData rsmt = rs.getMetaData();
+            int cantcolum = rsmt.getColumnCount();
+
+            modelo.addColumn("ID");
+            modelo.addColumn("Producto");
+            modelo.addColumn("Proveedor");
+
+            while (rs.next()) {
+                Object[] filas = new Object[cantcolum];
+
+                for (int i = 0; i < cantcolum; i++) {
+                    filas[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(filas);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error al cargar... "+e);
+        }
+
     }
 
     /**
@@ -31,10 +68,10 @@ public class JF_Inventario extends javax.swing.JFrame {
         BtnMinimizar = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnbuscar = new javax.swing.JButton();
+        btnMostrar = new javax.swing.JButton();
         txtID = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtInventario = new javax.swing.JTable();
+        TbInventario = new javax.swing.JTable();
         PanelMenuI = new javax.swing.JPanel();
         BtnMenu = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -47,6 +84,7 @@ public class JF_Inventario extends javax.swing.JFrame {
         BtnIRegistrarCliente = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btnbuscar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -112,33 +150,38 @@ public class JF_Inventario extends javax.swing.JFrame {
         jLabel2.setText("Inventario");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, 150, 50));
 
-        btnbuscar.setBackground(new java.awt.Color(255, 255, 51));
-        btnbuscar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        btnbuscar.setText("Buscar");
-        btnbuscar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51)));
-        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, 100, 40));
+        btnMostrar.setBackground(new java.awt.Color(255, 255, 51));
+        btnMostrar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        btnMostrar.setText("Mostrar");
+        btnMostrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51)));
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 450, 100, 40));
         jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 210, 160, 30));
 
-        jtInventario.setModel(new javax.swing.table.DefaultTableModel(
+        TbInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Presentación", "Proveedor", "Precio"
+                "ID", "Producto", "Proveedor"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jtInventario);
+        jScrollPane1.setViewportView(TbInventario);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 680, 120));
 
@@ -207,6 +250,12 @@ public class JF_Inventario extends javax.swing.JFrame {
 
         jPanel1.add(PanelMenuI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
+        btnbuscar1.setBackground(new java.awt.Color(255, 255, 51));
+        btnbuscar1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        btnbuscar1.setText("Buscar");
+        btnbuscar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51)));
+        jPanel1.add(btnbuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, 100, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -235,13 +284,52 @@ public class JF_Inventario extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSalirMouseClicked
 
     private void BtnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMinimizarMouseClicked
-       this.setExtendedState(ICONIFIED);
+        this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_BtnMinimizarMouseClicked
 
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
+   /* void mostrardatos(String valor) {
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Producto");
+        modelo.addColumn("Proveedor");
+        
+        TbInventario.setModel(modelo);
+        String sql = "";
+        if (valor.equals("")) {
+            sql = "SELECT * FROM inventario a INNER JOIN producto b on "
+                    + "(b.Id_Producto = a.Fk_Productos) INNER Join proveedor c on (c.Id_Proveedor = a.Fk_Proveedor)";
+
+        }
+        String[] datos = new String[3];
+        try {
+            Statement st = con.conectar().createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3);
+               
+
+                modelo.addRow(datos);
+            }
+            TbInventario.setModel(modelo);
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            // Logger.getLogger(ingresoproductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } */
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -282,8 +370,10 @@ public class JF_Inventario extends javax.swing.JFrame {
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel BtnVentas;
     private javax.swing.JPanel PanelMenuI;
+    private javax.swing.JTable TbInventario;
+    private javax.swing.JButton btnMostrar;
     private javax.swing.JLabel btnSubMenu;
-    private javax.swing.JButton btnbuscar;
+    private javax.swing.JButton btnbuscar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -295,7 +385,6 @@ public class JF_Inventario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jtInventario;
     private javax.swing.JTextField txtID;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author Klope
  */
 public class Producto extends javax.swing.JFrame {
-
+    
     Conexion con = new Conexion();
     PreparedStatement ps;
     ResultSet rs;
@@ -44,7 +44,7 @@ public class Producto extends javax.swing.JFrame {
         BtnMinimizar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtnombre = new javax.swing.JTextField();
+        txtCantidad = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         cbpresentacion = new javax.swing.JComboBox<>();
@@ -69,6 +69,8 @@ public class Producto extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         BtnIRegistrarCliente = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtnombre1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -128,7 +130,7 @@ public class Producto extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel3.setText("Nombre");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 126, -1, -1));
-        jPanel2.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(536, 124, 99, -1));
+        jPanel2.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 99, -1));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
         jLabel2.setText("Productos");
@@ -289,6 +291,11 @@ public class Producto extends javax.swing.JFrame {
 
         jPanel2.add(PanelMenuProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 660));
 
+        jLabel1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jLabel1.setText("Cantidad");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, -1));
+        jPanel2.add(txtnombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(536, 124, 99, 20));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1420, 660));
 
         pack();
@@ -312,23 +319,24 @@ public class Producto extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnMinimizarMouseClicked
 
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
-
+        
         try {
-
-            ps = con.conectar().prepareStatement("INSERT INTO producto (Nombre,Presentacion,PrecioUnitario) "
-                    + "VALUES(?,?,?)");
-            ps.setString(1, txtnombre.getText());
-
+            
+            ps = con.conectar().prepareStatement("INSERT INTO producto (Nombre,Presentacion,PrecioUnitario,Cantidad) "
+                    + "VALUES(?,?,?,?)");
+            ps.setString(1, txtnombre1.getText());
+            
             int seleccion = cbpresentacion.getSelectedIndex();
             ps.setString(2, cbpresentacion.getItemAt(seleccion));
-
+            
             ps.setInt(3, Integer.parseInt(txtprecio.getText()));
+            ps.setInt(4, Integer.parseInt(txtCantidad.getText()));
             ps.execute();
-
-            JOptionPane.showMessageDialog(null, "Producto guardado");
-
-            con.Desconectar();
             Limpiar();
+            JOptionPane.showMessageDialog(null, "Producto guardado");
+            
+            con.Desconectar();
+           
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al ingresar producto: " + e);
         }
@@ -339,17 +347,17 @@ public class Producto extends javax.swing.JFrame {
         try {
             ps = con.conectar().prepareStatement("SELECT * FROM producto WHERE Id_Producto= ?");
             ps.setInt(1, Integer.parseInt(txtIdbuscar.getText()));
-
+            
             rs = ps.executeQuery();
-
+            
             if (rs.next()) {
-                txtnombre.setText(rs.getString("Nombre"));
+                txtnombre1.setText(rs.getString("Nombre"));
                 cbpresentacion.setSelectedItem(rs.getString("Presentacion"));
                 txtprecio.setText(rs.getString("PrecioUnitario"));
-
+                txtCantidad.setText(rs.getString("Cantidad"));
             } else {
                 JOptionPane.showMessageDialog(null, "No existe un producto con el codigo ingresado...");
-
+                
             }
         } catch (Exception e) {
         }
@@ -359,17 +367,19 @@ public class Producto extends javax.swing.JFrame {
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
         try {
             ps = con.conectar().prepareStatement("UPDATE producto SET  "
-                    + "Nombre=?,Presentacion=?,PrecioUnitario=? ");
-            ps.setString(1, txtnombre.getText());
-
+                    + "Nombre=?,Presentacion=?,PrecioUnitario=?,Cantidad=? ");
+            ps.setString(1, txtnombre1.getText());
+            
             int seleccion = cbpresentacion.getSelectedIndex();
             ps.setString(2, cbpresentacion.getItemAt(seleccion));
-
+            
             ps.setInt(3, Integer.parseInt(txtprecio.getText()));
+            ps.setInt(4, Integer.parseInt(txtCantidad.getText()));
+            
             ps.execute();
-
+            
             JOptionPane.showMessageDialog(null, "Producto Modificado");
-
+            
             con.Desconectar();
             Limpiar();
         } catch (Exception e) {
@@ -382,12 +392,11 @@ public class Producto extends javax.swing.JFrame {
         try {
             ps = con.conectar().prepareStatement("DELETE FROM producto WHERE Id_Producto=?");
             ps.setInt(1, Integer.parseInt(txtIdbuscar.getText()));
-
-           
+            
             ps.execute();
-
+            
             JOptionPane.showMessageDialog(null, "Producto Eliminado");
-
+            
             con.Desconectar();
             Limpiar();
         } catch (Exception e) {
@@ -395,10 +404,10 @@ public class Producto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnborrarActionPerformed
     private void Limpiar() {
-        txtnombre.setText("");
+        txtnombre1.setText("");
         txtprecio.setText("");
         txtIdbuscar.setText("");
-
+        txtCantidad.setText("");
     }
 
     /**
@@ -451,6 +460,7 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JButton btningresar;
     private javax.swing.JButton btnmodificar;
     private javax.swing.JComboBox<String> cbpresentacion;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel16;
@@ -465,8 +475,9 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtIdbuscar;
-    private javax.swing.JTextField txtnombre;
+    private javax.swing.JTextField txtnombre1;
     private javax.swing.JTextField txtprecio;
     // End of variables declaration//GEN-END:variables
 }
