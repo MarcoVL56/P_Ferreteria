@@ -3,6 +3,7 @@ package Menú;
 import Factura.JF_FiltroFactura;
 import Inventario.JF_Inventario;
 import Login.JF_Login;
+import Proformas.JF_Proformas;
 
 import RegistrarEmpleado.JF_RegistrarCliente;
 import RegistrarUsuario.JF_RegistrarUsuario;
@@ -303,9 +304,9 @@ public class JF_Menú extends javax.swing.JFrame {
     private void btnSubMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubMenuMouseClicked
         int posicion = PanelMenuI.getX();
         if (posicion > -1) {
-            
+
             Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelMenuI);
-            
+
         } else {
             Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenuI);
         }
@@ -326,7 +327,9 @@ public class JF_Menú extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRClienteMouseClicked
 
     private void btnProformasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProformasMouseClicked
-    
+        JF_Proformas m = new JF_Proformas();
+        m.setVisible(true);
+        dispose();
 
     }//GEN-LAST:event_btnProformasMouseClicked
 
@@ -359,7 +362,7 @@ public class JF_Menú extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFiltroFacturasMouseClicked
 
     private void BtnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSalirMouseClicked
-      System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_BtnSalirMouseClicked
 
     private void BtnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMinimizarMouseClicked

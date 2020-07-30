@@ -190,6 +190,11 @@ public class JF_Inventario extends javax.swing.JFrame {
         PanelMenuI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnMenu.setBackground(new java.awt.Color(255, 0, 0));
+        BtnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnMenuMouseClicked(evt);
+            }
+        });
         BtnMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setBackground(new java.awt.Color(67, 81, 141));
@@ -290,6 +295,12 @@ public class JF_Inventario extends javax.swing.JFrame {
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         
     }//GEN-LAST:event_btnMostrarActionPerformed
+
+    private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
+        JF_Menú m = new JF_Menú();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnMenuMouseClicked
 
    /* void mostrardatos(String valor) {
 
