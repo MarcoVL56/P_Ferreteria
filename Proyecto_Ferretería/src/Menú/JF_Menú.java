@@ -3,7 +3,7 @@ package Menú;
 import Factura.JF_FiltroFactura;
 import Inventario.JF_Inventario;
 import Login.JF_Login;
-import Proformas.JF_Proformas;
+
 import RegistrarEmpleado.JF_RegistrarCliente;
 import RegistrarUsuario.JF_RegistrarUsuario;
 import ReporteProducto.JF_ReporteProducto;
@@ -326,9 +326,7 @@ public class JF_Menú extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRClienteMouseClicked
 
     private void btnProformasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProformasMouseClicked
-        JF_Proformas m = new JF_Proformas();
-        m.setVisible(true);
-        dispose();
+    
 
     }//GEN-LAST:event_btnProformasMouseClicked
 
