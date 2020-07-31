@@ -6,7 +6,11 @@
 package ReporteProducto;
 
 import Conexion.datosP;
+import Factura.JF_FiltroFactura;
 import Menú.JF_Menú;
+import Proformas.JF_Proformas;
+import RegistrarEmpleado.JF_RegistrarCliente;
+import Ventas.JF_Ventas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -56,12 +60,6 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         btnSubMenu = new javax.swing.JLabel();
         BtnSalir = new javax.swing.JLabel();
         BtnMinimizar = new javax.swing.JLabel();
-        PanelMenuRPro = new javax.swing.JPanel();
-        BtnFiltrarFactura = new rsbuttom.RSButtonMetro();
-        BtnRegistrarCliente = new rsbuttom.RSButtonMetro();
-        BtnProforma = new rsbuttom.RSButtonMetro();
-        BtnVentas = new rsbuttom.RSButtonMetro();
-        btnMenú = new rsbuttom.RSButtonMetro();
         lblBuscar = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -73,6 +71,17 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         lblTituloReporte = new javax.swing.JLabel();
         lblFecha1 = new javax.swing.JLabel();
         lblHasta1 = new javax.swing.JLabel();
+        PanelReporteProd = new javax.swing.JPanel();
+        BtnMenu1 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        BtnFiltrarF = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        BtnVentas = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        BtnProforma = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        BtnIRegistrarCliente = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -127,47 +136,6 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 50));
 
-        PanelMenuRPro.setBackground(new java.awt.Color(204, 204, 204));
-        PanelMenuRPro.setForeground(new java.awt.Color(255, 255, 255));
-        PanelMenuRPro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        BtnFiltrarFactura.setBackground(new java.awt.Color(153, 153, 153));
-        BtnFiltrarFactura.setText("Filtrar factura");
-        BtnFiltrarFactura.setColorHover(new java.awt.Color(0, 102, 255));
-        BtnFiltrarFactura.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuRPro.add(BtnFiltrarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
-
-        BtnRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
-        BtnRegistrarCliente.setText("Registrar Cliente");
-        BtnRegistrarCliente.setColorHover(new java.awt.Color(0, 102, 255));
-        BtnRegistrarCliente.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuRPro.add(BtnRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
-
-        BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
-        BtnProforma.setText("Profromas");
-        BtnProforma.setColorHover(new java.awt.Color(0, 102, 255));
-        BtnProforma.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuRPro.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
-
-        BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
-        BtnVentas.setText("Ventas");
-        BtnVentas.setColorHover(new java.awt.Color(0, 102, 255));
-        BtnVentas.setColorNormal(new java.awt.Color(153, 153, 153));
-        PanelMenuRPro.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
-
-        btnMenú.setBackground(new java.awt.Color(255, 51, 51));
-        btnMenú.setText("Menú");
-        btnMenú.setColorHover(new java.awt.Color(255, 51, 51));
-        btnMenú.setColorNormal(new java.awt.Color(255, 51, 51));
-        btnMenú.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnMenúMouseClicked(evt);
-            }
-        });
-        PanelMenuRPro.add(btnMenú, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 150, 30));
-
-        jPanel1.add(PanelMenuRPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
-
         lblBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
         lblBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -219,6 +187,92 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         lblHasta1.setText("Hasta:");
         jPanel1.add(lblHasta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, -1, 40));
 
+        PanelReporteProd.setBackground(new java.awt.Color(204, 204, 204));
+        PanelReporteProd.setForeground(new java.awt.Color(255, 255, 255));
+        PanelReporteProd.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnMenu1.setBackground(new java.awt.Color(255, 0, 0));
+        BtnMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnMenu1MouseClicked(evt);
+            }
+        });
+        BtnMenu1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel13.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Menú");
+        BtnMenu1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 60, 30));
+
+        PanelReporteProd.add(BtnMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 150, 30));
+
+        BtnFiltrarF.setBackground(new java.awt.Color(153, 153, 153));
+        BtnFiltrarF.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnFiltrarFMouseClicked(evt);
+            }
+        });
+        BtnFiltrarF.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel14.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Filtrar factura");
+        BtnFiltrarF.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 110, 30));
+
+        PanelReporteProd.add(BtnFiltrarF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 150, -1));
+
+        BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
+        BtnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnVentasMouseClicked(evt);
+            }
+        });
+        BtnVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel16.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Ventas");
+        BtnVentas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 60, 30));
+
+        PanelReporteProd.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 150, -1));
+
+        BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
+        BtnProforma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnProformaMouseClicked(evt);
+            }
+        });
+        BtnProforma.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel17.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Proformas");
+        BtnProforma.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 90, 30));
+
+        PanelReporteProd.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, -1));
+
+        BtnIRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
+        BtnIRegistrarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnIRegistrarClienteMouseClicked(evt);
+            }
+        });
+        BtnIRegistrarCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel18.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel18.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Registrar cliente");
+        BtnIRegistrarCliente.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 140, 30));
+
+        PanelReporteProd.add(BtnIRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 150, 30));
+
+        jPanel1.add(PanelReporteProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -234,11 +288,11 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubMenuMouseClicked
-        int posicion = PanelMenuRPro.getX();
+        int posicion = PanelReporteProd.getX();
         if (posicion > -1) {
-            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelMenuRPro);
+            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelReporteProd);
         } else {
-            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenuRPro);
+            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelReporteProd);
         }
     }//GEN-LAST:event_btnSubMenuMouseClicked
 
@@ -249,12 +303,6 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
     private void BtnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMinimizarMouseClicked
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_BtnMinimizarMouseClicked
-
-    private void btnMenúMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenúMouseClicked
-        JF_Menú m = new JF_Menú();
-        m.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnMenúMouseClicked
 
     private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
 
@@ -303,6 +351,36 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
 
     }//GEN-LAST:event_lblBuscarMouseClicked
 
+    private void BtnMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenu1MouseClicked
+        JF_Menú m = new JF_Menú();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnMenu1MouseClicked
+
+    private void BtnFiltrarFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFiltrarFMouseClicked
+        JF_FiltroFactura m = new JF_FiltroFactura();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnFiltrarFMouseClicked
+
+    private void BtnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnVentasMouseClicked
+        JF_Ventas m = new JF_Ventas();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnVentasMouseClicked
+
+    private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked
+        JF_Proformas m = new JF_Proformas();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnProformaMouseClicked
+
+    private void BtnIRegistrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseClicked
+        JF_RegistrarCliente m = new JF_RegistrarCliente();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -339,17 +417,25 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rsbuttom.RSButtonMetro BtnFiltrarFactura;
+    private javax.swing.JPanel BtnFiltrarF;
+    private javax.swing.JPanel BtnIRegistrarCliente;
+    private javax.swing.JPanel BtnMenu;
+    private javax.swing.JPanel BtnMenu1;
     private javax.swing.JLabel BtnMinimizar;
-    private rsbuttom.RSButtonMetro BtnProforma;
-    private rsbuttom.RSButtonMetro BtnRegistrarCliente;
+    private javax.swing.JPanel BtnProforma;
     private javax.swing.JLabel BtnSalir;
-    private rsbuttom.RSButtonMetro BtnVentas;
-    private javax.swing.JPanel PanelMenuRPro;
-    private rsbuttom.RSButtonMetro btnMenú;
+    private javax.swing.JPanel BtnVentas;
+    private javax.swing.JPanel PanelMenuFac;
+    private javax.swing.JPanel PanelReporteProd;
     private javax.swing.JLabel btnSubMenu;
     private com.toedter.calendar.JDateChooser jDCFechaFinal;
     private com.toedter.calendar.JDateChooser jDCFechaInicio;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
