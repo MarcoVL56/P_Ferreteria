@@ -31,23 +31,21 @@ public class JF_Inventario extends javax.swing.JFrame {
         TbInventario.setModel(modelo);
 
         try {
-            ps = con.conectar().prepareStatement("SELECT * FROM inventario INNER JOIN producto ON inventario.Fk_Productos = producto.Id_Producto "
-                    + "INNER JOIN proveedor ON inventario.Fk_Proveedor = proveedor.Id_Proveedor");
+            ps = con.conectar().prepareStatement("SELECT inventario.Id_Disponibilidad, producto.Nombre, producto.Presentacion, producto.PrecioUnitario, producto.Cantidad, proveedor.NombreProveedor FROM inventario "
+                    + "INNER JOIN producto ON inventario.Fk_Productos= producto.Id_Producto "
+                    + "INNER JOIN proveedor ON inventario.Fk_Proveedor=proveedor.Id_Proveedor");
             rs = ps.executeQuery();
 
             ResultSetMetaData rsmt = rs.getMetaData();
             int cantcolum = rsmt.getColumnCount();
 
             modelo.addColumn("ID Inventario");
-            modelo.addColumn("fk Producto");
-            modelo.addColumn("fk Proveedor");
-            modelo.addColumn("Id producto");
-            modelo.addColumn("Nombre");
-            modelo.addColumn("Presentacion");
-            modelo.addColumn("Precio Unidad");
+            modelo.addColumn("Nombre Producto");
+            modelo.addColumn("Presentación");
+            modelo.addColumn("Precio");
             modelo.addColumn("Cantidad");
-            modelo.addColumn("Id Proveedor");
-            modelo.addColumn("Nombre Proveedor");
+            modelo.addColumn("Proveedor");
+          
 
             while (rs.next()) {
                 Object[] filas = new Object[cantcolum];
