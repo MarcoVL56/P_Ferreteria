@@ -7,18 +7,25 @@ import Factura.JF_FiltroFactura;
 import Proformas.JF_Proformas;
 import RegistrarEmpleado.JF_RegistrarCliente;
 import Ventas.JF_Ventas;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 public class JF_Inventario extends javax.swing.JFrame {
 
-    Conexion con = new Conexion();
-
+    Conexion.Conexion con = new Conexion.Conexion();
+    TableRowSorter trsfiltro;
     public JF_Inventario() {
         initComponents();
         setLocationRelativeTo(null);
@@ -77,7 +84,7 @@ public class JF_Inventario extends javax.swing.JFrame {
         BtnSalir = new javax.swing.JLabel();
         BtnMinimizar = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
+        txtnombre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TbInventario = new javax.swing.JTable();
         PanelMenuI = new javax.swing.JPanel();
@@ -92,7 +99,6 @@ public class JF_Inventario extends javax.swing.JFrame {
         BtnIRegistrarCliente = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnbuscar1 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnproducto = new javax.swing.JButton();
@@ -156,7 +162,13 @@ public class JF_Inventario extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Nombre del producto");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, 150, 40));
-        jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 160, 30));
+
+        txtnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnombreKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 160, 30));
 
         TbInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -262,17 +274,6 @@ public class JF_Inventario extends javax.swing.JFrame {
         PanelMenuI.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, -1));
 
         jPanel1.add(PanelMenuI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
-
-        btnbuscar1.setBackground(new java.awt.Color(255, 255, 51));
-        btnbuscar1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        btnbuscar1.setText("Buscar");
-        btnbuscar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51)));
-        btnbuscar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbuscar1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnbuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 100, 40));
 
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
         jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
@@ -385,10 +386,23 @@ public class JF_Inventario extends javax.swing.JFrame {
         p.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnproductoActionPerformed
-
-    private void btnbuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar1ActionPerformed
-        
-    }//GEN-LAST:event_btnbuscar1ActionPerformed
+private void filtro(){
+  int columnatb=1; 
+  trsfiltro.setRowFilter(RowFilter.regexFilter(txtnombre.getText(),columnatb));
+    
+}
+    private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped
+        // TODO add your handling code here:
+     txtnombre.addKeyListener(new KeyAdapter(){
+         public void keyReleased(final KeyEvent e){
+           String cadena=(txtnombre.getText());
+           txtnombre.setText(cadena);
+           filtro();
+         }
+     });
+     trsfiltro= new TableRowSorter(TbInventario.getModel());
+     TbInventario.setRowSorter(trsfiltro);
+    }//GEN-LAST:event_txtnombreKeyTyped
 
     /**
      * @param args the command line arguments
@@ -437,7 +451,6 @@ public class JF_Inventario extends javax.swing.JFrame {
     private javax.swing.JPanel PanelMenuI;
     private javax.swing.JTable TbInventario;
     private javax.swing.JLabel btnSubMenu;
-    private javax.swing.JButton btnbuscar1;
     private javax.swing.JButton btnproducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
@@ -452,6 +465,6 @@ public class JF_Inventario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
 }

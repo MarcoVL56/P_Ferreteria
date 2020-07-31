@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 public class Proveedor extends javax.swing.JFrame {
 
-    Conexion con = new Conexion();
+    Conexion.Conexion con = new Conexion.Conexion();
     PreparedStatement ps;
     ResultSet rs;
 
