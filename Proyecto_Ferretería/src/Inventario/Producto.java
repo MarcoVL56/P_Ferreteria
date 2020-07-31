@@ -54,7 +54,7 @@ public class Producto extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         BtnProforma = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        BtnIRegistrarCliente = new javax.swing.JPanel();
+        BtnProveedor = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -249,22 +249,22 @@ public class Producto extends javax.swing.JFrame {
 
         PanelMenuProducto.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, -1));
 
-        BtnIRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
-        BtnIRegistrarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+        BtnProveedor.setBackground(new java.awt.Color(153, 153, 153));
+        BtnProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnIRegistrarClienteMouseClicked(evt);
+                BtnProveedorMouseClicked(evt);
             }
         });
-        BtnIRegistrarCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        BtnProveedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel18.setBackground(new java.awt.Color(67, 81, 141));
         jLabel18.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Proveedor");
-        BtnIRegistrarCliente.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 140, 30));
+        BtnProveedor.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 140, 30));
 
-        PanelMenuProducto.add(BtnIRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 150, 30));
+        PanelMenuProducto.add(BtnProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 150, 30));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-producto-nuevo-80.png"))); // NOI18N
@@ -396,11 +396,11 @@ public class Producto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnborrarActionPerformed
 
-    private void BtnIRegistrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseClicked
-        JF_RegistrarCliente m = new JF_RegistrarCliente();
+    private void BtnProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProveedorMouseClicked
+        Proveedor m = new Proveedor();
         m.setVisible(true);
         dispose();
-    }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
+    }//GEN-LAST:event_BtnProveedorMouseClicked
 
     private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked
         JF_Proformas m = new JF_Proformas();
@@ -477,10 +477,10 @@ public class Producto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BtnFiltrarF;
-    private javax.swing.JPanel BtnIRegistrarCliente;
     private javax.swing.JPanel BtnMenu;
     private javax.swing.JLabel BtnMinimizar;
     private javax.swing.JPanel BtnProforma;
+    private javax.swing.JPanel BtnProveedor;
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel BtnVentas;
     private javax.swing.JPanel PanelMenuProducto;

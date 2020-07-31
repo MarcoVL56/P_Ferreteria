@@ -214,7 +214,7 @@ public class JF_Login extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 100, 500, 560));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/WhatsApp Image 2020-07-26 at 6.29.07 PM.jpeg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/WhatsApp Image 2020-07-26 at 6.29.07 PM (1).jpeg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 500, 450));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -307,7 +307,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Img/WhatsApp Image 2020-07-26 at 6.29.07 PM.jpeg"/>
+              <Image iconType="3" name="/Img/WhatsApp Image 2020-07-26 at 6.29.07 PM (1).jpeg"/>
             </Property>
           </Properties>
           <Constraints>
