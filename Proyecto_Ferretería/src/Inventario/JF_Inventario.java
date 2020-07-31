@@ -176,13 +176,13 @@ public class JF_Inventario extends javax.swing.JFrame {
 
         TbInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "ID Inventario", "fk Producto", "fk Proveedor", "Id producto", "Nombre", "Presentacion", "Precio Unidad", "Cantidad", "Id Proveedor", "Nombre Proveedor"
+
             }
         ));
         jScrollPane1.setViewportView(TbInventario);
