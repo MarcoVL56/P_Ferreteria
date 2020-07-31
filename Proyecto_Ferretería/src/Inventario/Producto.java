@@ -58,6 +58,8 @@ public class Producto extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtnombre1 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -123,6 +125,7 @@ public class Producto extends javax.swing.JFrame {
         jLabel4.setText("Presentación");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, -1));
 
+        cbpresentacion.setBackground(new java.awt.Color(0, 0, 255));
         cbpresentacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kilo", "Unidad", "Gramo" }));
         jPanel2.add(cbpresentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, 110, 30));
 
@@ -171,8 +174,8 @@ public class Producto extends javax.swing.JFrame {
         jPanel1.add(btningresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 90, 88, 38));
 
         jLabel8.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        jLabel8.setText("ID del producto");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, -1, -1));
+        jLabel8.setText("Nombre del producto");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, -1, -1));
         jPanel1.add(txtIdbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 98, -1));
 
         jLabel9.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
@@ -272,6 +275,12 @@ public class Producto extends javax.swing.JFrame {
         jLabel14.setText("Ingresar producto");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, -1, -1));
 
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 260, 110, 30));
+
+        jLabel2.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jLabel2.setText("Proveedor");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 270, -1, -1));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1420, 660));
 
         pack();
@@ -321,8 +330,8 @@ public class Producto extends javax.swing.JFrame {
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
         try {
-            ps = con.conectar().prepareStatement("SELECT * FROM producto WHERE Id_Producto= ?");
-            ps.setInt(1, Integer.parseInt(txtIdbuscar.getText()));
+            ps = con.conectar().prepareStatement("SELECT * FROM producto WHERE Nombre= ?");
+            ps.setString(1, txtIdbuscar.getText());
 
             rs = ps.executeQuery();
 
@@ -460,6 +469,7 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JButton btningresar;
     private javax.swing.JButton btnmodificar;
     private javax.swing.JComboBox<String> cbpresentacion;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -467,6 +477,7 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
