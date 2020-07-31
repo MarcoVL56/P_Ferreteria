@@ -57,7 +57,6 @@ public class JF_Login extends javax.swing.JFrame {
         BtnSalir = new javax.swing.JLabel();
         BtnMinimizar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        txtContraseña = new javax.swing.JTextField();
         txtUsuario = new javax.swing.JTextField();
         BtnIngresar = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -65,6 +64,7 @@ public class JF_Login extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         BtnRecuperación = new javax.swing.JLabel();
+        txtContraseña = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -123,10 +123,6 @@ public class JF_Login extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 255));
 
-        txtContraseña.setBackground(new java.awt.Color(245, 245, 245));
-        txtContraseña.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        txtContraseña.setBorder(null);
-
         txtUsuario.setBackground(new java.awt.Color(245, 245, 245));
         txtUsuario.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         txtUsuario.setBorder(null);
@@ -169,24 +165,24 @@ public class JF_Login extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(BtnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(BtnRecuperación)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(94, 94, 94))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(BtnRecuperación)
-                        .addContainerGap())))
+                        .addGap(98, 98, 98))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addComponent(BtnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(134, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap(137, Short.MAX_VALUE)
@@ -203,8 +199,8 @@ public class JF_Login extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
+                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
                 .addComponent(BtnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91)
                 .addComponent(BtnRecuperación)
@@ -304,7 +300,7 @@ public class JF_Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    public javax.swing.JTextField txtContraseña;
+    private javax.swing.JPasswordField txtContraseña;
     public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
     datosP cc = new datosP();

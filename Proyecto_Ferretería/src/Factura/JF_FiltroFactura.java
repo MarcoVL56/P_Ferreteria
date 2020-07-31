@@ -7,6 +7,9 @@ package Factura;
 
 import Conexion.datosP;
 import Menú.JF_Menú;
+import Proformas.JF_Proformas;
+import RegistrarEmpleado.JF_RegistrarCliente;
+import Ventas.JF_Ventas;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,13 +25,13 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
 
     String date;
     String date2;
+
     public JF_FiltroFactura() {
         initComponents();
-          setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
     }
 
-   
-   public void processCalendar() {
+    public void processCalendar() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         //yyyy-MM-dd
         date = dateFormat.format(txtFecha1.getDate());
@@ -40,90 +43,26 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         date2 = dateFormat.format(txtFecha3.getDate());
 
     }
-  
 
     void mostrardatos(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
-    
-      
-         modelo.addColumn("Nombre");
-         modelo.addColumn("Cedula");
-         modelo.addColumn("codigo");
-         modelo.addColumn("cantidad");
-         modelo.addColumn("total");
-         modelo.addColumn("Fecha");
-         
-       
-      
-       
+
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Cedula");
+        modelo.addColumn("codigo");
+        modelo.addColumn("cantidad");
+        modelo.addColumn("total");
+        modelo.addColumn("Fecha");
 
         tbDatos.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            
-             //Cambié Nombre_cliente y Cedula_cliente
+
+            //Cambié Nombre_cliente y Cedula_cliente
             sql = "SELECT Nombre,Cédula,FK_Producto,Cantidad,TotalPagar,Fecha "
                     + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)";
-            
-            
-             
 
-        }
-       
-        String[] datos = new String[6];
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-
-               datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);
-                datos[2] = rs.getString(3);
-                datos[3] = rs.getString(4);
-                datos[4] = rs.getString(5);
-                datos[5] = rs.getString(6);
-               
-               
-               
-               
-               
-
-                modelo.addRow(datos);
-            }
-            tbDatos.setModel(modelo);
-        } catch (SQLException ex) {
-            System.out.println(ex);
-         
-        }
-    }
-    
-      void mostrarFiltroporfecha(String valor) {
-
-       
-        DefaultTableModel modelo = new DefaultTableModel();
-       
-         modelo.addColumn("Nombre");
-         modelo.addColumn("Cedula");
-         modelo.addColumn("codigo");
-         modelo.addColumn("cantidad");
-         modelo.addColumn("total");
-         modelo.addColumn("Fecha");
-         
-
-        tbDatos.setModel(modelo);
-        processCalendar();
-        String sql = "";
-
-        if (valor.equals("")) {
- //Cambié Nombre_cliente y Cedula_cliente
-            sql = "SELECT Nombre,Cédula,FK_Producto,Cantidad,TotalPagar,Fecha "
-                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)" 
-                    + " AND Fecha='" + date + "'";
-            
-            
-            
-          
         }
 
         String[] datos = new String[6];
@@ -147,29 +86,74 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
 
         }
     }
-       void mostrarFiltro2Fechas(String valor) {
 
-      DefaultTableModel modelo = new DefaultTableModel();
+    void mostrarFiltroporfecha(String valor) {
+
+        DefaultTableModel modelo = new DefaultTableModel();
+
         modelo.addColumn("Nombre");
-         modelo.addColumn("Cedula");
-         modelo.addColumn("codigo");
-         modelo.addColumn("cantidad");
-         modelo.addColumn("total");
-         modelo.addColumn("Fecha");
-         
+        modelo.addColumn("Cedula");
+        modelo.addColumn("codigo");
+        modelo.addColumn("cantidad");
+        modelo.addColumn("total");
+        modelo.addColumn("Fecha");
+
+        tbDatos.setModel(modelo);
+        processCalendar();
+        String sql = "";
+
+        if (valor.equals("")) {
+            //Cambié Nombre_cliente y Cedula_cliente
+            sql = "SELECT Nombre,Cédula,FK_Producto,Cantidad,TotalPagar,Fecha "
+                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)"
+                    + " AND Fecha='" + date + "'";
+
+        }
+
+        String[] datos = new String[6];
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+                datos[4] = rs.getString(5);
+                datos[5] = rs.getString(6);
+
+                modelo.addRow(datos);
+            }
+            tbDatos.setModel(modelo);
+        } catch (SQLException ex) {
+            System.out.println(ex);
+
+        }
+    }
+
+    void mostrarFiltro2Fechas(String valor) {
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Cedula");
+        modelo.addColumn("codigo");
+        modelo.addColumn("cantidad");
+        modelo.addColumn("total");
+        modelo.addColumn("Fecha");
+
         tbDatos.setModel(modelo);
         processCalendar();
         processCalendar2();
         String sql = "";
 
         if (valor.equals("")) {
- //Cambié Nombre_cliente y Cedula_cliente
+            //Cambié Nombre_cliente y Cedula_cliente
             sql = "SELECT Nombre,Cédula,FK_Producto,Cantidad,TotalPagar,Fecha "
-                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)" 
+                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)"
                     + " AND Fecha between'" + date + "' and '" + date2 + "'  ";
 
         }
-        
 
         String[] datos = new String[6];
         try {
@@ -193,28 +177,27 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         }
     }
 
-       void mostrarDatosPorCedula(String valor) {
+    void mostrarDatosPorCedula(String valor) {
 
-       DefaultTableModel modelo = new DefaultTableModel();
-          
-         modelo.addColumn("Nombre");
-         modelo.addColumn("Cedula");
-         modelo.addColumn("codigo");
-         modelo.addColumn("cantidad");
-         modelo.addColumn("total");
-         modelo.addColumn("Fecha");
+        DefaultTableModel modelo = new DefaultTableModel();
+
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Cedula");
+        modelo.addColumn("codigo");
+        modelo.addColumn("cantidad");
+        modelo.addColumn("total");
+        modelo.addColumn("Fecha");
 
         tbDatos.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            
+
             //Cambié Nombre_cliente y Cedula_cliente
-            
-           sql = "SELECT Nombre,Cédula,FK_Producto,Cantidad,TotalPagar,Fecha "
+            sql = "SELECT Nombre,Cédula,FK_Producto,Cantidad,TotalPagar,Fecha "
                     + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) "
                     + "where Cédula_Cliente ='" + txtCedula.getText() + "'";
-           
-}
+
+        }
 
         String[] datos = new String[6];
         try {
@@ -222,7 +205,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
 
-               datos[0] = rs.getString(1);
+                datos[0] = rs.getString(1);
                 datos[1] = rs.getString(2);
                 datos[2] = rs.getString(3);
                 datos[3] = rs.getString(4);
@@ -268,6 +251,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         txtFecha3 = new com.toedter.calendar.JDateChooser();
         btnFiltrarporfecha = new javax.swing.JButton();
         btnFiltrarporrango = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -406,7 +390,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbDatos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 740, 240));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, 740, 240));
 
         lbCedula.setText("Ingrese la cedula");
 
@@ -481,8 +465,9 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnFiltrarporfecha))
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(txtFecha3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnFiltrarporrango)))
                 .addContainerGap())
         );
@@ -491,19 +476,21 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFiltrarporfecha))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                    .addComponent(btnFiltrarporfecha)
+                    .addComponent(txtFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(txtFecha3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(btnFiltrarporrango)
-                        .addGap(33, 33, 33))))
+                    .addComponent(btnFiltrarporrango)
+                    .addComponent(txtFecha3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
         );
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 150, 270, 140));
+
+        jLabel14.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
+        jLabel14.setText("Filtrado de facturas ");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -543,39 +530,44 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnMenuMouseClicked
 
     private void BtnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnVentasMouseClicked
-        // TODO add your handling code here:
+        JF_Ventas m = new JF_Ventas();
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BtnVentasMouseClicked
 
     private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked
-        // TODO add your handling code here:
+        JF_Proformas m = new JF_Proformas();
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BtnProformaMouseClicked
 
     private void BtnIRegistrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseClicked
-     
+        JF_RegistrarCliente m = new JF_RegistrarCliente();
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        mostrardatos("");      
+        mostrardatos("");
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnFiltrarporcedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarporcedulaActionPerformed
         mostrarDatosPorCedula("");
-        
+
         txtCedula.setText("");
     }//GEN-LAST:event_btnFiltrarporcedulaActionPerformed
 
     private void btnFiltrarporfechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarporfechaActionPerformed
-      txtFecha3.setEnabled(false);
-            txtFecha3.setDate(null);
-            mostrarFiltroporfecha("");
+        txtFecha3.setEnabled(false);
+        txtFecha3.setDate(null);
+        mostrarFiltroporfecha("");
     }//GEN-LAST:event_btnFiltrarporfechaActionPerformed
 
     private void btnFiltrarporrangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarporrangoActionPerformed
         {
             txtFecha3.setEnabled(true);
             mostrarFiltro2Fechas("");
-         
-            
+
         }
     }//GEN-LAST:event_btnFiltrarporrangoActionPerformed
 
@@ -628,6 +620,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
     private javax.swing.JButton btnListar;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;

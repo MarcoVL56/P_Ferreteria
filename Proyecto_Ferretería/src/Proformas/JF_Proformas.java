@@ -6,11 +6,14 @@
 package Proformas;
 
 import Conexion.datosP;
+import Factura.JF_FiltroFactura;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import Menú.JF_Menú;
+import RegistrarEmpleado.JF_RegistrarCliente;
+import Ventas.JF_Ventas;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -39,7 +42,7 @@ public class JF_Proformas extends javax.swing.JFrame {
 
             sql = "SELECT Id_Factura,Nombre,Cédula,FK_Producto,Cantidad,TotalPagar,Impuesto"
                     + " FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)"
-                    + " where Cédula ='" +txtBuscar.getText()+"' and Fk_Estado = 2";
+                    + " where Cédula ='" + txtBuscar.getText() + "' and Fk_Estado = 2";
 
         }
         String[] datos = new String[7];
@@ -103,6 +106,7 @@ public class JF_Proformas extends javax.swing.JFrame {
         btnPagar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbDatos = new javax.swing.JTable();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -228,8 +232,8 @@ public class JF_Proformas extends javax.swing.JFrame {
         jPanel1.add(PanelMenuP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
         jLabel1.setText("Cédula vinculado a la proforma:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, -1, -1));
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 190, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 190, -1));
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -237,7 +241,7 @@ public class JF_Proformas extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 120, -1, -1));
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 200, -1, -1));
 
         btnPagar.setText("Pagar");
         btnPagar.addActionListener(new java.awt.event.ActionListener() {
@@ -245,7 +249,7 @@ public class JF_Proformas extends javax.swing.JFrame {
                 btnPagarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 120, -1, -1));
+        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 610, 160, -1));
 
         tbDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -261,7 +265,12 @@ public class JF_Proformas extends javax.swing.JFrame {
         tbDatos.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tbDatos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 940, 370));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 940, 370));
+
+        jLabel14.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
+        jLabel14.setText("Registro de proformas");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -301,15 +310,21 @@ public class JF_Proformas extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnMenuMouseClicked
 
     private void BtnFiltrarFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFiltrarFMouseClicked
-        // TODO add your handling code here:
+        JF_FiltroFactura m = new JF_FiltroFactura();
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BtnFiltrarFMouseClicked
 
     private void BtnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnVentasMouseClicked
-        // TODO add your handling code here:
+        JF_Ventas m = new JF_Ventas();
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BtnVentasMouseClicked
 
     private void BtnIRegistrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseClicked
-        // TODO add your handling code here:
+        JF_RegistrarCliente m = new JF_RegistrarCliente();
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
@@ -370,6 +385,7 @@ public class JF_Proformas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JPanel jPanel1;

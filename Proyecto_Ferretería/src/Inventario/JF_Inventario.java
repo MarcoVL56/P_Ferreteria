@@ -3,6 +3,10 @@ package Inventario;
 import Menú.JF_Menú;
 import RegistrarUsuario.JF_RegistrarUsuario;
 import Conexion.datosP;
+import Factura.JF_FiltroFactura;
+import Proformas.JF_Proformas;
+import RegistrarEmpleado.JF_RegistrarCliente;
+import Ventas.JF_Ventas;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -206,6 +210,11 @@ public class JF_Inventario extends javax.swing.JFrame {
         PanelMenuI.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 150, 30));
 
         BtnFiltrarF.setBackground(new java.awt.Color(153, 153, 153));
+        BtnFiltrarF.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnFiltrarFMouseClicked(evt);
+            }
+        });
         BtnFiltrarF.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setBackground(new java.awt.Color(67, 81, 141));
@@ -217,6 +226,11 @@ public class JF_Inventario extends javax.swing.JFrame {
         PanelMenuI.add(BtnFiltrarF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 150, -1));
 
         BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
+        BtnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnVentasMouseClicked(evt);
+            }
+        });
         BtnVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setBackground(new java.awt.Color(67, 81, 141));
@@ -228,6 +242,11 @@ public class JF_Inventario extends javax.swing.JFrame {
         PanelMenuI.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 150, -1));
 
         BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
+        BtnProforma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnProformaMouseClicked(evt);
+            }
+        });
         BtnProforma.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setBackground(new java.awt.Color(67, 81, 141));
@@ -239,6 +258,11 @@ public class JF_Inventario extends javax.swing.JFrame {
         PanelMenuI.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, -1));
 
         BtnIRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
+        BtnIRegistrarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnIRegistrarClienteMouseClicked(evt);
+            }
+        });
         BtnIRegistrarCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel18.setBackground(new java.awt.Color(67, 81, 141));
@@ -301,6 +325,30 @@ public class JF_Inventario extends javax.swing.JFrame {
         m.setVisible(true);
         dispose();
     }//GEN-LAST:event_BtnMenuMouseClicked
+
+    private void BtnIRegistrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseClicked
+        JF_RegistrarCliente m = new JF_RegistrarCliente();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
+
+    private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked
+        JF_Proformas m = new JF_Proformas();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnProformaMouseClicked
+
+    private void BtnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnVentasMouseClicked
+        JF_Ventas m = new JF_Ventas();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnVentasMouseClicked
+
+    private void BtnFiltrarFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFiltrarFMouseClicked
+        JF_FiltroFactura m = new JF_FiltroFactura();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnFiltrarFMouseClicked
 
     /**
      * @param args the command line arguments
