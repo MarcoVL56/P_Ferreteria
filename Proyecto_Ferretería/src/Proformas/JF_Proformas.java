@@ -107,6 +107,9 @@ public class JF_Proformas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbDatos = new javax.swing.JTable();
         jLabel14 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbDatos1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -231,9 +234,10 @@ public class JF_Proformas extends javax.swing.JFrame {
 
         jPanel1.add(PanelMenuP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
-        jLabel1.setText("Cédula vinculado a la proforma:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 190, -1));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Productos");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 200, -1, -1));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, 130, -1));
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -249,7 +253,7 @@ public class JF_Proformas extends javax.swing.JFrame {
                 btnPagarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 610, 160, -1));
+        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 610, 160, -1));
 
         tbDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -265,12 +269,32 @@ public class JF_Proformas extends javax.swing.JFrame {
         tbDatos.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tbDatos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 940, 370));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 230, 470, 370));
 
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
         jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
         jLabel14.setText("Registro de proformas");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, -1, -1));
+
+        tbDatos1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbDatos1.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(tbDatos1);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 470, 370));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Cédula vinculado a la proforma:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -388,10 +412,13 @@ public class JF_Proformas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tbDatos;
+    private javax.swing.JTable tbDatos1;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
    datosP cc = new datosP();

@@ -29,10 +29,6 @@ public class Proveedor extends javax.swing.JFrame {
         BtnSalir = new javax.swing.JLabel();
         BtnMinimizar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txtproveedor = new javax.swing.JTextField();
-        btningresar = new javax.swing.JButton();
         PanelMenuProveed = new javax.swing.JPanel();
         BtnMenu = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -44,6 +40,12 @@ public class Proveedor extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         BtnIRegistrarCliente = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        btningresar = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        txtproveedor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -99,25 +101,6 @@ public class Proveedor extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel6.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
-        jLabel6.setText("Proveedor");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 70, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        jLabel7.setText("Nombre Proveedor");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(753, 156, -1, -1));
-        jPanel1.add(txtproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(669, 226, 308, -1));
-
-        btningresar.setBackground(new java.awt.Color(255, 255, 51));
-        btningresar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        btningresar.setText("Ingresar");
-        btningresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btningresarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btningresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 310, 110, 48));
 
         PanelMenuProveed.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuProveed.setForeground(new java.awt.Color(255, 255, 255));
@@ -200,6 +183,59 @@ public class Proveedor extends javax.swing.JFrame {
 
         jPanel1.add(PanelMenuProveed, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 660));
 
+        jLabel14.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
+        jLabel14.setText("Registro de Proveedores ");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(0, 102, 255));
+
+        jLabel7.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel7.setText("Nombre Proveedor");
+
+        btningresar.setBackground(new java.awt.Color(255, 204, 51));
+        btningresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btningresarMouseClicked(evt);
+            }
+        });
+        btningresar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel11.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
+        jLabel11.setText("Ingresar");
+        btningresar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 100, 40));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(btningresar, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addComponent(txtproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(btningresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(199, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 510, 450));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1420, 660));
 
         pack();
@@ -221,20 +257,6 @@ public class Proveedor extends javax.swing.JFrame {
     private void BtnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMinimizarMouseClicked
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_BtnMinimizarMouseClicked
-
-    private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
-
-        try {
-            ps = con.conectar().prepareStatement("INSERT INTO proveedor (NombreProveedor) "
-                    + "VALUES(?)");
-            ps.setString(1, txtproveedor.getText());
-            ps.execute();
-            JOptionPane.showMessageDialog(null, "Proveedor Ingresado...");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error en la base de datos...");
-
-        }
-    }//GEN-LAST:event_btningresarActionPerformed
 
     private void BtnIRegistrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseClicked
         JF_RegistrarCliente m = new JF_RegistrarCliente();
@@ -259,6 +281,19 @@ public class Proveedor extends javax.swing.JFrame {
         m.setVisible(true);
         dispose();
     }//GEN-LAST:event_BtnFiltrarFMouseClicked
+
+    private void btningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btningresarMouseClicked
+          try {
+            ps = con.conectar().prepareStatement("INSERT INTO proveedor (NombreProveedor) "
+                    + "VALUES(?)");
+            ps.setString(1, txtproveedor.getText());
+            ps.execute();
+            JOptionPane.showMessageDialog(null, "Proveedor Ingresado...");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en la base de datos...");
+
+        }
+    }//GEN-LAST:event_btningresarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -305,15 +340,17 @@ public class Proveedor extends javax.swing.JFrame {
     private javax.swing.JPanel BtnVentas;
     private javax.swing.JPanel PanelMenuProveed;
     private javax.swing.JLabel btnSubMenu;
-    private javax.swing.JButton btningresar;
+    private javax.swing.JPanel btningresar;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtproveedor;
     // End of variables declaration//GEN-END:variables

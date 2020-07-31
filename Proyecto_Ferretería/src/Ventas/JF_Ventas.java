@@ -1,17 +1,102 @@
-
 package Ventas;
 
+import Conexion.datosP;
 import Menú.JF_Menú;
-
+import Proformas.JF_Proformas;
+import RegistrarEmpleado.JF_RegistrarCliente;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
 
 public class JF_Ventas extends javax.swing.JFrame {
 
-   
     public JF_Ventas() {
         initComponents();
-            setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
     }
 
+    public void mostrardatosProducto(String valor) {
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Id");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Presentación");
+        modelo.addColumn("Precio unitario");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Proveedor");
+
+        tbProductoInventario.setModel(modelo);
+        String sql = "";
+        if (valor.equals("")) {
+            sql = "SELECT Id_Disponibilidad , Nombre , Presentacion, PrecioUnitario, Cantidad, NombreProveedor "
+                    + "FROM inventario a INNER JOIN producto b on (b.Id_Producto = a.Fk_Productos) INNER Join proveedor c on (c.Id_Proveedor = a.Fk_Proveedor)";
+
+        }
+        String[] datos = new String[6];
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+                datos[4] = rs.getString(5);
+                datos[5] = rs.getString(6);
+
+                modelo.addRow(datos);
+            }
+            tbProductoInventario.setModel(modelo);
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            // Logger.getLogger(ingresoproductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+        public void mostrarBusquedaProducto(String valor) {
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Id");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Presentación");
+        modelo.addColumn("Precio unitario");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Proveedor");
+
+        tbProductoInventario.setModel(modelo);
+        String sql = "";
+        if (valor.equals("")) {
+            sql = "SELECT Id_Disponibilidad , Nombre , Presentacion, PrecioUnitario, Cantidad, NombreProveedor FROM inventario a INNER JOIN producto b on (b.Id_Producto = a.Fk_Productos) "
+                    + "INNER Join proveedor c on (c.Id_Proveedor = a.Fk_Proveedor) where nombre = '"+txtBuscar.getText()+"'";
+
+        }
+        String[] datos = new String[6];
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+                datos[4] = rs.getString(5);
+                datos[5] = rs.getString(6);
+
+                modelo.addRow(datos);
+            }
+            tbProductoInventario.setModel(modelo);
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            // Logger.getLogger(ingresoproductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -23,15 +108,15 @@ public class JF_Ventas extends javax.swing.JFrame {
         BtnSalir = new javax.swing.JLabel();
         BtnMinimizar = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        BtnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbDatos = new javax.swing.JTable();
+        tbProductosSelec = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tbDatos1 = new javax.swing.JTable();
+        tbProductoInventario = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -119,15 +204,21 @@ public class JF_Ventas extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
         jLabel14.setText("Montos");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 440, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 180, 30));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 180, 30));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Nombre del producto");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, -1, -1));
 
-        jButton1.setText("Buscar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 180, -1));
+        BtnBuscar.setText("Buscar");
+        BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 180, -1));
 
-        tbDatos.setModel(new javax.swing.table.DefaultTableModel(
+        tbProductosSelec.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -138,18 +229,20 @@ public class JF_Ventas extends javax.swing.JFrame {
 
             }
         ));
-        tbDatos.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(tbDatos);
+        tbProductosSelec.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(tbProductosSelec);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 110, 540, 190));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Productos en inventario ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, -1, 30));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Productos seleccionados");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 90, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 80, -1, -1));
 
-        tbDatos1.setModel(new javax.swing.table.DefaultTableModel(
+        tbProductoInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -160,8 +253,8 @@ public class JF_Ventas extends javax.swing.JFrame {
 
             }
         ));
-        tbDatos1.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane2.setViewportView(tbDatos1);
+        tbProductoInventario.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(tbProductoInventario);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, 550, 310));
 
@@ -221,6 +314,7 @@ public class JF_Ventas extends javax.swing.JFrame {
         jLabel9.setText("Es necesario un usuario administrador");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 660, -1, -1));
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setText("Cédula");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, -1, -1));
         jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 200, 30));
@@ -322,15 +416,15 @@ public class JF_Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSubMenuMouseClicked
 
     private void BtnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSalirMouseClicked
-          System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_BtnSalirMouseClicked
 
     private void BtnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMinimizarMouseClicked
-         this.setExtendedState(ICONIFIED);
+        this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_BtnMinimizarMouseClicked
 
     private void btnAplicarDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarDescuentoActionPerformed
-       JF_Permiso m = new JF_Permiso();
+        JF_Permiso m = new JF_Permiso();
         m.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAplicarDescuentoActionPerformed
@@ -342,16 +436,27 @@ public class JF_Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnMenuMouseClicked
 
     private void BtnFiltrarFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFiltrarFMouseClicked
-        // TODO add your handling code here:
+        JF_Ventas m = new JF_Ventas();
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BtnFiltrarFMouseClicked
 
     private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked
-        // TODO add your handling code here:
+        JF_Proformas m = new JF_Proformas();
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BtnProformaMouseClicked
 
     private void BtnIRegistrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseClicked
-        // TODO add your handling code here:
+        JF_RegistrarCliente m = new JF_RegistrarCliente();
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
+
+
+    private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
+      mostrarBusquedaProducto("");
+    }//GEN-LAST:event_BtnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -389,6 +494,7 @@ public class JF_Ventas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnBuscar;
     private javax.swing.JPanel BtnFiltrarF;
     private javax.swing.JPanel BtnIRegistrarCliente;
     private javax.swing.JPanel BtnMenu;
@@ -398,7 +504,6 @@ public class JF_Ventas extends javax.swing.JFrame {
     private javax.swing.JPanel PanelMenuV;
     private javax.swing.JButton btnAplicarDescuento;
     private javax.swing.JLabel btnSubMenu;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -425,13 +530,15 @@ public class JF_Ventas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTable tbDatos;
-    private javax.swing.JTable tbDatos1;
+    public javax.swing.JTable tbProductoInventario;
+    private javax.swing.JTable tbProductosSelec;
+    private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
+  datosP cc = new datosP();
+    Connection cn = cc.conexion();
 }

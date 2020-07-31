@@ -32,7 +32,6 @@ public class Producto extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         cbpresentacion = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
@@ -58,6 +57,7 @@ public class Producto extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtnombre1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -116,26 +116,23 @@ public class Producto extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel3.setText("Nombre");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 126, -1, -1));
-        jPanel2.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 99, -1));
-
-        jLabel2.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
-        jLabel2.setText("Productos");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, -1, -1));
+        jPanel2.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 260, 110, 30));
 
         jLabel4.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel4.setText("Presentación");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(644, 126, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, -1));
 
         cbpresentacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kilo", "Unidad", "Gramo" }));
-        jPanel2.add(cbpresentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(745, 124, 99, -1));
+        jPanel2.add(cbpresentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, 110, 30));
 
         jLabel5.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel5.setText("Precio Unitario");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 126, -1, -1));
-        jPanel2.add(txtprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(984, 124, 99, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 190, -1, -1));
+        jPanel2.add(txtprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 190, 110, 30));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51)));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnborrar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         btnborrar.setText("Borrar");
@@ -144,6 +141,7 @@ public class Producto extends javax.swing.JFrame {
                 btnborrarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnborrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 90, 88, 38));
 
         btnmodificar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         btnmodificar.setText("Modificar");
@@ -152,6 +150,7 @@ public class Producto extends javax.swing.JFrame {
                 btnmodificarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 90, -1, 38));
 
         btnbuscar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         btnbuscar.setText("Buscar");
@@ -160,6 +159,7 @@ public class Producto extends javax.swing.JFrame {
                 btnbuscarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 90, 88, 38));
 
         btningresar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         btningresar.setText("Ingresar");
@@ -168,54 +168,18 @@ public class Producto extends javax.swing.JFrame {
                 btningresarActionPerformed(evt);
             }
         });
+        jPanel1.add(btningresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 90, 88, 38));
 
         jLabel8.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel8.setText("ID del producto");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, -1, -1));
+        jPanel1.add(txtIdbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 98, -1));
 
         jLabel9.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
         jLabel9.setText("Opciones");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 28, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(btningresar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(btnborrar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(btnmodificar)
-                .addGap(39, 39, 39)
-                .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(txtIdbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(261, 261, 261)
-                .addComponent(jLabel9)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnborrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btningresar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIdbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
-        );
-
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 680, -1));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 680, 190));
 
         PanelMenuProducto.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuProducto.setForeground(new java.awt.Color(255, 255, 255));
@@ -300,8 +264,13 @@ public class Producto extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel1.setText("Cantidad");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, -1));
-        jPanel2.add(txtnombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(536, 124, 99, 20));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 270, -1, -1));
+        jPanel2.add(txtnombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 120, 30));
+
+        jLabel14.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
+        jLabel14.setText("Ingresar producto");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1420, 660));
 
@@ -494,10 +463,10 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -79,7 +79,6 @@ public class JF_Inventario extends javax.swing.JFrame {
         BtnSalir = new javax.swing.JLabel();
         BtnMinimizar = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         btnMostrar = new javax.swing.JButton();
         txtID = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -97,6 +96,8 @@ public class JF_Inventario extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnbuscar1 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -155,12 +156,7 @@ public class JF_Inventario extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Id del producto");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 160, 150, 40));
-
-        jLabel2.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Inventario");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, 150, 50));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, 150, 40));
 
         btnMostrar.setBackground(new java.awt.Color(255, 255, 51));
         btnMostrar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
@@ -171,8 +167,8 @@ public class JF_Inventario extends javax.swing.JFrame {
                 btnMostrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 450, 100, 40));
-        jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 210, 160, 30));
+        jPanel1.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 470, 100, 40));
+        jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 160, 30));
 
         TbInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -187,7 +183,7 @@ public class JF_Inventario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TbInventario);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 1020, 120));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 1020, 120));
 
         PanelMenuI.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuI.setForeground(new java.awt.Color(255, 255, 255));
@@ -283,7 +279,27 @@ public class JF_Inventario extends javax.swing.JFrame {
         btnbuscar1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         btnbuscar1.setText("Buscar");
         btnbuscar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 51)));
-        jPanel1.add(btnbuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, 100, 40));
+        jPanel1.add(btnbuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 100, 40));
+
+        jLabel14.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
+        jLabel14.setText("Inventario ");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(0, 102, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1080, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 1080, 400));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -293,7 +309,7 @@ public class JF_Inventario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -402,12 +418,13 @@ public class JF_Inventario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtID;
