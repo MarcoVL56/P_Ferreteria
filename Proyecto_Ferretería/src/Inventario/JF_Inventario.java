@@ -13,7 +13,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class JF_Inventario extends javax.swing.JFrame {
 
-  Conexion con = new Conexion();
+    Conexion con = new Conexion();
+
     public JF_Inventario() {
         initComponents();
         setLocationRelativeTo(null);
@@ -21,21 +22,28 @@ public class JF_Inventario extends javax.swing.JFrame {
         //Carga de tabla -----------
         PreparedStatement ps = null;
         ResultSet rs = null;
-       
+
         DefaultTableModel modelo = new DefaultTableModel();
         TbInventario.setModel(modelo);
 
         try {
-            ps = con.conectar().prepareStatement("SELECT * FROM inventario a INNER JOIN producto b on "
-                    + "(b.Id_Producto = a.Fk_Productos) INNER Join proveedor c on (c.Id_Proveedor = a.Fk_Proveedor)");
+            ps = con.conectar().prepareStatement("SELECT * FROM inventario INNER JOIN producto ON inventario.Fk_Productos = producto.Id_Producto "
+                    + "INNER JOIN proveedor ON inventario.Fk_Proveedor = proveedor.Id_Proveedor");
             rs = ps.executeQuery();
 
             ResultSetMetaData rsmt = rs.getMetaData();
             int cantcolum = rsmt.getColumnCount();
 
-            modelo.addColumn("ID");
-            modelo.addColumn("Producto");
-            modelo.addColumn("Proveedor");
+            modelo.addColumn("ID Inventario");
+            modelo.addColumn("fk Producto");
+            modelo.addColumn("fk Proveedor");
+            modelo.addColumn("Id producto");
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Presentacion");
+            modelo.addColumn("Precio Unidad");
+            modelo.addColumn("Cantidad");
+            modelo.addColumn("Id Proveedor");
+            modelo.addColumn("Nombre Proveedor");
 
             while (rs.next()) {
                 Object[] filas = new Object[cantcolum];
@@ -47,7 +55,7 @@ public class JF_Inventario extends javax.swing.JFrame {
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error al cargar... "+e);
+            JOptionPane.showMessageDialog(null, "Error al cargar... " + e);
         }
 
     }
@@ -164,26 +172,18 @@ public class JF_Inventario extends javax.swing.JFrame {
 
         TbInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Producto", "Proveedor"
+                "ID Inventario", "fk Producto", "fk Proveedor", "Id producto", "Nombre", "Presentacion", "Precio Unidad", "Cantidad", "Id Proveedor", "Nombre Proveedor"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(TbInventario);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 680, 120));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 1020, 120));
 
         PanelMenuI.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuI.setForeground(new java.awt.Color(255, 255, 255));
@@ -293,7 +293,7 @@ public class JF_Inventario extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnMinimizarMouseClicked
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        
+
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
@@ -302,40 +302,6 @@ public class JF_Inventario extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BtnMenuMouseClicked
 
-   /* void mostrardatos(String valor) {
-
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID");
-        modelo.addColumn("Producto");
-        modelo.addColumn("Proveedor");
-        
-        TbInventario.setModel(modelo);
-        String sql = "";
-        if (valor.equals("")) {
-            sql = "SELECT * FROM inventario a INNER JOIN producto b on "
-                    + "(b.Id_Producto = a.Fk_Productos) INNER Join proveedor c on (c.Id_Proveedor = a.Fk_Proveedor)";
-
-        }
-        String[] datos = new String[3];
-        try {
-            Statement st = con.conectar().createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);
-                datos[2] = rs.getString(3);
-               
-
-                modelo.addRow(datos);
-            }
-            TbInventario.setModel(modelo);
-        } catch (SQLException ex) {
-            System.out.println(ex);
-            // Logger.getLogger(ingresoproductos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    } */
-    
     /**
      * @param args the command line arguments
      */
