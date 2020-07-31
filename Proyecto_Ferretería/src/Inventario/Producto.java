@@ -19,6 +19,7 @@ public class Producto extends javax.swing.JFrame {
     public Producto() {
         initComponents();
         setLocationRelativeTo(null);
+        cbproveedor();
     }
 
     @SuppressWarnings("unchecked")
@@ -55,10 +56,11 @@ public class Producto extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         BtnIRegistrarCliente = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtnombre1 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbprove = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -258,10 +260,15 @@ public class Producto extends javax.swing.JFrame {
         jLabel18.setBackground(new java.awt.Color(67, 81, 141));
         jLabel18.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("Registrar cliente");
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("Proveedor");
         BtnIRegistrarCliente.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 140, 30));
 
         PanelMenuProducto.add(BtnIRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 150, 30));
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-producto-nuevo-80.png"))); // NOI18N
+        PanelMenuProducto.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 120, 100));
 
         jPanel2.add(PanelMenuProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 660));
 
@@ -275,7 +282,7 @@ public class Producto extends javax.swing.JFrame {
         jLabel14.setText("Ingresar producto");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, -1, -1));
 
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 260, 110, 30));
+        jPanel2.add(cbprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 260, 110, 30));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel2.setText("Proveedor");
@@ -418,6 +425,20 @@ public class Producto extends javax.swing.JFrame {
         txtIdbuscar.setText("");
         txtCantidad.setText("");
     }
+    private void cbproveedor(){
+        try{
+            ps= con.conectar().prepareStatement("SELECT NombreProveedor FROM proveedor ORDER BY NombreProveedor ASC");
+            
+            rs=ps.executeQuery();
+            
+            while(rs.next()){
+            cbprove.addItem(rs.getString("NombreProveedor"));
+            }
+            con.Desconectar();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Error en la matrix: "+ e);
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -469,7 +490,7 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JButton btningresar;
     private javax.swing.JButton btnmodificar;
     private javax.swing.JComboBox<String> cbpresentacion;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbprove;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -481,6 +502,7 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
