@@ -230,7 +230,6 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         btnSubMenu = new javax.swing.JLabel();
         BtnSalir = new javax.swing.JLabel();
         BtnMinimizar = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         PanelMenuFFac = new javax.swing.JPanel();
         BtnMenu = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -251,9 +250,11 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         btnFiltrarporrango = new javax.swing.JButton();
         btnFiltrarporfecha = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -282,10 +283,6 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
-        jLabel14.setText("Filtrado de facturas ");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -293,9 +290,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(btnSubMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 521, Short.MAX_VALUE)
-                .addComponent(jLabel14)
-                .addGap(418, 418, 418)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1235, Short.MAX_VALUE)
                 .addComponent(BtnMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtnSalir))
@@ -304,21 +299,19 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnSubMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel14)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(BtnMinimizar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnSalir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(BtnMinimizar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnSalir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1420, 50));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 50));
 
-        PanelMenuFFac.setBackground(new java.awt.Color(102, 102, 102));
+        PanelMenuFFac.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuFFac.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuFFac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtnMenu.setBackground(new java.awt.Color(255, 255, 102));
+        BtnMenu.setBackground(new java.awt.Color(255, 0, 0));
         BtnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BtnMenuMouseClicked(evt);
@@ -328,10 +321,11 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
 
         jLabel12.setBackground(new java.awt.Color(67, 81, 141));
         jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Menú");
         BtnMenu.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 60, 30));
 
-        PanelMenuFFac.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 150, 30));
+        PanelMenuFFac.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 150, 30));
 
         BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
         BtnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -347,7 +341,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         jLabel16.setText("Ventas");
         BtnVentas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 60, 30));
 
-        PanelMenuFFac.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 150, -1));
+        PanelMenuFFac.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 150, -1));
 
         BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
         BtnProforma.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -363,7 +357,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         jLabel17.setText("Proformas");
         BtnProforma.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 90, 30));
 
-        PanelMenuFFac.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, -1));
+        PanelMenuFFac.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 150, -1));
 
         BtnIRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
         BtnIRegistrarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -411,104 +405,60 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 830, 250));
 
-        jPanel6.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel6.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtCedula.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         txtCedula.setForeground(new java.awt.Color(204, 204, 204));
         txtCedula.setText("Ingrese la cedula");
+        jPanel6.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 205, 35));
 
         btnFiltrarporcedula.setBackground(new java.awt.Color(0, 204, 0));
         btnFiltrarporcedula.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnFiltrarporcedula.setText("Buscar");
-        btnFiltrarporcedula.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFiltrarporcedula.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnFiltrarporcedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFiltrarporcedulaActionPerformed(evt);
             }
         });
+        jPanel6.add(btnFiltrarporcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, -1, 35));
+        jPanel6.add(txtFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 160, 31));
+        jPanel6.add(txtFecha3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 160, 31));
 
         btnFiltrarporrango.setBackground(new java.awt.Color(255, 255, 102));
         btnFiltrarporrango.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnFiltrarporrango.setText("Filtrar por rango");
-        btnFiltrarporrango.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFiltrarporrango.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnFiltrarporrango.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFiltrarporrangoActionPerformed(evt);
             }
         });
+        jPanel6.add(btnFiltrarporrango, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 160, -1));
 
         btnFiltrarporfecha.setBackground(new java.awt.Color(255, 255, 102));
         btnFiltrarporfecha.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnFiltrarporfecha.setText("Filtrar por fecha");
-        btnFiltrarporfecha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFiltrarporfecha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnFiltrarporfecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFiltrarporfechaActionPerformed(evt);
             }
         });
+        jPanel6.add(btnFiltrarporfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 160, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/iconfinder_search_322497 (1).png"))); // NOI18N
+        jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 80, -1));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(btnFiltrarporcedula)
-                .addGap(83, 83, 83)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFiltrarporfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(126, 126, 126)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtFecha3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFiltrarporrango, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnFiltrarporcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(txtFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(btnFiltrarporfecha))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(txtFecha3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(btnFiltrarporrango))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)))
-                .addGap(23, 23, 23))
-        );
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 1050, 100));
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1430, 100));
+        jLabel14.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
+        jLabel14.setText("Filtrado de facturas ");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1409, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 712));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
