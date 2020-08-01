@@ -142,7 +142,7 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
                 lblBuscarMouseClicked(evt);
             }
         });
-        jPanel1.add(lblBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 140, -1, -1));
+        jPanel1.add(lblBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 190, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         jLabel3.setText("Montos");
@@ -158,34 +158,34 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTableDatos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 590, 280));
-        jPanel1.add(txtTotalFacturado, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 540, 80, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 590, 280));
+        jPanel1.add(txtTotalFacturado, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 570, 80, -1));
 
         jDCFechaInicio.setDateFormatString("yyyy-MM-dd");
-        jPanel1.add(jDCFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, -1, -1));
+        jPanel1.add(jDCFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, -1, -1));
 
         jDCFechaFinal.setDateFormatString("yyyy-MM-dd\n");
-        jPanel1.add(jDCFechaFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, -1, -1));
+        jPanel1.add(jDCFechaFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 230, -1, -1));
 
         lblTotalFacturado.setBackground(new java.awt.Color(0, 0, 0));
         lblTotalFacturado.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
         lblTotalFacturado.setText("Total Facturado:");
-        jPanel1.add(lblTotalFacturado, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 530, -1, 40));
+        jPanel1.add(lblTotalFacturado, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 560, -1, 40));
 
         lblTituloReporte.setBackground(new java.awt.Color(0, 0, 0));
         lblTituloReporte.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
         lblTituloReporte.setText("Reporte de productos");
-        jPanel1.add(lblTituloReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
+        jPanel1.add(lblTituloReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, -1, -1));
 
         lblFecha1.setBackground(new java.awt.Color(0, 0, 0));
         lblFecha1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
         lblFecha1.setText("Fecha:");
-        jPanel1.add(lblFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 166, -1, 30));
+        jPanel1.add(lblFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, -1, 30));
 
         lblHasta1.setBackground(new java.awt.Color(0, 0, 0));
         lblHasta1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
         lblHasta1.setText("Hasta:");
-        jPanel1.add(lblHasta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, -1, 40));
+        jPanel1.add(lblHasta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 220, -1, 40));
 
         PanelReporteProd.setBackground(new java.awt.Color(204, 204, 204));
         PanelReporteProd.setForeground(new java.awt.Color(255, 255, 255));
@@ -419,18 +419,15 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BtnFiltrarF;
     private javax.swing.JPanel BtnIRegistrarCliente;
-    private javax.swing.JPanel BtnMenu;
     private javax.swing.JPanel BtnMenu1;
     private javax.swing.JLabel BtnMinimizar;
     private javax.swing.JPanel BtnProforma;
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel BtnVentas;
-    private javax.swing.JPanel PanelMenuFac;
     private javax.swing.JPanel PanelReporteProd;
     private javax.swing.JLabel btnSubMenu;
     private com.toedter.calendar.JDateChooser jDCFechaFinal;
     private com.toedter.calendar.JDateChooser jDCFechaInicio;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
