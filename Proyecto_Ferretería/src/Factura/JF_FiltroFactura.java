@@ -195,7 +195,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
             //Cambié Nombre_cliente y Cedula_cliente
             sql = "SELECT Nombre,Cédula,FK_Producto,Cantidad,TotalPagar,Fecha "
                     + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) "
-                    + "where Cédula_Cliente ='" + txtCedula.getText() + "'";
+                    + "where Cédula ='" + txtCedula.getText() + "'";
 
         }
 
@@ -387,7 +387,6 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         });
         jPanel1.add(btnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
 
-        tbDatos.setBackground(new java.awt.Color(102, 102, 102));
         tbDatos.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         tbDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -405,7 +404,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 830, 250));
 
-        jPanel6.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel6.setBackground(new java.awt.Color(0, 102, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtCedula.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N

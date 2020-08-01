@@ -109,6 +109,11 @@ public class Proveedor extends javax.swing.JFrame {
         PanelMenuProveed.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnMenu.setBackground(new java.awt.Color(255, 0, 0));
+        BtnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnMenuMouseClicked(evt);
+            }
+        });
         BtnMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setBackground(new java.awt.Color(67, 81, 141));
@@ -297,7 +302,7 @@ public class Proveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnFiltrarFMouseClicked
 
     private void btningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btningresarMouseClicked
-          try {
+        try {
             ps = con.conectar().prepareStatement("INSERT INTO proveedor (NombreProveedor) "
                     + "VALUES(?)");
             ps.setString(1, txtproveedor.getText());
@@ -308,6 +313,12 @@ public class Proveedor extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btningresarMouseClicked
+
+    private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
+        JF_Menú m = new JF_Menú();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnMenuMouseClicked
 
     /**
      * @param args the command line arguments

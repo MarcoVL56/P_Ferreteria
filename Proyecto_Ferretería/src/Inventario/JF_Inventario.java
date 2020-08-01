@@ -26,6 +26,7 @@ public class JF_Inventario extends javax.swing.JFrame {
 
     Conexion.Conexion con = new Conexion.Conexion();
     TableRowSorter trsfiltro;
+
     public JF_Inventario() {
         initComponents();
         setLocationRelativeTo(null);
@@ -52,7 +53,6 @@ public class JF_Inventario extends javax.swing.JFrame {
             modelo.addColumn("Precio");
             modelo.addColumn("Cantidad");
             modelo.addColumn("Proveedor");
-          
 
             while (rs.next()) {
                 Object[] filas = new Object[cantcolum];
@@ -83,7 +83,6 @@ public class JF_Inventario extends javax.swing.JFrame {
         btnSubMenu = new javax.swing.JLabel();
         BtnSalir = new javax.swing.JLabel();
         BtnMinimizar = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TbInventario = new javax.swing.JTable();
@@ -101,8 +100,10 @@ public class JF_Inventario extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btnproducto = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        BtnProducto = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -157,11 +158,6 @@ public class JF_Inventario extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 50));
-
-        jLabel1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Nombre del producto");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, 150, 40));
 
         txtnombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -281,42 +277,31 @@ public class JF_Inventario extends javax.swing.JFrame {
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 255));
-
-        btnproducto.setBackground(new java.awt.Color(255, 255, 0));
-        btnproducto.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        btnproducto.setText("Producto");
-        btnproducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnproductoActionPerformed(evt);
-            }
-        });
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-almacén-64.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 19, 110, 90));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(481, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(474, 474, 474))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(282, 282, 282))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
-                .addComponent(btnproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
-        );
+        BtnProducto.setBackground(new java.awt.Color(255, 204, 51));
+        BtnProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnProductoMouseClicked(evt);
+            }
+        });
+        BtnProducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel11.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
+        jLabel11.setText("Productos");
+        BtnProducto.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 120, 40));
+
+        jPanel2.add(BtnProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 310, -1));
+
+        jLabel1.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Nombre del producto");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 180, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 1080, 400));
 
@@ -380,29 +365,29 @@ public class JF_Inventario extends javax.swing.JFrame {
         m.setVisible(true);
         dispose();
     }//GEN-LAST:event_BtnFiltrarFMouseClicked
+    private void filtro() {
+        int columnatb = 1;
+        trsfiltro.setRowFilter(RowFilter.regexFilter(txtnombre.getText(), columnatb));
 
-    private void btnproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnproductoActionPerformed
+    }
+    private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped
+        // TODO add your handling code here:
+        txtnombre.addKeyListener(new KeyAdapter() {
+            public void keyReleased(final KeyEvent e) {
+                String cadena = (txtnombre.getText());
+                txtnombre.setText(cadena);
+                filtro();
+            }
+        });
+        trsfiltro = new TableRowSorter(TbInventario.getModel());
+        TbInventario.setRowSorter(trsfiltro);
+    }//GEN-LAST:event_txtnombreKeyTyped
+
+    private void BtnProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProductoMouseClicked
         Producto p = new Producto();
         p.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnproductoActionPerformed
-private void filtro(){
-  int columnatb=1; 
-  trsfiltro.setRowFilter(RowFilter.regexFilter(txtnombre.getText(),columnatb));
-    
-}
-    private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped
-        // TODO add your handling code here:
-     txtnombre.addKeyListener(new KeyAdapter(){
-         public void keyReleased(final KeyEvent e){
-           String cadena=(txtnombre.getText());
-           txtnombre.setText(cadena);
-           filtro();
-         }
-     });
-     trsfiltro= new TableRowSorter(TbInventario.getModel());
-     TbInventario.setRowSorter(trsfiltro);
-    }//GEN-LAST:event_txtnombreKeyTyped
+    }//GEN-LAST:event_BtnProductoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -445,14 +430,15 @@ private void filtro(){
     private javax.swing.JPanel BtnIRegistrarCliente;
     private javax.swing.JPanel BtnMenu;
     private javax.swing.JLabel BtnMinimizar;
+    private javax.swing.JPanel BtnProducto;
     private javax.swing.JPanel BtnProforma;
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel BtnVentas;
     private javax.swing.JPanel PanelMenuI;
     private javax.swing.JTable TbInventario;
     private javax.swing.JLabel btnSubMenu;
-    private javax.swing.JButton btnproducto;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

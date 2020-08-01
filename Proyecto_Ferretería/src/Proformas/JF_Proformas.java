@@ -19,10 +19,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author MarcoVL20
- */
 public class JF_Proformas extends javax.swing.JFrame {
 
     void mostrardatos(String valor) {
@@ -31,21 +27,20 @@ public class JF_Proformas extends javax.swing.JFrame {
         modelo.addColumn("Codigo");
         modelo.addColumn("Cliente");
         modelo.addColumn("Cédula");
-        modelo.addColumn("Producto");
-        modelo.addColumn("Cantidad");
-        modelo.addColumn("Total a pagar");
+        modelo.addColumn("Id_Orden");
         modelo.addColumn("Impuesto");
+        modelo.addColumn("Total a pagar");
 
         tbDatos.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
 
-            sql = "SELECT Id_Factura,Nombre,Cédula,FK_Producto,Cantidad,TotalPagar,Impuesto"
+            sql = "SELECT Id_Factura,Nombre,Cédula,Id_Orden,Impuesto,TotalPagar"
                     + " FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)"
                     + " where Cédula ='" + txtBuscar.getText() + "' and Fk_Estado = 2";
 
         }
-        String[] datos = new String[7];
+        String[] datos = new String[6];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -57,11 +52,47 @@ public class JF_Proformas extends javax.swing.JFrame {
                 datos[3] = rs.getString(4);
                 datos[4] = rs.getString(5);
                 datos[5] = rs.getString(6);
-                datos[6] = rs.getString(7);
 
                 modelo.addRow(datos);
             }
             tbDatos.setModel(modelo);
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            // Logger.getLogger(ingresoproductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    void mostrardatosProductos(String valor) {
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Id_Orden");
+        modelo.addColumn("Nombre del producto");
+        modelo.addColumn("Presentación");
+        modelo.addColumn("Cantidad");
+
+        tbProductos.setModel(modelo);
+        String sql = "";
+        if (valor.equals("")) {
+
+            sql = "SELECT b.Id_Orden, d.Nombre, d.Presentacion, b.Cantidad FROM orden b INNER Join producto d on "
+                    + "(d.Id_Producto = b.Fk_Producto) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) "
+                    + "where Cédula ='" + txtBuscar.getText() + "' and Fk_Estado = 2";
+
+        }
+        String[] datos = new String[4];
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+
+                modelo.addRow(datos);
+            }
+            tbProductos.setModel(modelo);
         } catch (SQLException ex) {
             System.out.println(ex);
             // Logger.getLogger(ingresoproductos.class.getName()).log(Level.SEVERE, null, ex);
@@ -105,7 +136,7 @@ public class JF_Proformas extends javax.swing.JFrame {
         tbDatos = new javax.swing.JTable();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tbDatos1 = new javax.swing.JTable();
+        tbProductos = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
@@ -241,7 +272,7 @@ public class JF_Proformas extends javax.swing.JFrame {
                 btnPagarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 610, 160, -1));
+        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 610, 160, -1));
 
         tbDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -257,14 +288,14 @@ public class JF_Proformas extends javax.swing.JFrame {
         tbDatos.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tbDatos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 230, 470, 370));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 770, 370));
 
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
         jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
         jLabel14.setText("Registro de proformas");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, -1, -1));
 
-        tbDatos1.setModel(new javax.swing.table.DefaultTableModel(
+        tbProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -275,10 +306,10 @@ public class JF_Proformas extends javax.swing.JFrame {
 
             }
         ));
-        tbDatos1.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane2.setViewportView(tbDatos1);
+        tbProductos.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(tbProductos);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 500, 370));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 230, 360, 370));
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 255));
 
@@ -306,9 +337,9 @@ public class JF_Proformas extends javax.swing.JFrame {
                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 339, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(184, 184, 184))
+                .addGap(87, 87, 87))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,6 +420,7 @@ public class JF_Proformas extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         mostrardatos("");
+        mostrardatosProductos("");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
@@ -450,7 +482,7 @@ public class JF_Proformas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tbDatos;
-    private javax.swing.JTable tbDatos1;
+    private javax.swing.JTable tbProductos;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
    datosP cc = new datosP();

@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 public class Producto extends javax.swing.JFrame {
 
-   Conexion.Conexion con = new Conexion.Conexion();
+    Conexion.Conexion con = new Conexion.Conexion();
     PreparedStatement ps;
     ResultSet rs;
 
@@ -166,6 +166,7 @@ public class Producto extends javax.swing.JFrame {
         });
         jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 90, 88, 38));
 
+        btningresar.setBackground(new java.awt.Color(255, 204, 0));
         btningresar.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         btningresar.setText("Ingresar");
         btningresar.addActionListener(new java.awt.event.ActionListener() {
@@ -191,6 +192,11 @@ public class Producto extends javax.swing.JFrame {
         PanelMenuProducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnMenu.setBackground(new java.awt.Color(255, 0, 0));
+        BtnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnMenuMouseClicked(evt);
+            }
+        });
         BtnMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setBackground(new java.awt.Color(67, 81, 141));
@@ -330,7 +336,7 @@ public class Producto extends javax.swing.JFrame {
             con.Desconectar();
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al ingresar producto: " + e);
+            JOptionPane.showMessageDialog(null, "Error al ingresar producto: ");
         }
 
     }//GEN-LAST:event_btningresarActionPerformed
@@ -375,7 +381,7 @@ public class Producto extends javax.swing.JFrame {
             con.Desconectar();
             Limpiar();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al Modificar producto: " + e);
+            JOptionPane.showMessageDialog(null, "Error al Modificar producto: ");
         }
 
     }//GEN-LAST:event_btnmodificarActionPerformed
@@ -392,7 +398,7 @@ public class Producto extends javax.swing.JFrame {
             con.Desconectar();
             Limpiar();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al Eliminar producto: " + e);
+            JOptionPane.showMessageDialog(null, "Error al Eliminar producto: ");
         }
     }//GEN-LAST:event_btnborrarActionPerformed
 
@@ -419,24 +425,31 @@ public class Producto extends javax.swing.JFrame {
         m.setVisible(true);
         dispose();
     }//GEN-LAST:event_BtnFiltrarFMouseClicked
+
+    private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
+        JF_Menú m = new JF_Menú();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnMenuMouseClicked
     private void Limpiar() {
         txtnombre1.setText("");
         txtprecio.setText("");
         txtIdbuscar.setText("");
         txtCantidad.setText("");
     }
-    private void cbproveedor(){
-        try{
-            ps= con.conectar().prepareStatement("SELECT NombreProveedor FROM proveedor ORDER BY NombreProveedor ASC");
-            
-            rs=ps.executeQuery();
-            
-            while(rs.next()){
-            cbprove.addItem(rs.getString("NombreProveedor"));
+
+    private void cbproveedor() {
+        try {
+            ps = con.conectar().prepareStatement("SELECT NombreProveedor FROM proveedor ORDER BY NombreProveedor ASC");
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                cbprove.addItem(rs.getString("NombreProveedor"));
             }
             con.Desconectar();
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Error en la matrix: "+ e);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en la matrix: " + e);
         }
     }
 

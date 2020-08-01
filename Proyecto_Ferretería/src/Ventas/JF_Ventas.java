@@ -1,16 +1,23 @@
 package Ventas;
 
 import Conexion.datosP;
+import Factura.JF_Factura;
 import Menú.JF_Menú;
 import Proformas.JF_Proformas;
 import RegistrarEmpleado.JF_RegistrarCliente;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 public class JF_Ventas extends javax.swing.JFrame {
+
+    TableRowSorter trsfiltro;
 
     public JF_Ventas() {
         initComponents();
@@ -55,9 +62,8 @@ public class JF_Ventas extends javax.swing.JFrame {
             // Logger.getLogger(ingresoproductos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-        public void mostrarBusquedaProducto(String valor) {
+
+    public void mostrarBusquedaProducto(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Id");
@@ -71,7 +77,7 @@ public class JF_Ventas extends javax.swing.JFrame {
         String sql = "";
         if (valor.equals("")) {
             sql = "SELECT Id_Disponibilidad , Nombre , Presentacion, PrecioUnitario, Cantidad, NombreProveedor FROM inventario a INNER JOIN producto b on (b.Id_Producto = a.Fk_Productos) "
-                    + "INNER Join proveedor c on (c.Id_Proveedor = a.Fk_Proveedor) where nombre = '"+txtBuscar.getText()+"'";
+                    + "INNER Join proveedor c on (c.Id_Proveedor = a.Fk_Proveedor)";
 
         }
         String[] datos = new String[6];
@@ -95,8 +101,6 @@ public class JF_Ventas extends javax.swing.JFrame {
             // Logger.getLogger(ingresoproductos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -108,9 +112,7 @@ public class JF_Ventas extends javax.swing.JFrame {
         BtnSalir = new javax.swing.JLabel();
         BtnMinimizar = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        txtBuscar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        BtnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbProductosSelec = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -118,7 +120,7 @@ public class JF_Ventas extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tbProductoInventario = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnPagar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -146,6 +148,7 @@ public class JF_Ventas extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         BtnIRegistrarCliente = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
+        txtnombre = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -204,19 +207,10 @@ public class JF_Ventas extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
         jLabel14.setText("Montos");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 440, -1, -1));
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 180, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Nombre del producto");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, -1, -1));
-
-        BtnBuscar.setText("Buscar");
-        BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnBuscarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 180, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, -1, -1));
 
         tbProductosSelec.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -261,8 +255,13 @@ public class JF_Ventas extends javax.swing.JFrame {
         jButton2.setText("Guardar como proforma");
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 570, 220, 30));
 
-        jButton3.setText("Pagar ");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 630, 220, 30));
+        btnPagar.setText("Pagar ");
+        btnPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 630, 220, 30));
 
         jButton4.setText("Ver total a pagar ");
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 310, 540, -1));
@@ -316,11 +315,11 @@ public class JF_Ventas extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setText("Cédula");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, -1, -1));
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 200, 30));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, -1, -1));
+        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 200, 30));
 
         jButton5.setText("Verificar");
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, 200, -1));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 200, -1));
 
         PanelMenuV.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuV.setForeground(new java.awt.Color(255, 255, 255));
@@ -392,6 +391,13 @@ public class JF_Ventas extends javax.swing.JFrame {
 
         jPanel1.add(PanelMenuV, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
+        txtnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnombreKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 160, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -426,7 +432,7 @@ public class JF_Ventas extends javax.swing.JFrame {
     private void btnAplicarDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarDescuentoActionPerformed
         JF_Permiso m = new JF_Permiso();
         m.setVisible(true);
-        dispose();
+       
     }//GEN-LAST:event_btnAplicarDescuentoActionPerformed
 
     private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
@@ -453,10 +459,34 @@ public class JF_Ventas extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
 
+    private void filtro() {
+        int columnatb = 1;
+        trsfiltro.setRowFilter(RowFilter.regexFilter(txtnombre.getText(), columnatb));
 
-    private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
-      mostrarBusquedaProducto("");
-    }//GEN-LAST:event_BtnBuscarActionPerformed
+    }
+
+
+    private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped
+        // TODO add your handling code here:
+        txtnombre.addKeyListener(new KeyAdapter() {
+            public void keyReleased(final KeyEvent e) {
+                String cadena = (txtnombre.getText());
+                txtnombre.setText(cadena);
+                filtro();
+            }
+        });
+        trsfiltro = new TableRowSorter(tbProductoInventario.getModel());
+        tbProductoInventario.setRowSorter(trsfiltro);
+    }//GEN-LAST:event_txtnombreKeyTyped
+
+    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+
+        JF_Factura m = new JF_Factura();
+        m.setVisible(true);
+        dispose();
+
+
+    }//GEN-LAST:event_btnPagarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -494,7 +524,6 @@ public class JF_Ventas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnBuscar;
     private javax.swing.JPanel BtnFiltrarF;
     private javax.swing.JPanel BtnIRegistrarCliente;
     private javax.swing.JPanel BtnMenu;
@@ -503,9 +532,9 @@ public class JF_Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel PanelMenuV;
     private javax.swing.JButton btnAplicarDescuento;
+    private javax.swing.JButton btnPagar;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -537,7 +566,7 @@ public class JF_Ventas extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     public javax.swing.JTable tbProductoInventario;
     private javax.swing.JTable tbProductosSelec;
-    private javax.swing.JTextField txtBuscar;
+    private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
   datosP cc = new datosP();
     Connection cn = cc.conexion();
