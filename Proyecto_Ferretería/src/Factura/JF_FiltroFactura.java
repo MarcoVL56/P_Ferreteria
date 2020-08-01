@@ -50,9 +50,9 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
 
         modelo.addColumn("Nombre");
         modelo.addColumn("Cedula");
-        modelo.addColumn("codigo");
-        modelo.addColumn("cantidad");
-        modelo.addColumn("total");
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Total");
         modelo.addColumn("Fecha");
 
         tbDatos.setModel(modelo);
@@ -93,9 +93,9 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
 
         modelo.addColumn("Nombre");
         modelo.addColumn("Cedula");
-        modelo.addColumn("codigo");
-        modelo.addColumn("cantidad");
-        modelo.addColumn("total");
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Total");
         modelo.addColumn("Fecha");
 
         tbDatos.setModel(modelo);
@@ -137,9 +137,9 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Nombre");
         modelo.addColumn("Cedula");
-        modelo.addColumn("codigo");
-        modelo.addColumn("cantidad");
-        modelo.addColumn("total");
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Total");
         modelo.addColumn("Fecha");
 
         tbDatos.setModel(modelo);
@@ -183,9 +183,9 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
 
         modelo.addColumn("Nombre");
         modelo.addColumn("Cedula");
-        modelo.addColumn("codigo");
-        modelo.addColumn("cantidad");
-        modelo.addColumn("total");
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Total");
         modelo.addColumn("Fecha");
 
         tbDatos.setModel(modelo);
@@ -514,15 +514,27 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFiltrarporcedulaActionPerformed
 
     private void btnFiltrarporfechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarporfechaActionPerformed
-        txtFecha3.setEnabled(false);
-        txtFecha3.setDate(null);
-        mostrarFiltroporfecha("");
+
+        try {
+
+            txtFecha3.setEnabled(false);
+            txtFecha3.setDate(null);
+            mostrarFiltroporfecha("");
+
+        } catch (Exception i) {
+
+        }
     }//GEN-LAST:event_btnFiltrarporfechaActionPerformed
 
     private void btnFiltrarporrangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarporrangoActionPerformed
         {
-            txtFecha3.setEnabled(true);
-            mostrarFiltro2Fechas("");
+            try {
+
+                txtFecha3.setEnabled(true);
+                mostrarFiltro2Fechas("");
+            } catch (Exception i) {
+
+            }
 
         }
     }//GEN-LAST:event_btnFiltrarporrangoActionPerformed
