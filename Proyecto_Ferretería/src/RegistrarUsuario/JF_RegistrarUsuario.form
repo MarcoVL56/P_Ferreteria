@@ -473,16 +473,13 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JCheckBox" name="chVerContra">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ver contrase&#xf1;a"/>
-              </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chVerContraMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chVerContraActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="630" y="160" width="120" height="30"/>
+                  <AbsoluteConstraints x="760" y="130" width="-1" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -495,7 +492,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="610" y="210" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="610" y="190" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -510,7 +507,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="630" y="240" width="120" height="-1"/>
+                  <AbsoluteConstraints x="630" y="220" width="120" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -523,7 +520,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="540" y="250" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="540" y="230" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -602,7 +599,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="540" y="230" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="540" y="210" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>

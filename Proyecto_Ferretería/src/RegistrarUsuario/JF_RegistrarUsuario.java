@@ -235,7 +235,6 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
         jPanel2.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 145, -1));
         jPanel2.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, 120, -1));
 
-        chVerContra.setText("Ver contraseña");
         chVerContra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 chVerContraMouseClicked(evt);
@@ -246,18 +245,18 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
                 chVerContraActionPerformed(evt);
             }
         });
-        jPanel2.add(chVerContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, 120, 30));
+        jPanel2.add(chVerContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 130, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("1. Administrador 2. Empleado");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, -1, -1));
 
         cmbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2" }));
-        jPanel2.add(cmbTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, 120, -1));
+        jPanel2.add(cmbTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 120, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel15.setText("Usuario");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, -1, -1));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, -1, -1));
         jPanel2.add(txtSegundoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 145, -1));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -279,7 +278,7 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel20.setText("Tipo de ");
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, -1, -1));
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 860, 480));
 
@@ -345,6 +344,7 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
         JF_Ventas m = new JF_Ventas();
         m.setVisible(true);
         dispose();
+         m.mostrardatosProducto("");
     }//GEN-LAST:event_BtnVentasMouseClicked
 
     private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked

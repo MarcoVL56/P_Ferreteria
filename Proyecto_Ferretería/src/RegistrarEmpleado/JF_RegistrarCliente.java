@@ -279,6 +279,7 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
         JF_Ventas m = new JF_Ventas();
         m.setVisible(true);
         dispose();
+         m.mostrardatosProducto("");
     }//GEN-LAST:event_BtnVentasMouseClicked
 
     private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked

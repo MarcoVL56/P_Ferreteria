@@ -142,6 +142,8 @@ public class JF_Proformas extends javax.swing.JFrame {
         txtBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -272,7 +274,7 @@ public class JF_Proformas extends javax.swing.JFrame {
                 btnPagarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 610, 160, -1));
+        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 610, 160, -1));
 
         tbDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -357,6 +359,11 @@ public class JF_Proformas extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 1000, 50));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 610, 140, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Id orden a pagar ");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 610, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -405,6 +412,7 @@ public class JF_Proformas extends javax.swing.JFrame {
         JF_Ventas m = new JF_Ventas();
         m.setVisible(true);
         dispose();
+        m.mostrardatosProducto("");
     }//GEN-LAST:event_BtnVentasMouseClicked
 
     private void BtnIRegistrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseClicked
@@ -476,11 +484,13 @@ public class JF_Proformas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tbDatos;
     private javax.swing.JTable tbProductos;
     private javax.swing.JTextField txtBuscar;

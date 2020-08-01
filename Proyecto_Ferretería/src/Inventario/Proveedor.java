@@ -293,6 +293,7 @@ public class Proveedor extends javax.swing.JFrame {
         JF_Ventas m = new JF_Ventas();
         m.setVisible(true);
         dispose();
+        m.mostrardatosProducto("");
     }//GEN-LAST:event_BtnVentasMouseClicked
 
     private void BtnFiltrarFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFiltrarFMouseClicked
@@ -312,6 +313,7 @@ public class Proveedor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error en la base de datos...");
 
         }
+           txtproveedor.setText("");
     }//GEN-LAST:event_btningresarMouseClicked
 
     private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked

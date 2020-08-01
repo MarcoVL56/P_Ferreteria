@@ -2,6 +2,7 @@ package Ventas;
 
 import Conexion.datosP;
 import Factura.JF_Factura;
+import Factura.JF_FiltroFactura;
 import Menú.JF_Menú;
 import Proformas.JF_Proformas;
 import RegistrarEmpleado.JF_RegistrarCliente;
@@ -442,7 +443,7 @@ public class JF_Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnMenuMouseClicked
 
     private void BtnFiltrarFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFiltrarFMouseClicked
-        JF_Ventas m = new JF_Ventas();
+        JF_FiltroFactura m = new JF_FiltroFactura();
         m.setVisible(true);
         dispose();
     }//GEN-LAST:event_BtnFiltrarFMouseClicked
