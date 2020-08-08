@@ -47,7 +47,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
     void mostrardatos(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
-
+        modelo.addColumn("id");
         modelo.addColumn("Nombre");
         modelo.addColumn("Cedula");
         modelo.addColumn("Codigo");
@@ -60,12 +60,12 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         if (valor.equals("")) {
 
             //Cambié Nombre_cliente y Cedula_cliente
-            sql = "SELECT Nombre,Cédula,FK_Producto,Cantidad,TotalPagar,Fecha "
+            sql = "SELECT Id_Factura,Nombre,Cédula,FK_Producto,Cantidad,TotalPagar,Fecha "
                     + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)";
 
         }
 
-        String[] datos = new String[6];
+        String[] datos = new String[7];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -77,6 +77,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
                 datos[3] = rs.getString(4);
                 datos[4] = rs.getString(5);
                 datos[5] = rs.getString(6);
+                datos[6] = rs.getString(7);
 
                 modelo.addRow(datos);
             }
