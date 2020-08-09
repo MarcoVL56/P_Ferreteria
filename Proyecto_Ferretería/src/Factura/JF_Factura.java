@@ -23,10 +23,7 @@ import Conexion.datosP;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
+
 import java.awt.HeadlessException;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -508,59 +505,7 @@ public class JF_Factura extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-       Document documento = new Document();
-       
-        try {
-            String ruta = System.getProperty("user.home");
-            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Reporte_Alumnos.pdf"));
-            documento.open();
-            
-            PdfPTable tabla = new PdfPTable(10);
-            tabla.addCell("n Factura");
-            
-            tabla.addCell("Nombre");
-            tabla.addCell("Apellido");
-            tabla.addCell("Cedula");
-            
-          tabla.addCell("Correo");
-        tabla.addCell("Cantidad");
-           tabla.addCell("Impuesto");
-
-           tabla.addCell("Descuento");
-           tabla.addCell("Total");
-            tabla.addCell("Fecha");
-            
-            try {
-                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3305/bd_ferreteria", "root", "");
-                PreparedStatement pst = cn.prepareStatement("SELECT id_Factura,Nombre,PrimerApellido,Cédula,CorreoElectronico, Cantidad,Impuesto,Descuento,TotalPagar,Fecha "
-                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)order by Id_Factura desc limit 1");
-                
-                ResultSet rs = pst.executeQuery();
-                
-                if(rs.next()){
-                                       
-                    do {                        
-                        tabla.addCell(rs.getString(1));
-                        tabla.addCell(rs.getString(2));
-                        tabla.addCell(rs.getString(3));
-                        tabla.addCell(rs.getString(4));
-                        tabla.addCell(rs.getString(5));
-                        tabla.addCell(rs.getString(6));
-                        tabla.addCell(rs.getString(7));
-                        tabla.addCell(rs.getString(8));
-                        tabla.addCell(rs.getString(9));
-                        tabla.addCell(rs.getString(10));
-                    } while (rs.next());
-                    documento.add(tabla);                    
-                }
-                
-            } catch (DocumentException | SQLException e) {
-                 JOptionPane.showMessageDialog(null, " Siga esperando");
-            }
-            documento.close();
-            JOptionPane.showMessageDialog(null, "Reporte creado.");
-        } catch (DocumentException | HeadlessException | FileNotFoundException e) {
-        }
+      
 
                                  
     }//GEN-LAST:event_btnImprimirActionPerformed
