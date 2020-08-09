@@ -345,7 +345,11 @@ public class JF_Menú extends javax.swing.JFrame {
         JF_Ventas m = new JF_Ventas();
         m.setVisible(true);
         dispose();
+
+        m.txtUsuarioVentas.setText(txtUsuarioIniciado.getText());
+
         m.mostrardatosProducto("");
+
 
     }//GEN-LAST:event_btnVentasMouseClicked
 

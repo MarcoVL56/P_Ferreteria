@@ -19,6 +19,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Conexion.datosP;
+import Factura.JF_FiltroFactura;
 
 import java.sql.*;
 import javax.swing.JOptionPane;

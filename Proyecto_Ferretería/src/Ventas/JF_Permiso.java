@@ -117,6 +117,7 @@ public class JF_Permiso extends javax.swing.JFrame {
         JF_Ventas m = new JF_Ventas();
         m.setVisible(true);
         dispose();
+         m.mostrardatosProducto("");
     }//GEN-LAST:event_BtnIngresarMouseClicked
 
     public static void main(String args[]) {

@@ -13,7 +13,7 @@ public class datosP {
     public Connection conexion(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conectar=DriverManager.getConnection("jdbc:mysql://localhost:3305/bd_ferreteria","root","");
+            conectar=DriverManager.getConnection("jdbc:mysql://localhost/bd_ferreteria","root","");
             
             
            
