@@ -817,6 +817,8 @@ public class JF_Ventas extends javax.swing.JFrame {
 
         m.txtCodigoFac.setText(txtCodigoBarras.getText());
 
+  
+
 
     }//GEN-LAST:event_BtnPagarActionPerformed
 
