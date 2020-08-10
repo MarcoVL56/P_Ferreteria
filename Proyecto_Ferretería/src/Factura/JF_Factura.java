@@ -36,10 +36,6 @@ public class JF_Factura extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
 
-        mostrar1();
-        mostrar2();
-        mostrar3();
-
     }
 
     public void mostrar1() {
@@ -51,8 +47,8 @@ public class JF_Factura extends javax.swing.JFrame {
         tbCliente.setModel(modelo);
 
         try {
-            ps = con.conectar().prepareStatement("SELECT id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElectronico"
-                    + " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) where Id_Factura=" + txtCodigoFac + "");
+            ps = con.conectar().prepareStatement("SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElectronico"
+                    + " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) where Id_Factura= '" + txtCodigoFac.getText() + "'");
             rs = ps.executeQuery();
 
             ResultSetMetaData rsmt = rs.getMetaData();
@@ -79,6 +75,8 @@ public class JF_Factura extends javax.swing.JFrame {
 
     }
 
+    
+
     public void mostrar2() {
 
         PreparedStatement ps = null;
@@ -91,8 +89,8 @@ public class JF_Factura extends javax.swing.JFrame {
 //            ps = con.conectar().prepareStatement("SELECT id_Factura,Cantidad,Impuesto,Descuento,TotalPagar,Fecha "
 //                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)order by Id_Factura desc limit 1");
 
-            ps = con.conectar().prepareStatement("SELECT id_Factura,Fecha,Subtotal,Impuesto,Descuento, TotalPagar"
-                    + " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) where Id_Factura =" + txtCodigoFac + "");
+            ps = con.conectar().prepareStatement("SELECT DISTINCTROW id_Factura,Fecha,Subtotal,Impuesto,Descuento, TotalPagar"
+                    + " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) where Id_Factura = '" + txtCodigoFac.getText() + "'");
             rs = ps.executeQuery();
 
             ResultSetMetaData rsmt = rs.getMetaData();
@@ -125,25 +123,26 @@ public class JF_Factura extends javax.swing.JFrame {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        DefaultTableModel modelo2 = new DefaultTableModel();
-        tbProducto.setModel(modelo2);
+        DefaultTableModel modelo3 = new DefaultTableModel();
+        tbProducto.setModel(modelo3);
 
         try {
 //            ps = con.conectar().prepareStatement("SELECT id_Factura,Cantidad,Impuesto,Descuento,TotalPagar,Fecha "
 //                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)order by Id_Factura desc limit 1");
 
             ps = con.conectar().prepareStatement("SELECT id_Factura, Id_Orden, b.Cantidad, d.Nombre"
-                    + " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) INNER Join producto d on (b.Fk_Producto = d.Id_Producto) where Id_Factura =" + txtCodigoFac + " ");
+                    + " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)"
+                    + " INNER Join producto d on (b.Fk_Producto = d.Id_Producto) where Id_Factura ='" + txtCodigoFac.getText() + "'");
 
             rs = ps.executeQuery();
 
             ResultSetMetaData rsmt = rs.getMetaData();
             int cantcolum = rsmt.getColumnCount();
 
-            modelo2.addColumn("ID Factura");
-            modelo2.addColumn("id orden");
-            modelo2.addColumn("cantidad");
-            modelo2.addColumn("nombre");
+            modelo3.addColumn("ID Factura");
+            modelo3.addColumn("id orden");
+            modelo3.addColumn("cantidad");
+            modelo3.addColumn("nombre");
 
             while (rs.next()) {
                 Object[] filas = new Object[cantcolum];
@@ -151,7 +150,7 @@ public class JF_Factura extends javax.swing.JFrame {
                 for (int i = 0; i < cantcolum; i++) {
                     filas[i] = rs.getObject(i + 1);
                 }
-                modelo2.addRow(filas);
+                modelo3.addRow(filas);
             }
 
         } catch (Exception e) {
@@ -382,14 +381,14 @@ public class JF_Factura extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbCliente);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 225, 626, 54));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 626, 60));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("--------Ultima linea---------");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 460, 197, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, 197, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logo reducido.jpeg"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 38, 173, 147));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 173, 147));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -413,17 +412,23 @@ public class JF_Factura extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Direccion: 50 mts sur de la universidad Latina de Costa Rica");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 92, -1, -1));
+
+        txtCodigoFac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoFacActionPerformed(evt);
+            }
+        });
         jPanel4.add(txtCodigoFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(359, 31, 118, -1));
 
         jLabel9.setText("Código");
         jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 8, -1, -1));
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 56, -1, -1));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Cliente:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 203, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Compra:");
@@ -535,7 +540,14 @@ public class JF_Factura extends javax.swing.JFrame {
 
     private void BtnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVerActionPerformed
 
+        mostrar1();
+        mostrar2();
+        mostrar3();
     }//GEN-LAST:event_BtnVerActionPerformed
+
+    private void txtCodigoFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoFacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoFacActionPerformed
 
     /**
      * @param args the command line arguments

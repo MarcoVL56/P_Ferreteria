@@ -451,7 +451,10 @@ public class JF_Proformas extends javax.swing.JFrame {
         dispose();
 
         m.txtCodigoFac.setText(txtOrdenP.getText());
-
+        
+        m.mostrar1();
+        m.mostrar2();
+        m.mostrar3();
 
     }//GEN-LAST:event_btnPagarActionPerformed
 
