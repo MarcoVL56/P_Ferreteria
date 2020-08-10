@@ -8,6 +8,7 @@ import Ventas.JF_Ventas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class Producto extends javax.swing.JFrame {
@@ -19,7 +20,8 @@ public class Producto extends javax.swing.JFrame {
     public Producto() {
         initComponents();
         setLocationRelativeTo(null);
-        cbproveedor();
+        CargaProveedor();
+        CargaProducto();
     }
 
     @SuppressWarnings("unchecked")
@@ -60,8 +62,9 @@ public class Producto extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtnombre1 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        cbproducto = new javax.swing.JComboBox<>();
         cbprove = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
+        btnaddinventario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -185,7 +188,7 @@ public class Producto extends javax.swing.JFrame {
         jLabel9.setText("Opciones");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 28, -1, -1));
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 680, 190));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 680, 190));
 
         PanelMenuProducto.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuProducto.setForeground(new java.awt.Color(255, 255, 255));
@@ -288,11 +291,22 @@ public class Producto extends javax.swing.JFrame {
         jLabel14.setText("Ingresar producto");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, -1, -1));
 
-        jPanel2.add(cbprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 260, 110, 30));
+        cbproducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jPanel2.add(cbproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 320, 110, 30));
 
-        jLabel2.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        jLabel2.setText("Proveedor");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 270, -1, -1));
+        cbprove.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jPanel2.add(cbprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 320, 110, 30));
+
+        btnaddinventario.setBackground(new java.awt.Color(255, 255, 51));
+        btnaddinventario.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        btnaddinventario.setText("Agregar Inventario");
+        btnaddinventario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51), 2));
+        btnaddinventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddinventarioActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnaddinventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 390, 190, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1420, 660));
 
@@ -432,14 +446,10 @@ public class Producto extends javax.swing.JFrame {
         m.setVisible(true);
         dispose();
     }//GEN-LAST:event_BtnMenuMouseClicked
-    private void Limpiar() {
-        txtnombre1.setText("");
-        txtprecio.setText("");
-        txtIdbuscar.setText("");
-        txtCantidad.setText("");
-    }
 
-    private void cbproveedor() {
+     private void CargaProveedor() {
+        PreparedStatement ps;
+        ResultSet rs;
         try {
             ps = con.conectar().prepareStatement("SELECT NombreProveedor FROM proveedor ORDER BY NombreProveedor ASC");
 
@@ -454,6 +464,71 @@ public class Producto extends javax.swing.JFrame {
         }
     }
 
+    private void CargaProducto() {
+        PreparedStatement ps;
+        ResultSet rs;
+        try {
+            ps = con.conectar().prepareStatement("SELECT Nombre FROM producto ORDER BY Nombre ASC");
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                cbproducto.addItem(rs.getString("Nombre"));
+            }
+            con.Desconectar();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en la matrix: " + e);
+        }
+    }
+    
+    private void btnaddinventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddinventarioActionPerformed
+        
+        
+        String pro;
+        String prove;
+
+        try {
+            ps = con.conectar().prepareStatement("INSERT INTO inventario (Fk_Productos,Fk_Proveedor) "
+                + "VALUES(?,?)");
+
+            pro= cbproducto.getItemAt(cbproducto.getSelectedIndex());
+            ps.setInt(1, Integer.parseInt(pro));
+            prove=cbprove.getItemAt(cbprove.getSelectedIndex());
+            ps.setInt(2, Integer.parseInt(prove));
+
+            JOptionPane.showMessageDialog(null, "Agregado a Inventario");
+            con.Desconectar();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al Ingresar en Inventario: " + e);
+        }
+
+        //INSERT INTO `inventario` (`Id_Disponibilidad`, `Fk_Productos`, `Fk_Proveedor`) VALUES (NULL, '7', '3');
+    }//GEN-LAST:event_btnaddinventarioActionPerformed
+    private void Limpiar() {
+        txtnombre1.setText("");
+        txtprecio.setText("");
+        txtIdbuscar.setText("");
+        txtCantidad.setText("");
+    }
+    
+    
+    
+/*
+    private void cbproveedor() {
+        try {
+            ps = con.conectar().prepareStatement("SELECT NombreProveedor FROM proveedor ORDER BY NombreProveedor ASC");
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                cbprove.addItem(rs.getString("NombreProveedor"));
+            }
+            con.Desconectar();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en la matrix: " + e);
+        }
+    }
+*/
     /**
      * @param args the command line arguments
      */
@@ -499,11 +574,13 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JPanel BtnVentas;
     private javax.swing.JPanel PanelMenuProducto;
     private javax.swing.JLabel btnSubMenu;
+    private javax.swing.JButton btnaddinventario;
     private javax.swing.JButton btnborrar;
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btningresar;
     private javax.swing.JButton btnmodificar;
     private javax.swing.JComboBox<String> cbpresentacion;
+    private javax.swing.JComboBox<String> cbproducto;
     private javax.swing.JComboBox<String> cbprove;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
@@ -512,7 +589,6 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

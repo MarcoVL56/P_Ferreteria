@@ -2,7 +2,7 @@ package Inventario;
 
 import Menú.JF_Menú;
 import RegistrarUsuario.JF_RegistrarUsuario;
-import Conexion.datosP;
+import Conexion.Conexion;
 import Factura.JF_FiltroFactura;
 import Proformas.JF_Proformas;
 import RegistrarEmpleado.JF_RegistrarCliente;
@@ -24,7 +24,7 @@ import javax.swing.table.TableRowSorter;
 
 public class JF_Inventario extends javax.swing.JFrame {
 
-    Conexion.Conexion con = new Conexion.Conexion();
+    Conexion con = new Conexion();
     TableRowSorter trsfiltro;
 
     public JF_Inventario() {
@@ -66,7 +66,7 @@ public class JF_Inventario extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al cargar... " + e);
         }
-
+        
     }
 
     /**
@@ -100,10 +100,13 @@ public class JF_Inventario extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         BtnProducto = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        cbproducto = new javax.swing.JComboBox<>();
+        cbprove = new javax.swing.JComboBox<>();
+        btnaddinventario = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -279,10 +282,6 @@ public class JF_Inventario extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 102, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-almacén-64.png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 19, 110, 90));
-
         BtnProducto.setBackground(new java.awt.Color(255, 204, 51));
         BtnProducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -303,7 +302,28 @@ public class JF_Inventario extends javax.swing.JFrame {
         jLabel1.setText("Nombre del producto");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 180, 40));
 
+        cbproducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jPanel2.add(cbproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 280, 110, 30));
+
+        cbprove.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jPanel2.add(cbprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 280, 110, 30));
+
+        btnaddinventario.setBackground(new java.awt.Color(255, 255, 51));
+        btnaddinventario.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        btnaddinventario.setText("Agregar Inventario");
+        btnaddinventario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51), 2));
+        btnaddinventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddinventarioActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnaddinventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 340, 190, 40));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 1080, 400));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-almacén-64.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, 110, 90));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -390,6 +410,12 @@ public class JF_Inventario extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BtnProductoMouseClicked
 
+    private void btnaddinventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddinventarioActionPerformed
+        
+    }//GEN-LAST:event_btnaddinventarioActionPerformed
+
+    
+
     /**
      * @param args the command line arguments
      */
@@ -438,6 +464,9 @@ public class JF_Inventario extends javax.swing.JFrame {
     private javax.swing.JPanel PanelMenuI;
     private javax.swing.JTable TbInventario;
     private javax.swing.JLabel btnSubMenu;
+    private javax.swing.JButton btnaddinventario;
+    private javax.swing.JComboBox<String> cbproducto;
+    private javax.swing.JComboBox<String> cbprove;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
