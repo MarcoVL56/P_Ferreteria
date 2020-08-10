@@ -48,8 +48,8 @@ public class JF_Factura extends javax.swing.JFrame {
          tbCliente.setModel(modelo);
 
         try {
-            ps = con.conectar().prepareStatement("SELECT id_Factura,Nombre,PrimerApellido,Cédula,CorreoElectronico"+
-      " FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) order by Id_Factura desc limit 1");
+            ps = con.conectar().prepareStatement("SELECT id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElectronico"
+                    +" FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) where Id_Factura=" + txtCodigoFac +" '");
             rs = ps.executeQuery();
 
             ResultSetMetaData rsmt = rs.getMetaData();
@@ -58,7 +58,7 @@ public class JF_Factura extends javax.swing.JFrame {
             modelo.addColumn("ID Factura");
             modelo.addColumn("Nombre");
             modelo.addColumn("Apellido");
-            modelo.addColumn("Cedula");
+            modelo.addColumn("id_cliente");
             modelo.addColumn("Correo");
             
             
@@ -83,22 +83,67 @@ public class JF_Factura extends javax.swing.JFrame {
         ResultSet rs = null;
 
         DefaultTableModel modelo2 = new DefaultTableModel();
-         tbProducto.setModel(modelo2);
+         tbCompra.setModel(modelo2);
 
         try {
-            ps = con.conectar().prepareStatement("SELECT id_Factura,Cantidad,Impuesto,Descuento,TotalPagar,Fecha "
-                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)order by Id_Factura desc limit 1");
+//            ps = con.conectar().prepareStatement("SELECT id_Factura,Cantidad,Impuesto,Descuento,TotalPagar,Fecha "
+//                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)order by Id_Factura desc limit 1");
+
+ ps = con.conectar().prepareStatement("SELECT id_Factura,Fecha,Subtotal,Impuesto,Descuento, TotalPagar"
+         +" FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) where Id_Factura =" + txtCodigoFac +" '");
             rs = ps.executeQuery();
 
             ResultSetMetaData rsmt = rs.getMetaData();
             int cantcolum = rsmt.getColumnCount();
 
             modelo2.addColumn("ID Factura");
-            modelo2.addColumn("Cantidad");
+            modelo2.addColumn("Fecha");
+            modelo2.addColumn("subtotal");
             modelo2.addColumn("Impuesto");
             modelo2.addColumn("Descuento");
             modelo2.addColumn("Total");
-            modelo2.addColumn("Fecha");
+            
+
+            while (rs.next()) {
+                Object[] filas = new Object[cantcolum];
+
+                for (int i = 0; i < cantcolum; i++) {
+                    filas[i] = rs.getObject(i + 1);
+                }
+                modelo2.addRow(filas);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al cargar... " + e);
+        }
+
+    }
+    
+       void mostrar3(){
+         PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        DefaultTableModel modelo2 = new DefaultTableModel();
+         tbProducto.setModel(modelo2);
+
+        try {
+//            ps = con.conectar().prepareStatement("SELECT id_Factura,Cantidad,Impuesto,Descuento,TotalPagar,Fecha "
+//                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)order by Id_Factura desc limit 1");
+
+ ps = con.conectar().prepareStatement("SELECT id_Factura, Id_Orden, b.Cantidad, d.Nombre"
+         +" FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) INNER Join producto d on (b.Fk_Producto = d.Id_Producto) where Id_Factura =" + txtCodigoFac +" ");
+
+            rs = ps.executeQuery();
+
+            ResultSetMetaData rsmt = rs.getMetaData();
+            int cantcolum = rsmt.getColumnCount();
+
+            modelo2.addColumn("ID Factura");
+            modelo2.addColumn("id orden");
+            modelo2.addColumn("cantidad");
+            modelo2.addColumn("nombre");
+           
+         
             
 
             while (rs.next()) {
@@ -143,7 +188,7 @@ public class JF_Factura extends javax.swing.JFrame {
         BtnMinimizar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tbProducto = new javax.swing.JTable();
+        tbCompra = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbCliente = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -157,6 +202,9 @@ public class JF_Factura extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbProducto = new javax.swing.JTable();
         btnImprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -307,8 +355,8 @@ public class JF_Factura extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        tbProducto.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        tbProducto.setModel(new javax.swing.table.DefaultTableModel(
+        tbCompra.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        tbCompra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -319,7 +367,7 @@ public class JF_Factura extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(tbProducto);
+        jScrollPane2.setViewportView(tbCompra);
 
         tbCliente.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         tbCliente.setModel(new javax.swing.table.DefaultTableModel(
@@ -410,6 +458,23 @@ public class JF_Factura extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Compra:");
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setText("Producto");
+
+        tbProducto.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        tbProducto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tbProducto);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -427,7 +492,9 @@ public class JF_Factura extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel8))))
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel10)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(25, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -441,15 +508,19 @@ public class JF_Factura extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel8)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel1)
                 .addContainerGap(78, Short.MAX_VALUE))
         );
@@ -578,6 +649,7 @@ public class JF_Factura extends javax.swing.JFrame {
     private javax.swing.JButton btnImprimir;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -598,7 +670,9 @@ public class JF_Factura extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tbCliente;
+    private javax.swing.JTable tbCompra;
     private javax.swing.JTable tbProducto;
     public javax.swing.JTextField txtCodigoFac;
     // End of variables declaration//GEN-END:variables

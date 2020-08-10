@@ -21,7 +21,7 @@ public class Conexion2 {
 //CONEXION DE JUSTIN PARA LA FACTURA
 
             Class.forName("com.mysql.jdbc.Driver");//TRABAJA CON EL DRIVER QUE ME FUNCIONA A MI (JUSTIN) 5.1.13
-            conectar2=DriverManager.getConnection("jdbc:mysql://localhost:3305/bd_ferreteria"+
+            conectar2=DriverManager.getConnection("jdbc:mysql://localhost/bd_ferreteria"+
                     "?userTimezone=true&serverTimezone=UTC","root","");//COLOQUÉ MI PUERTO 3305
             
             System.out.println("Conexion exitosa");
