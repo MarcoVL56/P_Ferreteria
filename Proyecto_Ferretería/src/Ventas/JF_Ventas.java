@@ -781,12 +781,7 @@ public class JF_Ventas extends javax.swing.JFrame {
 
     private void BtnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPagarActionPerformed
 
-        JF_Factura m = new JF_Factura();
-        m.setVisible(true);
-        dispose();
-        
-        
-         try {
+        try {
             datosP cc = new datosP();
             Connection cn = cc.conexion();
             processCalendar();
@@ -816,26 +811,11 @@ public class JF_Ventas extends javax.swing.JFrame {
             System.out.print(e.getMessage());
         }
 
-        txtSubTotal.setText("");
-        txtImpuesto.setText("");
-        txtDescuento.setText("");
-        txtTotalPagar.setText("");
-        txtCodigoBarras.setText("");
+        JF_Factura m = new JF_Factura();
+        m.setVisible(true);
+        dispose();
 
-        DefaultTableModel tb = (DefaultTableModel) tbProductosSelec.getModel();
-        int a = tbProductosSelec.getRowCount() - 1;
-        for (int i = a; i >= 0; i--) {
-            tb.removeRow(tb.getRowCount() - 1);
-        }
-
-        DefaultTableModel tb2 = (DefaultTableModel) tbSubtotal.getModel();
-        int b = tbSubtotal.getRowCount() - 1;
-        for (int i = b; i >= 0; i--) {
-            tb2.removeRow(tb2.getRowCount() - 1);
-        }
-
-        
-        
+        m.txtCodigoFac.setText(txtCodigoBarras.getText());
 
 
     }//GEN-LAST:event_BtnPagarActionPerformed

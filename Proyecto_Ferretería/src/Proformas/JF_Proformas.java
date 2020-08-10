@@ -6,6 +6,7 @@
 package Proformas;
 
 import Conexion.datosP;
+import Factura.JF_Factura;
 import Factura.JF_FiltroFactura;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -36,7 +37,7 @@ public class JF_Proformas extends javax.swing.JFrame {
         if (valor.equals("")) {
 
             sql = "SELECT DISTINCTROW Id_Factura,Nombre,Id_CLiente, Impuesto,TotalPagar FROM factura a INNER JOIN orden b on (b.Fk_Factura = a.Id_Factura) "
-                    + "INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) where c.Id_Cliente ='"+txtBuscar.getText()+"' and Fk_Estado = 2";
+                    + "INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) where c.Id_Cliente ='" + txtBuscar.getText() + "' and Fk_Estado = 2";
 
         }
         String[] datos = new String[5];
@@ -50,7 +51,6 @@ public class JF_Proformas extends javax.swing.JFrame {
                 datos[2] = rs.getString(3);
                 datos[3] = rs.getString(4);
                 datos[4] = rs.getString(5);
-       
 
                 modelo.addRow(datos);
             }
@@ -437,17 +437,21 @@ public class JF_Proformas extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
-     
-          try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE orden SET Fk_Factura=" + txtOrdenP.getText() + ", Fk_Estado = 1 where Fk_Estado = 2");
+
+        try {
+            PreparedStatement pst = cn.prepareStatement("UPDATE orden SET Fk_Estado = 1 where Fk_Factura=" + txtOrdenP.getText() + "");
             pst.executeUpdate();
 
         } catch (Exception e) {
             System.out.print(e.getMessage());
         }
-        
-        
-        
+
+        JF_Factura m = new JF_Factura();
+        m.setVisible(true);
+        dispose();
+
+        m.txtCodigoFac.setText(txtOrdenP.getText());
+
 
     }//GEN-LAST:event_btnPagarActionPerformed
 
