@@ -5,6 +5,7 @@ import Menú.JF_Menú;
 import Proformas.JF_Proformas;
 import RegistrarEmpleado.JF_RegistrarCliente;
 import Ventas.JF_Ventas;
+import com.sun.javafx.scene.layout.region.Margins;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -292,10 +293,10 @@ public class Producto extends javax.swing.JFrame {
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, -1, -1));
 
         cbproducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-        jPanel2.add(cbproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 320, 110, 30));
+        jPanel2.add(cbproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 110, 30));
 
         cbprove.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-        jPanel2.add(cbprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 320, 110, 30));
+        jPanel2.add(cbprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 110, 30));
 
         btnaddinventario.setBackground(new java.awt.Color(255, 255, 51));
         btnaddinventario.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
@@ -306,7 +307,7 @@ public class Producto extends javax.swing.JFrame {
                 btnaddinventarioActionPerformed(evt);
             }
         });
-        jPanel2.add(btnaddinventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 390, 190, 40));
+        jPanel2.add(btnaddinventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 190, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1420, 660));
 
@@ -483,19 +484,22 @@ public class Producto extends javax.swing.JFrame {
     
     private void btnaddinventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddinventarioActionPerformed
         
-        
-        String pro;
+        String producto;
         String prove;
+        
 
         try {
             ps = con.conectar().prepareStatement("INSERT INTO inventario (Fk_Productos,Fk_Proveedor) "
                 + "VALUES(?,?)");
 
-            pro= cbproducto.getItemAt(cbproducto.getSelectedIndex());
-            ps.setInt(1, Integer.parseInt(pro));
+            producto=cbproducto.getItemAt(cbproducto.getSelectedIndex());
             prove=cbprove.getItemAt(cbprove.getSelectedIndex());
+            ps.setInt(1, Integer.parseInt(producto));
             ps.setInt(2, Integer.parseInt(prove));
-
+            ps.execute();
+            
+            
+           
             JOptionPane.showMessageDialog(null, "Agregado a Inventario");
             con.Desconectar();
         } catch (SQLException e) {

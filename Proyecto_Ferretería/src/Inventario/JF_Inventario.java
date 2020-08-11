@@ -103,9 +103,6 @@ public class JF_Inventario extends javax.swing.JFrame {
         BtnProducto = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        cbproducto = new javax.swing.JComboBox<>();
-        cbprove = new javax.swing.JComboBox<>();
-        btnaddinventario = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -302,23 +299,6 @@ public class JF_Inventario extends javax.swing.JFrame {
         jLabel1.setText("Nombre del producto");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 180, 40));
 
-        cbproducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-        jPanel2.add(cbproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 280, 110, 30));
-
-        cbprove.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-        jPanel2.add(cbprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 280, 110, 30));
-
-        btnaddinventario.setBackground(new java.awt.Color(255, 255, 51));
-        btnaddinventario.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
-        btnaddinventario.setText("Agregar Inventario");
-        btnaddinventario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51), 2));
-        btnaddinventario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnaddinventarioActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnaddinventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 340, 190, 40));
-
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 1080, 400));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -410,10 +390,6 @@ public class JF_Inventario extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BtnProductoMouseClicked
 
-    private void btnaddinventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddinventarioActionPerformed
-        
-    }//GEN-LAST:event_btnaddinventarioActionPerformed
-
     
 
     /**
@@ -464,9 +440,6 @@ public class JF_Inventario extends javax.swing.JFrame {
     private javax.swing.JPanel PanelMenuI;
     private javax.swing.JTable TbInventario;
     private javax.swing.JLabel btnSubMenu;
-    private javax.swing.JButton btnaddinventario;
-    private javax.swing.JComboBox<String> cbproducto;
-    private javax.swing.JComboBox<String> cbprove;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
