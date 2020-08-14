@@ -5,7 +5,6 @@
  */
 package Conexion;
 
-import Inventario.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -23,7 +22,7 @@ conectar=DriverManager.getConnection("jdbc:mysql://localhost/bd_ferreteria"+
 
 
             
-            System.out.println("Conexion exitosa");
+          //  System.out.println("Conexion exitosa");
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
@@ -33,7 +32,7 @@ conectar=DriverManager.getConnection("jdbc:mysql://localhost/bd_ferreteria"+
     public void Desconectar(){
         conectar=null;
         if(conectar==null){
-            System.out.println("Conexion terminada...");
+           // System.out.println("Conexion terminada...");//
         }
     }
 }

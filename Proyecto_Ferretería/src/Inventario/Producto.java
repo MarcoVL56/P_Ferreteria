@@ -483,7 +483,7 @@ public class Producto extends javax.swing.JFrame {
     }
     
     private void btnaddinventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddinventarioActionPerformed
-        
+        ResultSet rs;
         String producto;
         String prove;
         
@@ -492,11 +492,13 @@ public class Producto extends javax.swing.JFrame {
             ps = con.conectar().prepareStatement("INSERT INTO inventario (Fk_Productos,Fk_Proveedor) "
                 + "VALUES(?,?)");
 
-            producto=cbproducto.getItemAt(cbproducto.getSelectedIndex());
+            
+            
+        /*    producto=cbproducto.getItemAt(cbproducto.getSelectedIndex());
             prove=cbprove.getItemAt(cbprove.getSelectedIndex());
             ps.setInt(1, Integer.parseInt(producto));
             ps.setInt(2, Integer.parseInt(prove));
-            ps.execute();
+            ps.execute(); */
             
             
            

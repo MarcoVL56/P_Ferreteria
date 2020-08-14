@@ -32,7 +32,7 @@ public class Proveedor extends javax.swing.JFrame {
         PanelMenuProveed = new javax.swing.JPanel();
         BtnMenu = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        BtnFiltrarF = new javax.swing.JPanel();
+        Btnproducto = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         BtnVentas = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
@@ -41,6 +41,8 @@ public class Proveedor extends javax.swing.JFrame {
         BtnIRegistrarCliente = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        BtnFiltrarF1 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -124,21 +126,21 @@ public class Proveedor extends javax.swing.JFrame {
 
         PanelMenuProveed.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 150, 30));
 
-        BtnFiltrarF.setBackground(new java.awt.Color(153, 153, 153));
-        BtnFiltrarF.addMouseListener(new java.awt.event.MouseAdapter() {
+        Btnproducto.setBackground(new java.awt.Color(153, 153, 153));
+        Btnproducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnFiltrarFMouseClicked(evt);
+                BtnproductoMouseClicked(evt);
             }
         });
-        BtnFiltrarF.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Btnproducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setBackground(new java.awt.Color(67, 81, 141));
         jLabel13.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Filtrar factura");
-        BtnFiltrarF.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 110, 30));
+        jLabel13.setText("Producto");
+        Btnproducto.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 110, 30));
 
-        PanelMenuProveed.add(BtnFiltrarF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 150, -1));
+        PanelMenuProveed.add(Btnproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 150, -1));
 
         BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
         BtnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -191,6 +193,22 @@ public class Proveedor extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-proveedor-64.png"))); // NOI18N
         PanelMenuProveed.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 110, 100));
+
+        BtnFiltrarF1.setBackground(new java.awt.Color(153, 153, 153));
+        BtnFiltrarF1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnFiltrarF1MouseClicked(evt);
+            }
+        });
+        BtnFiltrarF1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel15.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Filtrar factura");
+        BtnFiltrarF1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 110, 30));
+
+        PanelMenuProveed.add(BtnFiltrarF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 150, -1));
 
         jPanel1.add(PanelMenuProveed, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 660));
 
@@ -296,11 +314,11 @@ public class Proveedor extends javax.swing.JFrame {
         m.mostrardatosProducto("");
     }//GEN-LAST:event_BtnVentasMouseClicked
 
-    private void BtnFiltrarFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFiltrarFMouseClicked
-        JF_FiltroFactura m = new JF_FiltroFactura();
-        m.setVisible(true);
+    private void BtnproductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnproductoMouseClicked
+        Producto p = new Producto();
+        p.setVisible(true);
         dispose();
-    }//GEN-LAST:event_BtnFiltrarFMouseClicked
+    }//GEN-LAST:event_BtnproductoMouseClicked
 
     private void btningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btningresarMouseClicked
         try {
@@ -321,6 +339,10 @@ public class Proveedor extends javax.swing.JFrame {
         m.setVisible(true);
         dispose();
     }//GEN-LAST:event_BtnMenuMouseClicked
+
+    private void BtnFiltrarF1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFiltrarF1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnFiltrarF1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -358,13 +380,14 @@ public class Proveedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel BtnFiltrarF;
+    private javax.swing.JPanel BtnFiltrarF1;
     private javax.swing.JPanel BtnIRegistrarCliente;
     private javax.swing.JPanel BtnMenu;
     private javax.swing.JLabel BtnMinimizar;
     private javax.swing.JPanel BtnProforma;
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel BtnVentas;
+    private javax.swing.JPanel Btnproducto;
     private javax.swing.JPanel PanelMenuProveed;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JPanel btningresar;
@@ -373,6 +396,7 @@ public class Proveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
