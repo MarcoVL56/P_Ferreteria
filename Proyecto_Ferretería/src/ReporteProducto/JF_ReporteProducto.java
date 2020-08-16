@@ -83,6 +83,9 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         BtnIRegistrarCliente = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtUsuarioVentas = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -179,7 +182,7 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
                 btnVerActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 90, -1));
+        jPanel1.add(btnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 90, -1));
         jPanel1.add(txtFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 160, 31));
         jPanel1.add(txtFecha2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 170, 160, 31));
 
@@ -245,7 +248,7 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         jLabel13.setText("Filtrar factura");
         BtnFiltrarF.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 110, 30));
 
-        PanelMenuRPro.add(BtnFiltrarF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 150, -1));
+        PanelMenuRPro.add(BtnFiltrarF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 150, -1));
 
         BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
         BtnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -261,7 +264,7 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         jLabel16.setText("Ventas");
         BtnVentas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 60, 30));
 
-        PanelMenuRPro.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 150, -1));
+        PanelMenuRPro.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 150, -1));
 
         BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
         BtnProforma.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -277,7 +280,7 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         jLabel17.setText("Proformas");
         BtnProforma.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 90, 30));
 
-        PanelMenuRPro.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, -1));
+        PanelMenuRPro.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 150, -1));
 
         BtnIRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
         BtnIRegistrarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -293,7 +296,27 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         jLabel18.setText("Registrar cliente");
         BtnIRegistrarCliente.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 140, 30));
 
-        PanelMenuRPro.add(BtnIRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 150, 30));
+        PanelMenuRPro.add(BtnIRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 150, 30));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setText("Usuario");
+        PanelMenuRPro.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
+
+        txtUsuarioVentas.setEditable(false);
+        txtUsuarioVentas.setBackground(new java.awt.Color(245, 245, 245));
+        txtUsuarioVentas.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        txtUsuarioVentas.setText("      ");
+        txtUsuarioVentas.setBorder(null);
+        txtUsuarioVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioVentasActionPerformed(evt);
+            }
+        });
+        PanelMenuRPro.add(txtUsuarioVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 120, 40));
+
+        jLabel26.setBackground(new java.awt.Color(245, 245, 245));
+        jLabel26.setOpaque(true);
+        PanelMenuRPro.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 40, 40));
 
         jPanel1.add(PanelMenuRPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
@@ -332,6 +355,8 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         JF_Menú m = new JF_Menú();
         m.setVisible(true);
         dispose();
+
+        m.txtUsuarioIniciado.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_btnMenúMouseClicked
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
@@ -379,6 +404,10 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         m.setVisible(true);
         dispose();
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
+
+    private void txtUsuarioVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioVentasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioVentasActionPerformed
 
     public void mostrarProductos(String valor) {
 
@@ -682,7 +711,9 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
@@ -695,6 +726,7 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
     private javax.swing.JTable tbprod;
     private com.toedter.calendar.JDateChooser txtFecha1;
     private com.toedter.calendar.JDateChooser txtFecha2;
+    public javax.swing.JTextField txtUsuarioVentas;
     // End of variables declaration//GEN-END:variables
 datosP cc = new datosP();
     Connection cn = cc.conexion();

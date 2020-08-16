@@ -34,6 +34,9 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         BtnProforma = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtUsuarioVentas = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -138,7 +141,7 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
         jLabel13.setText("Filtrar factura");
         BtnFiltrarF.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 110, 30));
 
-        PanelMenuRC.add(BtnFiltrarF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 150, -1));
+        PanelMenuRC.add(BtnFiltrarF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 150, -1));
 
         BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
         BtnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -154,7 +157,7 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
         jLabel16.setText("Ventas");
         BtnVentas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 60, 30));
 
-        PanelMenuRC.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 150, -1));
+        PanelMenuRC.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 150, -1));
 
         BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
         BtnProforma.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -170,7 +173,27 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
         jLabel17.setText("Proformas");
         BtnProforma.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 90, 30));
 
-        PanelMenuRC.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 150, -1));
+        PanelMenuRC.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setText("Usuario");
+        PanelMenuRC.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
+
+        txtUsuarioVentas.setEditable(false);
+        txtUsuarioVentas.setBackground(new java.awt.Color(245, 245, 245));
+        txtUsuarioVentas.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        txtUsuarioVentas.setText("      ");
+        txtUsuarioVentas.setBorder(null);
+        txtUsuarioVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioVentasActionPerformed(evt);
+            }
+        });
+        PanelMenuRC.add(txtUsuarioVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 120, 40));
+
+        jLabel26.setBackground(new java.awt.Color(245, 245, 245));
+        jLabel26.setOpaque(true);
+        PanelMenuRC.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 40, 40));
 
         jPanel1.add(PanelMenuRC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
@@ -267,6 +290,7 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
         JF_Menú m = new JF_Menú();
         m.setVisible(true);
         dispose();
+        m.txtUsuarioIniciado.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnMenuMouseClicked
 
     private void BtnFiltrarFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFiltrarFMouseClicked
@@ -279,7 +303,7 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
         JF_Ventas m = new JF_Ventas();
         m.setVisible(true);
         dispose();
-         m.mostrardatosProducto("");
+        m.mostrardatosProducto("");
     }//GEN-LAST:event_BtnVentasMouseClicked
 
     private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked
@@ -318,6 +342,10 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_BtnIngresar1MouseClicked
+
+    private void txtUsuarioVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioVentasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioVentasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -373,7 +401,9 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -384,6 +414,7 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtPrimerP;
     private javax.swing.JTextField txtSegundoP;
+    public javax.swing.JTextField txtUsuarioVentas;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables

@@ -240,6 +240,9 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         BtnIRegistrarCliente = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtUsuarioVentas = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
         btnListar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbDatos = new javax.swing.JTable();
@@ -342,7 +345,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         jLabel16.setText("Ventas");
         BtnVentas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 60, 30));
 
-        PanelMenuFFac.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 150, -1));
+        PanelMenuFFac.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 150, -1));
 
         BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
         BtnProforma.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -358,7 +361,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         jLabel17.setText("Proformas");
         BtnProforma.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 90, 30));
 
-        PanelMenuFFac.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 150, -1));
+        PanelMenuFFac.add(BtnProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 150, -1));
 
         BtnIRegistrarCliente.setBackground(new java.awt.Color(153, 153, 153));
         BtnIRegistrarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -374,7 +377,27 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         jLabel18.setText("Registrar cliente");
         BtnIRegistrarCliente.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 140, 30));
 
-        PanelMenuFFac.add(BtnIRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 150, 30));
+        PanelMenuFFac.add(BtnIRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 150, 30));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setText("Usuario");
+        PanelMenuFFac.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
+
+        txtUsuarioVentas.setEditable(false);
+        txtUsuarioVentas.setBackground(new java.awt.Color(245, 245, 245));
+        txtUsuarioVentas.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        txtUsuarioVentas.setText("      ");
+        txtUsuarioVentas.setBorder(null);
+        txtUsuarioVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioVentasActionPerformed(evt);
+            }
+        });
+        PanelMenuFFac.add(txtUsuarioVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 120, 40));
+
+        jLabel26.setBackground(new java.awt.Color(245, 245, 245));
+        jLabel26.setOpaque(true);
+        PanelMenuFFac.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 40, 40));
 
         jPanel1.add(PanelMenuFFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
@@ -484,6 +507,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         JF_Menú m = new JF_Menú();
         m.setVisible(true);
         dispose();
+        m.txtUsuarioIniciado.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnMenuMouseClicked
 
     private void BtnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnVentasMouseClicked
@@ -540,6 +564,10 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnFiltrarporrangoActionPerformed
 
+    private void txtUsuarioVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioVentasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioVentasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -594,6 +622,8 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
@@ -602,6 +632,7 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
     private javax.swing.JTextField txtCedula;
     private com.toedter.calendar.JDateChooser txtFecha1;
     private com.toedter.calendar.JDateChooser txtFecha3;
+    public javax.swing.JTextField txtUsuarioVentas;
     // End of variables declaration//GEN-END:variables
  datosP cc = new datosP();
     Connection cn = cc.conexion();

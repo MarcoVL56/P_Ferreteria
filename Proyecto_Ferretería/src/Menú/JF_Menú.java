@@ -317,6 +317,7 @@ public class JF_Menú extends javax.swing.JFrame {
         JF_RegistrarUsuario m = new JF_RegistrarUsuario();
         m.setVisible(true);
         dispose();
+        m.txtUsuarioVentas.setText(txtUsuarioIniciado.getText());
 
     }//GEN-LAST:event_btnRUsuarioMouseClicked
 
@@ -324,6 +325,7 @@ public class JF_Menú extends javax.swing.JFrame {
         JF_RegistrarCliente m = new JF_RegistrarCliente();
         m.setVisible(true);
         dispose();
+        m.txtUsuarioVentas.setText(txtUsuarioIniciado.getText());
 
     }//GEN-LAST:event_btnRClienteMouseClicked
 
@@ -331,6 +333,7 @@ public class JF_Menú extends javax.swing.JFrame {
         JF_Proformas m = new JF_Proformas();
         m.setVisible(true);
         dispose();
+        m.txtUsuarioVentas.setText(txtUsuarioIniciado.getText());
 
     }//GEN-LAST:event_btnProformasMouseClicked
 
@@ -338,6 +341,7 @@ public class JF_Menú extends javax.swing.JFrame {
         JF_Inventario m = new JF_Inventario();
         m.setVisible(true);
         dispose();
+        m.txtUsuarioVentas.setText(txtUsuarioIniciado.getText());
 
     }//GEN-LAST:event_btnInventarioMouseClicked
 
@@ -357,12 +361,14 @@ public class JF_Menú extends javax.swing.JFrame {
         JF_ReporteProducto m = new JF_ReporteProducto();
         m.setVisible(true);
         dispose();
+        m.txtUsuarioVentas.setText(txtUsuarioIniciado.getText());
     }//GEN-LAST:event_btnReporteProductosMouseClicked
 
     private void btnFiltroFacturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFiltroFacturasMouseClicked
         JF_FiltroFactura m = new JF_FiltroFactura();
         m.setVisible(true);
         dispose();
+        m.txtUsuarioVentas.setText(txtUsuarioIniciado.getText());
 
     }//GEN-LAST:event_btnFiltroFacturasMouseClicked
 

@@ -221,13 +221,17 @@ public class JF_Permiso extends javax.swing.JFrame {
         txtMontoDescuento.setText("" + MontoDescuento);
         txtMontoTotal.setText("" + TotalPagar);
 
-        m.txtDescuento.setText("");
-        m.txtImpuesto.setText("");
-        m.txtTotalPagar.setText("");
+//        m.txtDescuento.setText("");
+//        m.txtImpuesto.setText("");
+//        m.txtTotalPagar.setText("");
+//        m.txtDescuento.setText(txtMontoDescuento.getText());
+//        m.txtImpuesto.setText(txtMontoImpuesto.getText());
+//        m.txtTotalPagar.setText(txtMontoTotal.getText());
 
-        m.txtDescuento.setText(txtMontoDescuento.getText());
-        m.txtImpuesto.setText(txtMontoImpuesto.getText());
-        m.txtTotalPagar.setText(txtMontoTotal.getText());
+
+//        txtMontoDescuento.setText(m.txtDescuento.getText());
+//        txtMontoImpuesto.setText(m.txtImpuesto.getText());
+//        txtMontoTotal.setText(m.txtTotalPagar.getText());
 
     }
 

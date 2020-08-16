@@ -49,17 +49,10 @@ public class Producto extends javax.swing.JFrame {
         txtIdbuscar = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         PanelMenuProducto = new javax.swing.JPanel();
-        BtnMenu = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        BtnFiltrarF = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        BtnVentas = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
         BtnInventario = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         BtnProveedor = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtnombre1 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
@@ -195,54 +188,6 @@ public class Producto extends javax.swing.JFrame {
         PanelMenuProducto.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuProducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtnMenu.setBackground(new java.awt.Color(255, 0, 0));
-        BtnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnMenuMouseClicked(evt);
-            }
-        });
-        BtnMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel12.setBackground(new java.awt.Color(67, 81, 141));
-        jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Menú");
-        BtnMenu.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 60, 30));
-
-        PanelMenuProducto.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 150, 30));
-
-        BtnFiltrarF.setBackground(new java.awt.Color(153, 153, 153));
-        BtnFiltrarF.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnFiltrarFMouseClicked(evt);
-            }
-        });
-        BtnFiltrarF.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel13.setBackground(new java.awt.Color(67, 81, 141));
-        jLabel13.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Filtrar factura");
-        BtnFiltrarF.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 110, 30));
-
-        PanelMenuProducto.add(BtnFiltrarF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 150, -1));
-
-        BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
-        BtnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnVentasMouseClicked(evt);
-            }
-        });
-        BtnVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel16.setBackground(new java.awt.Color(67, 81, 141));
-        jLabel16.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Ventas");
-        BtnVentas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 60, 30));
-
-        PanelMenuProducto.add(BtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 150, -1));
-
         BtnInventario.setBackground(new java.awt.Color(153, 153, 153));
         BtnInventario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -257,7 +202,7 @@ public class Producto extends javax.swing.JFrame {
         jLabel17.setText("Inventario");
         BtnInventario.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 90, 30));
 
-        PanelMenuProducto.add(BtnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, -1));
+        PanelMenuProducto.add(BtnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 150, -1));
 
         BtnProveedor.setBackground(new java.awt.Color(153, 153, 153));
         BtnProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -274,11 +219,7 @@ public class Producto extends javax.swing.JFrame {
         jLabel18.setText("Proveedor");
         BtnProveedor.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 140, 30));
 
-        PanelMenuProducto.add(BtnProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 150, 30));
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-producto-nuevo-80.png"))); // NOI18N
-        PanelMenuProducto.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 120, 100));
+        PanelMenuProducto.add(BtnProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 150, 30));
 
         jPanel2.add(PanelMenuProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 660));
 
@@ -429,25 +370,6 @@ public class Producto extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BtnInventarioMouseClicked
 
-    private void BtnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnVentasMouseClicked
-        JF_Ventas m = new JF_Ventas();
-        m.setVisible(true);
-        dispose();
-        m.mostrardatosProducto("");
-    }//GEN-LAST:event_BtnVentasMouseClicked
-
-    private void BtnFiltrarFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFiltrarFMouseClicked
-        JF_FiltroFactura m = new JF_FiltroFactura();
-        m.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_BtnFiltrarFMouseClicked
-
-    private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
-        JF_Menú m = new JF_Menú();
-        m.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_BtnMenuMouseClicked
-
      private void CargaProveedor() {
         PreparedStatement ps;
         ResultSet rs;
@@ -571,13 +493,10 @@ public class Producto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel BtnFiltrarF;
     private javax.swing.JPanel BtnInventario;
-    private javax.swing.JPanel BtnMenu;
     private javax.swing.JLabel BtnMinimizar;
     private javax.swing.JPanel BtnProveedor;
     private javax.swing.JLabel BtnSalir;
-    private javax.swing.JPanel BtnVentas;
     private javax.swing.JPanel PanelMenuProducto;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JButton btnaddinventario;
@@ -589,16 +508,12 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbproducto;
     private javax.swing.JComboBox<String> cbprove;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
