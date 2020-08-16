@@ -742,7 +742,6 @@ public class JF_Ventas extends javax.swing.JFrame {
 
     private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
         JF_Menú m = new JF_Menú();
-     
 
         m.txtUsuarioIniciado.setText(txtUsuarioVentas.getText());
 
@@ -755,14 +754,14 @@ public class JF_Ventas extends javax.swing.JFrame {
         JF_Proformas m = new JF_Proformas();
         m.setVisible(true);
         dispose();
-         m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
+        m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnProformaMouseClicked
 
     private void BtnIRegistrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseClicked
         JF_RegistrarCliente m = new JF_RegistrarCliente();
         m.setVisible(true);
         dispose();
-         m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
+        m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
 
     private void filtro() {
@@ -826,6 +825,9 @@ public class JF_Ventas extends javax.swing.JFrame {
         m.mostrar1();
         m.mostrar2();
         m.mostrar3();
+
+        m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
+
 
     }//GEN-LAST:event_BtnPagarActionPerformed
 
