@@ -7,7 +7,7 @@ import Proformas.JF_Proformas;
 
 import RegistrarEmpleado.JF_RegistrarCliente;
 import RegistrarUsuario.JF_RegistrarUsuario;
-//import ReporteProducto.JF_ReporteProducto;
+import ReporteProducto.JF_ReporteProducto;
 
 import Ventas.JF_Ventas;
 
@@ -354,9 +354,9 @@ public class JF_Menú extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVentasMouseClicked
 
     private void btnReporteProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReporteProductosMouseClicked
-//        JF_ReporteProducto m = new JF_ReporteProducto();
-//        m.setVisible(true);
-//        dispose();
+        JF_ReporteProducto m = new JF_ReporteProducto();
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnReporteProductosMouseClicked
 
     private void btnFiltroFacturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFiltroFacturasMouseClicked
