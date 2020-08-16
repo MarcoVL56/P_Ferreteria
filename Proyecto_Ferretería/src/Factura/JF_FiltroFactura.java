@@ -514,18 +514,21 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
         JF_Ventas m = new JF_Ventas();
         m.setVisible(true);
         dispose();
+        m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnVentasMouseClicked
 
     private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked
         JF_Proformas m = new JF_Proformas();
         m.setVisible(true);
         dispose();
+        m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnProformaMouseClicked
 
     private void BtnIRegistrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseClicked
         JF_RegistrarCliente m = new JF_RegistrarCliente();
         m.setVisible(true);
         dispose();
+        m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed

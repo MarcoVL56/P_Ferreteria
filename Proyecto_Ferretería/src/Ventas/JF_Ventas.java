@@ -3,7 +3,9 @@ package Ventas;
 import Conexion.datosP;
 import Factura.JF_Factura;
 import Factura.JF_FiltroFactura;
+import Login.JF_Login;
 import Menú.JF_Menú;
+import MenúSimple.JF_MenúSimple;
 import Proformas.JF_Proformas;
 import RegistrarEmpleado.JF_RegistrarCliente;
 import java.awt.event.KeyAdapter;
@@ -14,6 +16,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -27,6 +31,34 @@ public class JF_Ventas extends javax.swing.JFrame {
     public JF_Ventas() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+
+    void acceder(String usuario) {
+        String cap = "";
+        String sql = "SELECT * FROM registro_usuario WHERE Usuario='" + usuario + "'";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                cap = rs.getString("Fk_TipoUsuario");
+            }
+            if (cap.equals("1")) {
+                JF_Menú m = new JF_Menú();
+                m.setVisible(true);
+                dispose();
+
+                m.txtUsuarioIniciado.setText(txtUsuarioVentas.getText());
+            } else if (cap.equals("2")) {
+                JF_MenúSimple m = new JF_MenúSimple();
+                m.setVisible(true);
+                dispose();
+
+                m.txtUsuarioIniciado.setText(txtUsuarioVentas.getText());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(JF_Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     public void processCalendar() {
@@ -309,8 +341,6 @@ public class JF_Ventas extends javax.swing.JFrame {
         PanelMenuV = new javax.swing.JPanel();
         BtnMenu = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        BtnFiltrarF = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
         BtnProforma = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         BtnIRegistrarCliente = new javax.swing.JPanel();
@@ -549,22 +579,6 @@ public class JF_Ventas extends javax.swing.JFrame {
 
         PanelMenuV.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 150, 30));
 
-        BtnFiltrarF.setBackground(new java.awt.Color(153, 153, 153));
-        BtnFiltrarF.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnFiltrarFMouseClicked(evt);
-            }
-        });
-        BtnFiltrarF.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel13.setBackground(new java.awt.Color(67, 81, 141));
-        jLabel13.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Filtrar factura");
-        BtnFiltrarF.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 110, 30));
-
-        PanelMenuV.add(BtnFiltrarF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 150, -1));
-
         BtnProforma.setBackground(new java.awt.Color(153, 153, 153));
         BtnProforma.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -728,29 +742,27 @@ public class JF_Ventas extends javax.swing.JFrame {
 
     private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
         JF_Menú m = new JF_Menú();
-        m.setVisible(true);
-        dispose();
+     
 
         m.txtUsuarioIniciado.setText(txtUsuarioVentas.getText());
 
-    }//GEN-LAST:event_BtnMenuMouseClicked
+        String usu = txtUsuarioVentas.getText();
+        acceder(usu);
 
-    private void BtnFiltrarFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFiltrarFMouseClicked
-        JF_FiltroFactura m = new JF_FiltroFactura();
-        m.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_BtnFiltrarFMouseClicked
+    }//GEN-LAST:event_BtnMenuMouseClicked
 
     private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked
         JF_Proformas m = new JF_Proformas();
         m.setVisible(true);
         dispose();
+         m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnProformaMouseClicked
 
     private void BtnIRegistrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseClicked
         JF_RegistrarCliente m = new JF_RegistrarCliente();
         m.setVisible(true);
         dispose();
+         m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
 
     private void filtro() {
@@ -966,7 +978,6 @@ public class JF_Ventas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;
-    private javax.swing.JPanel BtnFiltrarF;
     private javax.swing.JPanel BtnIRegistrarCliente;
     private javax.swing.JPanel BtnMenu;
     private javax.swing.JLabel BtnMinimizar;
@@ -983,7 +994,6 @@ public class JF_Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

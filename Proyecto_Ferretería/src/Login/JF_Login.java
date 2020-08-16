@@ -2,6 +2,7 @@ package Login;
 
 import Conexion.datosP;
 import Menú.JF_Menú;
+import MenúSimple.JF_MenúSimple;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,7 +35,7 @@ public class JF_Login extends javax.swing.JFrame {
                  m.txtUsuarioIniciado.setText(txtUsuario.getText());
 
             } else if (cap.equals("2")) {
-                JF_Menú m = new JF_Menú();
+                JF_MenúSimple m = new JF_MenúSimple();
                 m.setVisible(true);
                 dispose();
                 

@@ -29,8 +29,6 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
         PanelMenuRU = new javax.swing.JPanel();
         BtnMenu = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        BtnFiltrarF = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
         BtnVentas = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         BtnProforma = new javax.swing.JPanel();
@@ -138,22 +136,6 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
         BtnMenu.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 60, 30));
 
         PanelMenuRU.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 150, 30));
-
-        BtnFiltrarF.setBackground(new java.awt.Color(153, 153, 153));
-        BtnFiltrarF.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnFiltrarFMouseClicked(evt);
-            }
-        });
-        BtnFiltrarF.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel13.setBackground(new java.awt.Color(67, 81, 141));
-        jLabel13.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Filtrar factura");
-        BtnFiltrarF.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 110, 30));
-
-        PanelMenuRU.add(BtnFiltrarF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 150, -1));
 
         BtnVentas.setBackground(new java.awt.Color(153, 153, 153));
         BtnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -358,29 +340,26 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
         m.txtUsuarioIniciado.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnMenuMouseClicked
 
-    private void BtnFiltrarFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFiltrarFMouseClicked
-        JF_FiltroFactura m = new JF_FiltroFactura();
-        m.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_BtnFiltrarFMouseClicked
-
     private void BtnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnVentasMouseClicked
         JF_Ventas m = new JF_Ventas();
         m.setVisible(true);
         dispose();
         m.mostrardatosProducto("");
+        m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnVentasMouseClicked
 
     private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked
         JF_Proformas m = new JF_Proformas();
         m.setVisible(true);
         dispose();
+        m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnProformaMouseClicked
 
     private void BtnIRegistrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseClicked
         JF_RegistrarCliente m = new JF_RegistrarCliente();
         m.setVisible(true);
         dispose();
+        m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
 
     private void chVerContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chVerContraActionPerformed
@@ -477,7 +456,6 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel BtnFiltrarF;
     private javax.swing.JPanel BtnIRegistrarCliente;
     private javax.swing.JPanel BtnIngresar1;
     private javax.swing.JPanel BtnMenu;
@@ -492,7 +470,6 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
