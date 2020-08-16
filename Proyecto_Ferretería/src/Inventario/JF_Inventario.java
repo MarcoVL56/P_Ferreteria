@@ -386,6 +386,13 @@ public class JF_Inventario extends javax.swing.JFrame {
         Producto p = new Producto();
         p.setVisible(true);
         dispose();
+        
+        
+        p.mostrarProducto("");
+        p.mostrarProveedor("");
+        
+        
+          p.txtUsuarioProducto.setText(txtUsuarioVentas.getText());
     
     }//GEN-LAST:event_BtnProductoMouseClicked
 

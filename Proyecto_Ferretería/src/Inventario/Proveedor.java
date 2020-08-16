@@ -32,6 +32,11 @@ public class Proveedor extends javax.swing.JFrame {
         PanelMenuProveed = new javax.swing.JPanel();
         Btnproducto = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtUsuarioProveedor = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        BtnMenu = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -114,6 +119,42 @@ public class Proveedor extends javax.swing.JFrame {
         Btnproducto.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 30));
 
         PanelMenuProveed.add(Btnproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 150, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setText("Usuario");
+        PanelMenuProveed.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
+
+        txtUsuarioProveedor.setEditable(false);
+        txtUsuarioProveedor.setBackground(new java.awt.Color(245, 245, 245));
+        txtUsuarioProveedor.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        txtUsuarioProveedor.setText("      ");
+        txtUsuarioProveedor.setBorder(null);
+        txtUsuarioProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioProveedorActionPerformed(evt);
+            }
+        });
+        PanelMenuProveed.add(txtUsuarioProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 120, 40));
+
+        jLabel26.setBackground(new java.awt.Color(245, 245, 245));
+        jLabel26.setOpaque(true);
+        PanelMenuProveed.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 40, 40));
+
+        BtnMenu.setBackground(new java.awt.Color(255, 0, 0));
+        BtnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnMenuMouseClicked(evt);
+            }
+        });
+        BtnMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Menú");
+        BtnMenu.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 60, 30));
+
+        PanelMenuProveed.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 150, 30));
 
         jPanel1.add(PanelMenuProveed, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 660));
 
@@ -204,6 +245,9 @@ public class Proveedor extends javax.swing.JFrame {
         Producto p = new Producto();
         p.setVisible(true);
         dispose();
+        
+         p.txtUsuarioProducto.setText(txtUsuarioProveedor.getText());
+        
     }//GEN-LAST:event_BtnproductoMouseClicked
 
     private void btningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btningresarMouseClicked
@@ -217,8 +261,20 @@ public class Proveedor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error en la base de datos...");
 
         }
-           txtproveedor.setText("");
+        txtproveedor.setText("");
     }//GEN-LAST:event_btningresarMouseClicked
+
+    private void txtUsuarioProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioProveedorActionPerformed
+
+    private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
+        JF_Menú m = new JF_Menú();
+        m.setVisible(true);
+        dispose();
+
+        m.txtUsuarioIniciado.setText(txtUsuarioProveedor.getText());
+    }//GEN-LAST:event_BtnMenuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -256,6 +312,7 @@ public class Proveedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BtnMenu;
     private javax.swing.JLabel BtnMinimizar;
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel Btnproducto;
@@ -263,13 +320,17 @@ public class Proveedor extends javax.swing.JFrame {
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JPanel btningresar;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    public javax.swing.JTextField txtUsuarioProveedor;
     private javax.swing.JTextField txtproveedor;
     // End of variables declaration//GEN-END:variables
 }
