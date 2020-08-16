@@ -231,9 +231,9 @@ public class JF_Ventas extends javax.swing.JFrame {
 
         } else if (Subtotal >= 250000 && Subtotal < 500000) {
 
-            Descuento = (Subtotal * 0.10);
-
             Impuesto = (Subtotal * 0.13);
+
+            Descuento = ((Subtotal + Impuesto) * 0.10);
 
             TotalPagar = (Subtotal + Impuesto) - Descuento;
 
@@ -243,9 +243,9 @@ public class JF_Ventas extends javax.swing.JFrame {
 
         } else if (Subtotal >= 500000 && Subtotal < 1000000) {
 
-            Descuento = (Subtotal * 0.15);
-
             Impuesto = (Subtotal * 0.13);
+
+            Descuento = ((Subtotal + Impuesto) * 0.15);
 
             TotalPagar = (Subtotal + Impuesto) - Descuento;
 
@@ -255,9 +255,9 @@ public class JF_Ventas extends javax.swing.JFrame {
 
         } else if (Subtotal >= 1000000) {
 
-            Descuento = (Subtotal * 0.20);
-
             Impuesto = (Subtotal * 0.13);
+
+            Descuento = ((Subtotal + Impuesto) * 0.20);
 
             TotalPagar = (Subtotal + Impuesto) - Descuento;
 
@@ -302,8 +302,6 @@ public class JF_Ventas extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         btnAplicarDescuento = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
@@ -515,14 +513,8 @@ public class JF_Ventas extends javax.swing.JFrame {
         });
         jPanel1.add(btnAplicarDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 570, 230, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "21", "22", "23", "24", "25" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 600, 150, -1));
-
-        jLabel8.setText("Porcentaje ");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 600, -1, -1));
-
         jLabel9.setText("Es necesario un usuario administrador");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 660, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 610, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setText("Cédula");
@@ -729,6 +721,8 @@ public class JF_Ventas extends javax.swing.JFrame {
     private void btnAplicarDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarDescuentoActionPerformed
         JF_Permiso m = new JF_Permiso();
         m.setVisible(true);
+
+        m.txtMontoSubtotal.setText(txtSubTotal.getText());
 
     }//GEN-LAST:event_btnAplicarDescuentoActionPerformed
 
@@ -985,7 +979,6 @@ public class JF_Ventas extends javax.swing.JFrame {
     private javax.swing.JButton VerSubtotal;
     private javax.swing.JButton btnAplicarDescuento;
     private javax.swing.JLabel btnSubMenu;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1006,7 +999,6 @@ public class JF_Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
@@ -1023,11 +1015,11 @@ public class JF_Ventas extends javax.swing.JFrame {
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtCodigoBarras;
-    private javax.swing.JTextField txtDescuento;
+    public javax.swing.JTextField txtDescuento;
     private com.toedter.calendar.JDateChooser txtFechaFact;
-    private javax.swing.JTextField txtImpuesto;
+    public javax.swing.JTextField txtImpuesto;
     private javax.swing.JTextField txtSubTotal;
-    private javax.swing.JTextField txtTotalPagar;
+    public javax.swing.JTextField txtTotalPagar;
     public javax.swing.JTextField txtUsuarioVentas;
     private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
