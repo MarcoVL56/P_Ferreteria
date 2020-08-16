@@ -198,7 +198,6 @@ public class JF_Factura extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbProducto = new javax.swing.JTable();
-        BtnVer = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -388,7 +387,7 @@ public class JF_Factura extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("--------Ultima linea---------");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, 197, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 520, 197, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logo reducido.jpeg"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 173, 147));
@@ -416,6 +415,7 @@ public class JF_Factura extends javax.swing.JFrame {
         jLabel6.setText("Direccion: 50 mts sur de la universidad Latina de Costa Rica");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 92, -1, -1));
 
+        txtCodigoFac.setEditable(false);
         txtCodigoFac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodigoFacActionPerformed(evt);
@@ -455,15 +455,7 @@ public class JF_Factura extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tbProducto);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 399, 626, 53));
-
-        BtnVer.setText("Ver");
-        BtnVer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnVerActionPerformed(evt);
-            }
-        });
-        jPanel2.add(BtnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 500, -1, -1));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 399, 626, 110));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 750, 550));
 
@@ -539,13 +531,6 @@ public class JF_Factura extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnImprimirActionPerformed
 
-    private void BtnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVerActionPerformed
-
-        mostrar1();
-        mostrar2();
-        mostrar3();
-    }//GEN-LAST:event_BtnVerActionPerformed
-
     private void txtCodigoFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoFacActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoFacActionPerformed
@@ -596,7 +581,6 @@ public class JF_Factura extends javax.swing.JFrame {
     private javax.swing.JPanel BtnProforma;
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel BtnVentas;
-    private javax.swing.JButton BtnVer;
     private javax.swing.JPanel PanelMenuFac;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JLabel btnSubMenu;
