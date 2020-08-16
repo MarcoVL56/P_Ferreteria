@@ -245,12 +245,14 @@ public class Proveedor extends javax.swing.JFrame {
         Producto p = new Producto();
         p.setVisible(true);
         dispose();
-        
-         p.txtUsuarioProducto.setText(txtUsuarioProveedor.getText());
-        
+
+        p.txtUsuarioProducto.setText(txtUsuarioProveedor.getText());
+
     }//GEN-LAST:event_BtnproductoMouseClicked
 
     private void btningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btningresarMouseClicked
+
+        //---------------------Ingreso de un nuevo Proveedor.....
         try {
             ps = con.conectar().prepareStatement("INSERT INTO proveedor (NombreProveedor) "
                     + "VALUES(?)");

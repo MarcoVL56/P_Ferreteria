@@ -26,6 +26,8 @@ public class Producto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 //        CargaProveedor();
 //        CargaProducto();
+        mostrarProducto("");
+        mostrarProveedor("");
     }
 
     @SuppressWarnings("unchecked")
@@ -365,7 +367,7 @@ public class Producto extends javax.swing.JFrame {
         }
         String[] datos = new String[6];
         try {
-            Statement st = cn.createStatement();
+            Statement st = con.conectar().createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
 
@@ -395,7 +397,7 @@ public class Producto extends javax.swing.JFrame {
         }
         String[] datos = new String[2];
         try {
-            Statement st = cn.createStatement();
+            Statement st = con.conectar().createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
 
@@ -479,11 +481,13 @@ public class Producto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
+        // metodo de MODIFICACION 
         try {
+            //CONSULTA PARA LA MODIFICACIÓN
             ps = con.conectar().prepareStatement("UPDATE producto SET  "
                     + "Nombre=?,Presentacion=?,PrecioUnitario=?,Cantidad=? ");
+            // 
             ps.setString(1, txtnombre1.getText());
-
             int seleccion = cbpresentacion.getSelectedIndex();
             ps.setString(2, cbpresentacion.getItemAt(seleccion));
 
@@ -503,7 +507,9 @@ public class Producto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btnborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnborrarActionPerformed
+        //Metodo borrar
         try {
+            //Consulta borrar con un parametro ID
             ps = con.conectar().prepareStatement("DELETE FROM producto WHERE Id_Producto=?");
             ps.setInt(1, Integer.parseInt(txtIdbuscar.getText()));
 
@@ -534,55 +540,24 @@ public class Producto extends javax.swing.JFrame {
         m.txtUsuarioVentas.setText(txtUsuarioProducto.getText());
     }//GEN-LAST:event_BtnInventarioMouseClicked
 
-//     private void CargaProveedor() {
-//        PreparedStatement ps;
-//        ResultSet rs;
-//        try {
-//            ps = con.conectar().prepareStatement("SELECT NombreProveedor FROM proveedor ORDER BY NombreProveedor ASC");
-//
-//            rs = ps.executeQuery();
-//
-//            while (rs.next()) {
-//                cbprove.addItem(rs.getString("NombreProveedor"));
-//            }
-//            con.Desconectar();
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Error en la matrix: " + e);
-//        }
-//    }
-//
-//    private void CargaProducto() {
-//        PreparedStatement ps;
-//        ResultSet rs;
-//        try {
-//            ps = con.conectar().prepareStatement("SELECT Nombre FROM producto ORDER BY Nombre ASC");
-//
-//            rs = ps.executeQuery();
-//
-//            while (rs.next()) {
-//                cbproducto.addItem(rs.getString("Nombre"));
-//            }
-//            con.Desconectar();
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Error en la matrix: " + e);
-//        }
-//    }
 
     private void btnaddinventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddinventarioActionPerformed
-        ResultSet rs;
-        String producto;
-        String prove;
 
+        // Metodo para añadir inventario
         try {
+            //consulta de insercion al inventario
             ps = con.conectar().prepareStatement("INSERT INTO inventario (Fk_Productos,Fk_Proveedor) "
                     + "VALUES(?,?)");
 
-            /*    producto=cbproducto.getItemAt(cbproducto.getSelectedIndex());
-            prove=cbprove.getItemAt(cbprove.getSelectedIndex());
-            ps.setInt(1, Integer.parseInt(producto));
-            ps.setInt(2, Integer.parseInt(prove));
-            ps.execute(); */
+            //Parametros que voy a introducir...
+            ps.setInt(1, Integer.parseInt(txtProducto.getText()));
+            ps.setInt(2, Integer.parseInt(txtProveedor.getText()));
+            ps.execute();
             JOptionPane.showMessageDialog(null, "Agregado a Inventario");
+
+            txtProducto.setText("");
+            txtProveedor.setText("");
+
             con.Desconectar();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al Ingresar en Inventario: " + e);
@@ -619,22 +594,6 @@ public class Producto extends javax.swing.JFrame {
         txtCantidad.setText("");
     }
 
-    /*
-    private void cbproveedor() {
-        try {
-            ps = con.conectar().prepareStatement("SELECT NombreProveedor FROM proveedor ORDER BY NombreProveedor ASC");
-
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                cbprove.addItem(rs.getString("NombreProveedor"));
-            }
-            con.Desconectar();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error en la matrix: " + e);
-        }
-    }
-     */
     /**
      * @param args the command line arguments
      */

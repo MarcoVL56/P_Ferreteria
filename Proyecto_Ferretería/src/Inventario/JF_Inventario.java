@@ -31,7 +31,7 @@ public class JF_Inventario extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
 
-        //Carga de tabla -----------
+        //-----------------------------------Carga de tabla -----------
         PreparedStatement ps = null;
         ResultSet rs = null;
 
@@ -347,14 +347,14 @@ public class JF_Inventario extends javax.swing.JFrame {
         JF_RegistrarCliente m = new JF_RegistrarCliente();
         m.setVisible(true);
         dispose();
-         m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
+        m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
 
     private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked
         JF_Proformas m = new JF_Proformas();
         m.setVisible(true);
         dispose();
-         m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
+        m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnProformaMouseClicked
 
     private void BtnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnVentasMouseClicked
@@ -362,7 +362,7 @@ public class JF_Inventario extends javax.swing.JFrame {
         m.setVisible(true);
         dispose();
         m.mostrardatosProducto("");
-         m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
+        m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnVentasMouseClicked
     private void filtro() {
         int columnatb = 1;
@@ -386,14 +386,12 @@ public class JF_Inventario extends javax.swing.JFrame {
         Producto p = new Producto();
         p.setVisible(true);
         dispose();
-        
-        
+
         p.mostrarProducto("");
         p.mostrarProveedor("");
-        
-        
-          p.txtUsuarioProducto.setText(txtUsuarioVentas.getText());
-    
+
+        p.txtUsuarioProducto.setText(txtUsuarioVentas.getText());
+
     }//GEN-LAST:event_BtnProductoMouseClicked
 
     private void txtUsuarioVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioVentasActionPerformed
