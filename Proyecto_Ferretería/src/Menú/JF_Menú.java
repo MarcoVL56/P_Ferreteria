@@ -311,6 +311,10 @@ public class JF_Menú extends javax.swing.JFrame {
         } else {
             Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenuI);
         }
+        
+        
+        
+        
     }//GEN-LAST:event_btnSubMenuMouseClicked
 
     private void btnRUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRUsuarioMouseClicked
@@ -354,6 +358,12 @@ public class JF_Menú extends javax.swing.JFrame {
 
         m.mostrardatosProducto("");
 
+        int posicion2 = m.PanelPermiso.getX();
+        if (posicion2 > -1) {
+            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, m.PanelPermiso);
+        } else {
+            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, m.PanelPermiso);
+        }
 
     }//GEN-LAST:event_btnVentasMouseClicked
 

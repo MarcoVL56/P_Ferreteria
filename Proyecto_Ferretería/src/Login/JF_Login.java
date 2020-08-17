@@ -13,9 +13,12 @@ import javax.swing.JOptionPane;
 
 public class JF_Login extends javax.swing.JFrame {
 
+    int timer;
+
     public JF_Login() {
         initComponents();
         setLocationRelativeTo(null);
+
     }
 
     void acceder(String usuario, String clave) {
@@ -31,15 +34,25 @@ public class JF_Login extends javax.swing.JFrame {
                 JF_Menú m = new JF_Menú();
                 m.setVisible(true);
                 dispose();
-                
-                 m.txtUsuarioIniciado.setText(txtUsuario.getText());
+
+                m.txtUsuarioIniciado.setText(txtUsuario.getText());
 
             } else if (cap.equals("2")) {
                 JF_MenúSimple m = new JF_MenúSimple();
                 m.setVisible(true);
                 dispose();
-                
-                 m.txtUsuarioIniciado.setText(txtUsuario.getText());
+
+                m.txtUsuarioIniciado.setText(txtUsuario.getText());
+
+            } else if (timer == 3) {
+                JOptionPane.showMessageDialog(null, "Ha excedido el numero de intentos.", "Por favor ingrese a 'Recuperar contraseña' para enviar su usuario y contraseña por correo", JOptionPane.OK_OPTION);
+                txtUsuario.setEnabled(false);
+                txtContraseña.setEnabled(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "El usuario o la contraseña son incorrectas, intentelo nuevamente. \n Quedan " + (2 - timer) + " intentos");
+                txtUsuario.setText("");
+                txtContraseña.setText("");
+                timer = timer + 1;
 
             }
         } catch (SQLException ex) {
