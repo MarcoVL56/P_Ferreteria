@@ -212,7 +212,7 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 590, 160, 50));
 
-        PanelMenuRPro.setBackground(new java.awt.Color(204, 204, 204));
+        PanelMenuRPro.setBackground(new java.awt.Color(204, 204, 255));
         PanelMenuRPro.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuRPro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

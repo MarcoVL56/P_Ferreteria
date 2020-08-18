@@ -39,6 +39,7 @@ public class JF_Ventas extends javax.swing.JFrame {
         lblRequeridoCodigo.setVisible(false);
         lblRequerdioCantidad.setVisible(false);
         lblRequeridoSubtotal.setVisible(false);
+        lblRequeridoTotal.setVisible(false);
 
         Calendar c2 = new GregorianCalendar();
         txtFechaFact.setCalendar(c2);
@@ -344,6 +345,7 @@ public class JF_Ventas extends javax.swing.JFrame {
         txtFechaFact = new com.toedter.calendar.JDateChooser();
         jLabel21 = new javax.swing.JLabel();
         lblRequeridoSubtotal = new javax.swing.JLabel();
+        lblRequeridoTotal = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         btnAplicarDescuento = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
@@ -365,6 +367,7 @@ public class JF_Ventas extends javax.swing.JFrame {
         lblRequerdioCantidad = new javax.swing.JLabel();
         lblRequeridoCodigo = new javax.swing.JLabel();
         lblRequeridoCedula = new javax.swing.JLabel();
+        txtStock = new javax.swing.JTextField();
         PanelMenuV = new javax.swing.JPanel();
         BtnMenu = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -373,19 +376,19 @@ public class JF_Ventas extends javax.swing.JFrame {
         BtnIRegistrarCliente = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         txtUsuarioVentas = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         PanelPermiso = new javax.swing.JPanel();
-        txtUsuario = new javax.swing.JTextField();
-        txtContraseña = new javax.swing.JPasswordField();
-        BtnIngresar = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        BtnPorcentaje = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
-        txtStock = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JPasswordField();
+        BtnPorcentaje = new javax.swing.JComboBox<>();
+        txtUsuario = new javax.swing.JTextField();
+        BtnIngresar = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -500,7 +503,7 @@ public class JF_Ventas extends javax.swing.JFrame {
                 BtnProfActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnProf, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 610, 220, 30));
+        jPanel1.add(BtnProf, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 610, 250, 30));
 
         BtnPagar.setText("Pagar ");
         BtnPagar.addActionListener(new java.awt.event.ActionListener() {
@@ -508,7 +511,7 @@ public class JF_Ventas extends javax.swing.JFrame {
                 BtnPagarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 670, 220, 30));
+        jPanel1.add(BtnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 670, 250, 30));
 
         VerSubtotal.setText("Ver total");
         VerSubtotal.addActionListener(new java.awt.event.ActionListener() {
@@ -561,6 +564,10 @@ public class JF_Ventas extends javax.swing.JFrame {
         lblRequeridoSubtotal.setText("Requerido");
         jPanel4.add(lblRequeridoSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 60, -1));
 
+        lblRequeridoTotal.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoTotal.setText("Requerido");
+        jPanel4.add(lblRequeridoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
+
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 300, 260, 280));
 
         jLabel15.setBackground(new java.awt.Color(0, 0, 0));
@@ -578,9 +585,10 @@ public class JF_Ventas extends javax.swing.JFrame {
         jPanel1.add(btnAplicarDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 590, 230, -1));
 
         jLabel9.setBackground(new java.awt.Color(0, 102, 204));
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel9.setText("Es necesario un usuario administrador");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 630, -1, -1));
+        jLabel9.setText("Administrador");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 660, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setText("Cédula");
@@ -604,7 +612,7 @@ public class JF_Ventas extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Código");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(485, 600, 70, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 600, 70, -1));
 
         txtCodigo.setEditable(false);
         jPanel1.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 600, 110, -1));
@@ -678,7 +686,10 @@ public class JF_Ventas extends javax.swing.JFrame {
         lblRequeridoCedula.setText("Requerido");
         jPanel1.add(lblRequeridoCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 60, -1));
 
-        PanelMenuV.setBackground(new java.awt.Color(204, 204, 204));
+        txtStock.setEditable(false);
+        jPanel1.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 640, 30, -1));
+
+        PanelMenuV.setBackground(new java.awt.Color(204, 204, 255));
         PanelMenuV.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuV.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -742,38 +753,18 @@ public class JF_Ventas extends javax.swing.JFrame {
         });
         PanelMenuV.add(txtUsuarioVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 120, 40));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Usuario");
-        PanelMenuV.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
-
         jLabel26.setBackground(new java.awt.Color(245, 245, 245));
         jLabel26.setOpaque(true);
         PanelMenuV.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 40, 40));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setText("Usuario");
+        PanelMenuV.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
         jPanel1.add(PanelMenuV, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
         PanelPermiso.setBackground(new java.awt.Color(0, 102, 204));
         PanelPermiso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtUsuario.setBackground(new java.awt.Color(245, 245, 245));
-        txtUsuario.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        PanelPermiso.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 160, -1));
-        PanelPermiso.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 160, -1));
-
-        BtnIngresar.setBackground(new java.awt.Color(255, 204, 51));
-        BtnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnIngresarMouseClicked(evt);
-            }
-        });
-        BtnIngresar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel13.setBackground(new java.awt.Color(67, 81, 141));
-        jLabel13.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        jLabel13.setText("Comprobar");
-        BtnIngresar.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 100, 30));
-
-        PanelPermiso.add(BtnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 160, 30));
 
         jLabel22.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
@@ -790,18 +781,41 @@ public class JF_Ventas extends javax.swing.JFrame {
         jLabel24.setText("Porcentaje");
         PanelPermiso.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, -1));
 
-        BtnPorcentaje.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "21", "22", "23", "24", "25" }));
-        PanelPermiso.add(BtnPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 60, -1));
-
         jLabel25.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Contraseña");
         PanelPermiso.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
+        PanelPermiso.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 160, -1));
 
-        jPanel1.add(PanelPermiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 190, 560));
+        BtnPorcentaje.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "21", "22", "23", "24", "25" }));
+        PanelPermiso.add(BtnPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 60, -1));
 
-        txtStock.setEditable(false);
-        jPanel1.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 640, 30, -1));
+        txtUsuario.setBackground(new java.awt.Color(245, 245, 245));
+        txtUsuario.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        PanelPermiso.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 160, -1));
+
+        BtnIngresar.setBackground(new java.awt.Color(255, 204, 51));
+        BtnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnIngresarMouseClicked(evt);
+            }
+        });
+        BtnIngresar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel13.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel13.setText("Comprobar");
+        BtnIngresar.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 100, 30));
+
+        PanelPermiso.add(BtnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 160, 30));
+
+        jPanel1.add(PanelPermiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 180, 560));
+
+        jLabel27.setBackground(new java.awt.Color(0, 102, 204));
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel27.setText("Es necesario un usuario");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 630, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -910,48 +924,60 @@ public class JF_Ventas extends javax.swing.JFrame {
 
     private void BtnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPagarActionPerformed
 
-        try {
-            datosP cc = new datosP();
-            Connection cn = cc.conexion();
-            processCalendar();
+        cont = 0;
 
-            PreparedStatement pst = cn.prepareStatement("INSERT INTO factura(Id_Factura, Fecha, Subtotal, Impuesto, "
-                    + "Descuento, TotalPagar, Fk_Usuario) VALUES (?,?,?,?,?,?,?)");
+        if (txtTotalPagar.getText().equals("")) {
+            lblRequeridoTotal.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoTotal.setVisible(false);
 
-            pst.setString(1, txtCodigoBarras.getText());
-            pst.setString(2, date);
-            pst.setString(3, txtSubTotal.getText());
-            pst.setString(4, txtImpuesto.getText());
-            pst.setString(5, txtDescuento.getText());
-            pst.setString(6, txtTotalPagar.getText());
-            pst.setString(7, txtUsuarioVentas.getText());
-
-            pst.executeUpdate();
-
-        } catch (Exception e) {
-            System.out.print(e);
         }
 
-        try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE orden SET Fk_Factura=" + txtCodigoBarras.getText() + ", Fk_Estado = 1 where Fk_Estado = 3");
-            pst.executeUpdate();
+        if (cont == 0) {
 
-        } catch (Exception e) {
-            System.out.print(e.getMessage());
+            try {
+                datosP cc = new datosP();
+                Connection cn = cc.conexion();
+                processCalendar();
+
+                PreparedStatement pst = cn.prepareStatement("INSERT INTO factura(Id_Factura, Fecha, Subtotal, Impuesto, "
+                        + "Descuento, TotalPagar, Fk_Usuario) VALUES (?,?,?,?,?,?,?)");
+
+                pst.setString(1, txtCodigoBarras.getText());
+                pst.setString(2, date);
+                pst.setString(3, txtSubTotal.getText());
+                pst.setString(4, txtImpuesto.getText());
+                pst.setString(5, txtDescuento.getText());
+                pst.setString(6, txtTotalPagar.getText());
+                pst.setString(7, txtUsuarioVentas.getText());
+
+                pst.executeUpdate();
+
+            } catch (Exception e) {
+                System.out.print(e);
+            }
+
+            try {
+                PreparedStatement pst = cn.prepareStatement("UPDATE orden SET Fk_Factura=" + txtCodigoBarras.getText() + ", Fk_Estado = 1 where Fk_Estado = 3");
+                pst.executeUpdate();
+
+            } catch (Exception e) {
+                System.out.print(e.getMessage());
+            }
+
+            JF_Factura m = new JF_Factura();
+            m.setVisible(true);
+            dispose();
+
+            m.txtCodigoFac.setText(txtCodigoBarras.getText());
+
+            m.mostrar1();
+            m.mostrar2();
+            m.mostrar3();
+
+            m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
         }
-
-        JF_Factura m = new JF_Factura();
-        m.setVisible(true);
-        dispose();
-
-        m.txtCodigoFac.setText(txtCodigoBarras.getText());
-
-        m.mostrar1();
-        m.mostrar2();
-        m.mostrar3();
-
-        m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
-
 
     }//GEN-LAST:event_BtnPagarActionPerformed
 
@@ -1091,54 +1117,65 @@ public class JF_Ventas extends javax.swing.JFrame {
 
     private void BtnProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnProfActionPerformed
 
-        try {
-            datosP cc = new datosP();
-            Connection cn = cc.conexion();
-            processCalendar();
+        cont = 0;
 
-            PreparedStatement pst = cn.prepareStatement("INSERT INTO factura(Id_Factura, Fecha, Subtotal, Impuesto, "
-                    + "Descuento, TotalPagar, Fk_Usuario) VALUES (?,?,?,?,?,?,?)");
+        if (txtTotalPagar.getText().equals("")) {
+            lblRequeridoTotal.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoTotal.setVisible(false);
 
-            pst.setString(1, txtCodigoBarras.getText());
-            pst.setString(2, date);
-            pst.setString(3, txtSubTotal.getText());
-            pst.setString(4, txtImpuesto.getText());
-            pst.setString(5, txtDescuento.getText());
-            pst.setString(6, txtTotalPagar.getText());
-            pst.setString(7, txtUsuarioVentas.getText());
-
-            pst.executeUpdate();
-
-        } catch (Exception e) {
-            System.out.print(e);
         }
 
-        try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE orden SET Fk_Factura=" + txtCodigoBarras.getText() + ", Fk_Estado = 2 where Fk_Estado = 3");
-            pst.executeUpdate();
+        if (cont == 0) {
+            try {
+                datosP cc = new datosP();
+                Connection cn = cc.conexion();
+                processCalendar();
 
-        } catch (Exception e) {
-            System.out.print(e.getMessage());
+                PreparedStatement pst = cn.prepareStatement("INSERT INTO factura(Id_Factura, Fecha, Subtotal, Impuesto, "
+                        + "Descuento, TotalPagar, Fk_Usuario) VALUES (?,?,?,?,?,?,?)");
+
+                pst.setString(1, txtCodigoBarras.getText());
+                pst.setString(2, date);
+                pst.setString(3, txtSubTotal.getText());
+                pst.setString(4, txtImpuesto.getText());
+                pst.setString(5, txtDescuento.getText());
+                pst.setString(6, txtTotalPagar.getText());
+                pst.setString(7, txtUsuarioVentas.getText());
+
+                pst.executeUpdate();
+
+            } catch (Exception e) {
+                System.out.print(e);
+            }
+
+            try {
+                PreparedStatement pst = cn.prepareStatement("UPDATE orden SET Fk_Factura=" + txtCodigoBarras.getText() + ", Fk_Estado = 2 where Fk_Estado = 3");
+                pst.executeUpdate();
+
+            } catch (Exception e) {
+                System.out.print(e.getMessage());
+            }
+
+            txtSubTotal.setText("");
+            txtImpuesto.setText("");
+            txtDescuento.setText("");
+            txtTotalPagar.setText("");
+            txtCodigoBarras.setText("");
+
+            DefaultTableModel tb = (DefaultTableModel) tbProductosSelec.getModel();
+            int a = tbProductosSelec.getRowCount() - 1;
+            for (int i = a; i >= 0; i--) {
+                tb.removeRow(tb.getRowCount() - 1);
+            }
+
+            DefaultTableModel tb2 = (DefaultTableModel) tbSubtotal.getModel();
+            int b = tbSubtotal.getRowCount() - 1;
+            for (int i = b; i >= 0; i--) {
+                tb2.removeRow(tb2.getRowCount() - 1);
+            }
         }
-
-        txtSubTotal.setText("");
-        txtImpuesto.setText("");
-        txtDescuento.setText("");
-        txtTotalPagar.setText("");
-        txtCodigoBarras.setText("");
-
-        DefaultTableModel tb = (DefaultTableModel) tbProductosSelec.getModel();
-        int a = tbProductosSelec.getRowCount() - 1;
-        for (int i = a; i >= 0; i--) {
-            tb.removeRow(tb.getRowCount() - 1);
-        }
-
-        DefaultTableModel tb2 = (DefaultTableModel) tbSubtotal.getModel();
-        int b = tbSubtotal.getRowCount() - 1;
-        for (int i = b; i >= 0; i--) {
-            tb2.removeRow(tb2.getRowCount() - 1);
-        }
-
 
     }//GEN-LAST:event_BtnProfActionPerformed
 
@@ -1303,6 +1340,7 @@ public class JF_Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1320,6 +1358,7 @@ public class JF_Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel lblRequeridoCedula;
     private javax.swing.JLabel lblRequeridoCodigo;
     private javax.swing.JLabel lblRequeridoSubtotal;
+    private javax.swing.JLabel lblRequeridoTotal;
     private javax.swing.JTable tbCliente;
     public javax.swing.JTable tbProductoInventario;
     private javax.swing.JTable tbProductosSelec;

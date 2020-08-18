@@ -5,17 +5,27 @@
  */
 package Factura;
 
+import Conexion.Conexion3;
 import Conexion.datosP;
 import Menú.JF_Menú;
 import Proformas.JF_Proformas;
 import RegistrarEmpleado.JF_RegistrarCliente;
 import Ventas.JF_Ventas;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -303,6 +313,8 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
         btnFiltrarporfecha = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        BtnImprimir = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -359,7 +371,7 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 50));
 
-        PanelMenuFFac.setBackground(new java.awt.Color(204, 204, 204));
+        PanelMenuFFac.setBackground(new java.awt.Color(204, 204, 255));
         PanelMenuFFac.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuFFac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -457,7 +469,7 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
                 btnListarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
+        jPanel1.add(btnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
 
         tbDatos.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         tbDatos.setModel(new javax.swing.table.DefaultTableModel(
@@ -474,7 +486,7 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
         tbDatos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(tbDatos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 830, 250));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 1040, 340));
 
         jPanel6.setBackground(new java.awt.Color(0, 102, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -526,8 +538,23 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
 
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
         jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
-        jLabel14.setText("Filtrado de facturas ");
+        jLabel14.setText("Reporte de facturas ");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, -1, -1));
+
+        BtnImprimir.setBackground(new java.awt.Color(255, 204, 51));
+        BtnImprimir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnImprimirMouseClicked(evt);
+            }
+        });
+        BtnImprimir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel11.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
+        jLabel11.setText("Imprimir");
+        BtnImprimir.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 100, 40));
+
+        jPanel1.add(BtnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 660, 160, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 712));
 
@@ -619,6 +646,34 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioVentasActionPerformed
 
+    private void BtnImprimirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnImprimirMouseClicked
+
+   Conexion3 cn = new Conexion3();
+        try{
+            cn.conn();
+        }catch(Exception ex){
+            Logger.getLogger(JF_FiltroFactura.class.getName()).log(Level.SEVERE,null, ex);
+        }
+        
+        URL archivo = this.getClass().getResource("/Reportes/Reporte_V1.jasper");
+        JasperReport jr = null;
+        
+        try{
+            
+            jr=(JasperReport) JRLoader.loadObject(archivo);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, cn.getConn() );
+            JasperViewer jv = new JasperViewer(jp);
+            jv.setVisible(true);
+            jv.setTitle("Visor de Reportes");
+            
+        }catch(JRException ex){
+           Logger.getLogger(JF_FiltroFactura.class.getName()).log(Level.SEVERE,null, ex);
+        }
+        
+        
+        
+    }//GEN-LAST:event_BtnImprimirMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -656,6 +711,7 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BtnIRegistrarCliente;
+    private javax.swing.JPanel BtnImprimir;
     private javax.swing.JPanel BtnMenu;
     private javax.swing.JLabel BtnMinimizar;
     private javax.swing.JPanel BtnProforma;
@@ -668,6 +724,7 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
     private javax.swing.JButton btnListar;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;

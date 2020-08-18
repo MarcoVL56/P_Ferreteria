@@ -74,20 +74,20 @@ public class JF_Menú extends javax.swing.JFrame {
         });
         btnReporteProductos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel11.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         jLabel11.setText("Reporte de productos");
-        btnReporteProductos.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 190, 30));
+        btnReporteProductos.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 190, 30));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-producto-nuevo-80.png"))); // NOI18N
         btnReporteProductos.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 90, 90));
 
         jPanel1.add(btnReporteProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 690, 140));
 
-        jPanel6.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel12.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         jLabel12.setText("Registrar");
         jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 80, 30));
 
@@ -101,9 +101,9 @@ public class JF_Menú extends javax.swing.JFrame {
         });
         btnProformas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel13.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         jLabel13.setText("Proformas");
-        btnProformas.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 80, 30));
+        btnProformas.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 90, 30));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-herramienta-de-pintura-en-línea-64.png"))); // NOI18N
         btnProformas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 120, 90));
@@ -118,9 +118,9 @@ public class JF_Menú extends javax.swing.JFrame {
         });
         btnFiltroFacturas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel17.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
-        jLabel17.setText("Filtro de facturas");
-        btnFiltroFacturas.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 140, 30));
+        jLabel17.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
+        jLabel17.setText("Registro de facturas");
+        btnFiltroFacturas.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 170, 30));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-comportamiento-de-las-ventas-50.png"))); // NOI18N
         btnFiltroFacturas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 70, 90));
@@ -135,9 +135,9 @@ public class JF_Menú extends javax.swing.JFrame {
         });
         btnInventario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel19.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         jLabel19.setText("Inventario ");
-        btnInventario.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 80, 30));
+        btnInventario.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 100, 30));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-almacén-64.png"))); // NOI18N
         btnInventario.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 120, 90));
@@ -152,7 +152,7 @@ public class JF_Menú extends javax.swing.JFrame {
         });
         btnVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel15.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         jLabel15.setText("Ventas");
         btnVentas.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 80, 30));
 
@@ -169,12 +169,12 @@ public class JF_Menú extends javax.swing.JFrame {
         });
         btnRUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel22.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         jLabel22.setText("Usuario");
         btnRUsuario.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 30));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-añadir-usuario-masculino-64.png"))); // NOI18N
-        btnRUsuario.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 60, 60));
+        btnRUsuario.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 60, 60));
 
         jPanel1.add(btnRUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 120, 100));
 
@@ -186,22 +186,22 @@ public class JF_Menú extends javax.swing.JFrame {
         });
         btnRCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel24.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         jLabel24.setText("Cliente");
         btnRCliente.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 30));
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-carpeta-de-usuario-64.png"))); // NOI18N
-        btnRCliente.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 70, 60));
+        btnRCliente.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 70, 60));
 
         jPanel1.add(btnRCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 110, 100));
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Bienvenido ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, -1, -1));
 
-        PanelMenuI.setBackground(new java.awt.Color(204, 204, 204));
+        PanelMenuI.setBackground(new java.awt.Color(204, 204, 255));
         PanelMenuI.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

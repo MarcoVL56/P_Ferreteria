@@ -198,7 +198,6 @@ public class JF_Factura extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbProducto = new javax.swing.JTable();
-        btnImprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -207,7 +206,7 @@ public class JF_Factura extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelMenuFac.setBackground(new java.awt.Color(204, 204, 204));
+        PanelMenuFac.setBackground(new java.awt.Color(204, 204, 255));
         PanelMenuFac.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuFac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -459,14 +458,6 @@ public class JF_Factura extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 750, 550));
 
-        btnImprimir.setText("IMPRIMIR");
-        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImprimirActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 350, -1, -1));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -526,11 +517,6 @@ public class JF_Factura extends javax.swing.JFrame {
         m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
 
-    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-
-
-    }//GEN-LAST:event_btnImprimirActionPerformed
-
     private void txtCodigoFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoFacActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoFacActionPerformed
@@ -582,7 +568,6 @@ public class JF_Factura extends javax.swing.JFrame {
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel BtnVentas;
     private javax.swing.JPanel PanelMenuFac;
-    private javax.swing.JButton btnImprimir;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

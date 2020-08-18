@@ -117,7 +117,7 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 50));
 
-        PanelMenuRU.setBackground(new java.awt.Color(204, 204, 204));
+        PanelMenuRU.setBackground(new java.awt.Color(204, 204, 255));
         PanelMenuRU.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuRU.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

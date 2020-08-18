@@ -270,7 +270,7 @@ public class JF_Proformas extends javax.swing.JFrame {
         });
         BtnIRegistrarCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel18.setBackground(new java.awt.Color(67, 81, 141));
+        jLabel18.setBackground(new java.awt.Color(0, 102, 204));
         jLabel18.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 16)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Registrar cliente");

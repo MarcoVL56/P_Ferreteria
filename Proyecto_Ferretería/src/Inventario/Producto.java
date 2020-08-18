@@ -200,7 +200,7 @@ public class Producto extends javax.swing.JFrame {
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 680, 190));
 
-        PanelMenuProducto.setBackground(new java.awt.Color(204, 204, 204));
+        PanelMenuProducto.setBackground(new java.awt.Color(204, 204, 255));
         PanelMenuProducto.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuProducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -294,7 +294,7 @@ public class Producto extends javax.swing.JFrame {
                 btnaddinventarioActionPerformed(evt);
             }
         });
-        jPanel2.add(btnaddinventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 520, 190, 40));
+        jPanel2.add(btnaddinventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 560, 190, 40));
 
         TbProveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

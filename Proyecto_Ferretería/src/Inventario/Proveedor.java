@@ -100,7 +100,7 @@ public class Proveedor extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelMenuProveed.setBackground(new java.awt.Color(204, 204, 204));
+        PanelMenuProveed.setBackground(new java.awt.Color(204, 204, 255));
         PanelMenuProveed.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuProveed.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

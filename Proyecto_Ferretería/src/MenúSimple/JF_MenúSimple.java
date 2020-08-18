@@ -85,11 +85,11 @@ public class JF_MenúSimple extends javax.swing.JFrame {
 
         jPanel1.add(btnReporteProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 690, 140));
 
-        jPanel6.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel12.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         jLabel12.setText("Registrar");
         jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 80, 30));
 
@@ -121,8 +121,8 @@ public class JF_MenúSimple extends javax.swing.JFrame {
         btnFiltroFacturas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
-        jLabel17.setText("Filtro de facturas");
-        btnFiltroFacturas.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 140, 30));
+        jLabel17.setText("Registro de facturas");
+        btnFiltroFacturas.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 180, 30));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-comportamiento-de-las-ventas-50.png"))); // NOI18N
         btnFiltroFacturas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 70, 90));
@@ -198,12 +198,12 @@ public class JF_MenúSimple extends javax.swing.JFrame {
         jPanel1.add(btnRCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 110, 100));
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Bienvenido ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, -1, -1));
 
-        PanelMenuI.setBackground(new java.awt.Color(204, 204, 204));
+        PanelMenuI.setBackground(new java.awt.Color(204, 204, 255));
         PanelMenuI.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

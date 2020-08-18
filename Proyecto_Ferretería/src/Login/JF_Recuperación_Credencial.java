@@ -188,7 +188,7 @@ public class JF_Recuperación_Credencial extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        PanelMenuRCreden.setBackground(new java.awt.Color(204, 204, 204));
+        PanelMenuRCreden.setBackground(new java.awt.Color(204, 204, 255));
         PanelMenuRCreden.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuRCreden.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
