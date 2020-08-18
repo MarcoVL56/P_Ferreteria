@@ -43,6 +43,7 @@ public class JF_Ventas extends javax.swing.JFrame {
 
         Calendar c2 = new GregorianCalendar();
         txtFechaFact.setCalendar(c2);
+
     }
 
     void acceder(String usuario) {
@@ -342,10 +343,12 @@ public class JF_Ventas extends javax.swing.JFrame {
         txtTotalPagar = new javax.swing.JTextField();
         txtSubTotal = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        txtFechaFact = new com.toedter.calendar.JDateChooser();
         jLabel21 = new javax.swing.JLabel();
         lblRequeridoSubtotal = new javax.swing.JLabel();
         lblRequeridoTotal = new javax.swing.JLabel();
+        txtFechaFact = new com.toedter.calendar.JDateChooser();
+        txtHora = new com.toedter.calendar.JDateChooser();
+        jLabel8 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         btnAplicarDescuento = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
@@ -503,7 +506,7 @@ public class JF_Ventas extends javax.swing.JFrame {
                 BtnProfActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnProf, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 610, 250, 30));
+        jPanel1.add(BtnProf, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 600, 250, 30));
 
         BtnPagar.setText("Pagar ");
         BtnPagar.addActionListener(new java.awt.event.ActionListener() {
@@ -511,7 +514,7 @@ public class JF_Ventas extends javax.swing.JFrame {
                 BtnPagarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 670, 250, 30));
+        jPanel1.add(BtnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 650, 250, 30));
 
         VerSubtotal.setText("Ver total");
         VerSubtotal.addActionListener(new java.awt.event.ActionListener() {
@@ -525,50 +528,59 @@ public class JF_Ventas extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Fecha");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+        jLabel5.setText("Hora");
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Descuento");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Total a pagar ");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
         txtImpuesto.setEditable(false);
-        jPanel4.add(txtImpuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 100, -1));
+        jPanel4.add(txtImpuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 100, -1));
 
         txtDescuento.setEditable(false);
-        jPanel4.add(txtDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 100, -1));
+        jPanel4.add(txtDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 100, -1));
 
         txtTotalPagar.setEditable(false);
-        jPanel4.add(txtTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 100, 20));
+        jPanel4.add(txtTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 100, 20));
 
         txtSubTotal.setEditable(false);
-        jPanel4.add(txtSubTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 100, -1));
+        jPanel4.add(txtSubTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 100, -1));
 
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Impuesto");
-        jPanel4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        jPanel4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Subtotal");
+        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+
+        lblRequeridoSubtotal.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoSubtotal.setText("Requerido");
+        jPanel4.add(lblRequeridoSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 60, -1));
+
+        lblRequeridoTotal.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoTotal.setText("Requerido");
+        jPanel4.add(lblRequeridoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
 
         txtFechaFact.setEnabled(false);
         txtFechaFact.setFocusCycleRoot(true);
         jPanel4.add(txtFechaFact, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 100, 20));
 
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("Subtotal");
-        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        txtHora.setDateFormatString("h:mm");
+        txtHora.setEnabled(false);
+        txtHora.setFocusCycleRoot(true);
+        jPanel4.add(txtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 100, 20));
 
-        lblRequeridoSubtotal.setForeground(new java.awt.Color(255, 255, 255));
-        lblRequeridoSubtotal.setText("Requerido");
-        jPanel4.add(lblRequeridoSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 60, -1));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Fecha");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
-        lblRequeridoTotal.setForeground(new java.awt.Color(255, 255, 255));
-        lblRequeridoTotal.setText("Requerido");
-        jPanel4.add(lblRequeridoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
-
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 300, 260, 280));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 300, 260, 290));
 
         jLabel15.setBackground(new java.awt.Color(0, 0, 0));
         jLabel15.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
@@ -977,6 +989,8 @@ public class JF_Ventas extends javax.swing.JFrame {
             m.mostrar3();
 
             m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
+
+              m.txtHora.setCalendar(txtHora.getCalendar());
         }
 
     }//GEN-LAST:event_BtnPagarActionPerformed
@@ -1097,7 +1111,11 @@ public class JF_Ventas extends javax.swing.JFrame {
             Montos();
 
             btnAplicarDescuento.setEnabled(true);
+
+            Calendar fa = new GregorianCalendar();
+            txtHora.setCalendar(fa);
         }
+
 
     }//GEN-LAST:event_VerSubtotalActionPerformed
 
@@ -1346,6 +1364,7 @@ public class JF_Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
@@ -1370,6 +1389,7 @@ public class JF_Ventas extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtContraseña;
     public javax.swing.JTextField txtDescuento;
     private com.toedter.calendar.JDateChooser txtFechaFact;
+    public com.toedter.calendar.JDateChooser txtHora;
     public javax.swing.JTextField txtImpuesto;
     private javax.swing.JTextField txtStock;
     private javax.swing.JTextField txtSubTotal;

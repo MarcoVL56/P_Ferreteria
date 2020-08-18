@@ -193,6 +193,8 @@ public class JF_Factura extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtCodigoFac = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        txtHora = new com.toedter.calendar.JDateChooser();
+        jLabel13 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -366,7 +368,7 @@ public class JF_Factura extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tbCompra);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 308, 626, 51));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 308, 650, 51));
 
         tbCliente.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         tbCliente.setModel(new javax.swing.table.DefaultTableModel(
@@ -382,7 +384,7 @@ public class JF_Factura extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbCliente);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 626, 60));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 650, 60));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("--------Ultima linea---------");
@@ -420,12 +422,20 @@ public class JF_Factura extends javax.swing.JFrame {
                 txtCodigoFacActionPerformed(evt);
             }
         });
-        jPanel4.add(txtCodigoFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(359, 31, 118, -1));
+        jPanel4.add(txtCodigoFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 118, -1));
 
         jLabel9.setText("Código");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 8, -1, -1));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, -1, -1));
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
+        txtHora.setDateFormatString("h:mm");
+        txtHora.setEnabled(false);
+        txtHora.setFocusCycleRoot(true);
+        jPanel4.add(txtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 120, 20));
+
+        jLabel13.setText("Hora");
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, -1, -1));
+
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 520, 150));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -454,7 +464,7 @@ public class JF_Factura extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tbProducto);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 399, 626, 110));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 399, 650, 110));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 750, 550));
 
@@ -573,6 +583,7 @@ public class JF_Factura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -597,6 +608,7 @@ public class JF_Factura extends javax.swing.JFrame {
     private javax.swing.JTable tbCompra;
     private javax.swing.JTable tbProducto;
     public javax.swing.JTextField txtCodigoFac;
+    public com.toedter.calendar.JDateChooser txtHora;
     public javax.swing.JTextField txtUsuarioVentas;
     // End of variables declaration//GEN-END:variables
 
