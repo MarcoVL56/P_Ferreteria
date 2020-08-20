@@ -133,8 +133,8 @@ public class JF_Recuperación_Credencial extends javax.swing.JFrame {
 
         jLabel11.setBackground(new java.awt.Color(67, 81, 141));
         jLabel11.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
-        jLabel11.setText("Recuperar");
-        BtnEnviarCorreo.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 140, 40));
+        jLabel11.setText("                       Recuperar");
+        BtnEnviarCorreo.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 50));
 
         jPanel1.add(BtnEnviarCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, 370, 50));
 
@@ -188,7 +188,7 @@ public class JF_Recuperación_Credencial extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        PanelMenuRCreden.setBackground(new java.awt.Color(204, 204, 255));
+        PanelMenuRCreden.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuRCreden.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuRCreden.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

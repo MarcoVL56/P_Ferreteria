@@ -103,7 +103,6 @@ public class JF_Inventario extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -172,9 +171,9 @@ public class JF_Inventario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TbInventario);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 940, 260));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 940, 340));
 
-        PanelMenuI.setBackground(new java.awt.Color(204, 204, 255));
+        PanelMenuI.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuI.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -267,7 +266,7 @@ public class JF_Inventario extends javax.swing.JFrame {
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
         jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
         jLabel14.setText("Inventario ");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, -1, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 90, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -285,9 +284,10 @@ public class JF_Inventario extends javax.swing.JFrame {
         jLabel11.setText("Productos");
         BtnProducto.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 120, 40));
 
-        jPanel2.add(BtnProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 310, -1));
+        jPanel2.add(BtnProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 310, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Nombre del producto");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 180, 40));
@@ -297,13 +297,9 @@ public class JF_Inventario extends javax.swing.JFrame {
                 txtnombreKeyTyped(evt);
             }
         });
-        jPanel2.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 160, 30));
+        jPanel2.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 200, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 1080, 440));
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-almacén-64.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 70, 80, 70));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 1080, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -452,7 +448,6 @@ public class JF_Inventario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;

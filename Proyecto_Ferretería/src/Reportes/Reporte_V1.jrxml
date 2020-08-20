@@ -71,7 +71,7 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<text><![CDATA[P1]]></text>
+				<text><![CDATA[AP1]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="218e7eaa-fc47-42ef-b619-a5b65aac512e" style="Column header" x="165" y="19" width="55" height="15"/>

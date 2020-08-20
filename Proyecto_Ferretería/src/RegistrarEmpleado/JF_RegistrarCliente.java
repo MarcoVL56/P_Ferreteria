@@ -18,9 +18,18 @@ import javax.swing.JOptionPane;
 
 public class JF_RegistrarCliente extends javax.swing.JFrame {
 
+    int cont;
+
     public JF_RegistrarCliente() {
         initComponents();
         setLocationRelativeTo(null);
+
+        lblRequeridoNombre.setVisible(false);
+        lblRequeridoAP1.setVisible(false);
+        lblRequeridoAP2.setVisible(false);
+        lblRequeridoCedula.setVisible(false);
+        lblRequeridoEmail.setVisible(false);
+
     }
 
     void acceder(String usuario) {
@@ -84,6 +93,12 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        lblRequeridoEmail = new javax.swing.JLabel();
+        lblRequeridoCedula = new javax.swing.JLabel();
+        lblRequeridoNombre = new javax.swing.JLabel();
+        lblRequeridoAP1 = new javax.swing.JLabel();
+        lblRequeridoAP2 = new javax.swing.JLabel();
         BtnIngresar1 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
 
@@ -217,45 +232,77 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
         jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
         jLabel14.setText("Registrar un cliente");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, -1, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Cédula");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Información del Cliente");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
         jPanel2.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 170, 30));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Primer");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Apellido");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
         jPanel2.add(txtPrimerP, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 170, 30));
-        jPanel2.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 170, 30));
-        jPanel2.add(txtSegundoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 170, 30));
+        jPanel2.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 170, 30));
+        jPanel2.add(txtSegundoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 170, 30));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Segundo");
-        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Apellido");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Email");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
-        jPanel2.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 170, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
+        jPanel2.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 170, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 400, 480));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Cédula");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
+
+        lblRequeridoEmail.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoEmail.setText("Requerido");
+        jPanel2.add(lblRequeridoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, -1, -1));
+
+        lblRequeridoCedula.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoCedula.setText("Requerido");
+        jPanel2.add(lblRequeridoCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
+
+        lblRequeridoNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoNombre.setText("Requerido");
+        jPanel2.add(lblRequeridoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
+
+        lblRequeridoAP1.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoAP1.setText("Requerido");
+        jPanel2.add(lblRequeridoAP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
+
+        lblRequeridoAP2.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoAP2.setText("Requerido");
+        jPanel2.add(lblRequeridoAP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 390, 450));
 
         BtnIngresar1.setBackground(new java.awt.Color(255, 204, 51));
         BtnIngresar1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -268,9 +315,9 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
         jLabel22.setBackground(new java.awt.Color(67, 81, 141));
         jLabel22.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
         jLabel22.setText("Agregar");
-        BtnIngresar1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 100, 40));
+        BtnIngresar1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 100, 40));
 
-        jPanel1.add(BtnIngresar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 630, 400, -1));
+        jPanel1.add(BtnIngresar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 640, 390, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -305,7 +352,7 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
 
     private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
         JF_Menú m = new JF_Menú();
-      
+
         m.txtUsuarioIniciado.setText(txtUsuarioVentas.getText());
 
         String usu = txtUsuarioVentas.getText();
@@ -329,33 +376,76 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
 
     private void BtnIngresar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIngresar1MouseClicked
 
-        try {
-            datosP cc = new datosP();
-            Connection cn = cc.conexion();
+        cont = 0;
 
-            PreparedStatement pst = cn.prepareStatement("INSERT INTO registro_cliente(Cédula,"
-                    + "Nombre,PrimerApellido,SegundoApellido,CorreoElectronico) VALUES (?,?,?,?,?)");
+        if (txtcedula.getText().equals("")) {
+            lblRequeridoCedula.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoCedula.setVisible(false);
 
-            pst.setString(1, txtcedula.getText());
-            pst.setString(2, txtnombre.getText());
-            pst.setString(3, txtPrimerP.getText());
-            pst.setString(4, txtSegundoP.getText());
-            pst.setString(5, txtEmail.getText());
+        }
+        if (txtnombre.getText().equals("")) {
+            lblRequeridoNombre.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoNombre.setVisible(false);
 
-            pst.executeUpdate();
-
-        } catch (Exception e) {
-            System.out.print(e);
         }
 
-        txtcedula.setText("");
-        txtnombre.setText("");
-        txtPrimerP.setText("");
-        txtSegundoP.setText("");
-        txtEmail.setText("");
-        JOptionPane.showMessageDialog(this, "Guardado con exito");
+        if (txtPrimerP.getText().equals("")) {
+            lblRequeridoAP1.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoAP1.setVisible(false);
 
+        }
 
+        if (txtSegundoP.getText().equals("")) {
+            lblRequeridoAP2.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoAP2.setVisible(false);
+
+        }
+
+        if (txtEmail.getText().equals("")) {
+            lblRequeridoEmail.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoEmail.setVisible(false);
+
+        }
+
+        if (cont == 0) {
+
+            try {
+                datosP cc = new datosP();
+                Connection cn = cc.conexion();
+
+                PreparedStatement pst = cn.prepareStatement("INSERT INTO registro_cliente(Cédula,"
+                        + "Nombre,PrimerApellido,SegundoApellido,CorreoElectronico) VALUES (?,?,?,?,?)");
+
+                pst.setString(1, txtcedula.getText());
+                pst.setString(2, txtnombre.getText());
+                pst.setString(3, txtPrimerP.getText());
+                pst.setString(4, txtSegundoP.getText());
+                pst.setString(5, txtEmail.getText());
+
+                pst.executeUpdate();
+
+            } catch (Exception e) {
+                System.out.print(e);
+            }
+
+            txtcedula.setText("");
+            txtnombre.setText("");
+            txtPrimerP.setText("");
+            txtSegundoP.setText("");
+            txtEmail.setText("");
+            JOptionPane.showMessageDialog(this, "Guardado con exito");
+
+        }
     }//GEN-LAST:event_BtnIngresar1MouseClicked
 
     private void txtUsuarioVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioVentasActionPerformed
@@ -417,6 +507,7 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -424,6 +515,11 @@ public class JF_RegistrarCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblRequeridoAP1;
+    private javax.swing.JLabel lblRequeridoAP2;
+    private javax.swing.JLabel lblRequeridoCedula;
+    private javax.swing.JLabel lblRequeridoEmail;
+    private javax.swing.JLabel lblRequeridoNombre;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtPrimerP;
     private javax.swing.JTextField txtSegundoP;

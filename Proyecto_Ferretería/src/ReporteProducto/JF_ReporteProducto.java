@@ -61,17 +61,7 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbprod = new javax.swing.JTable();
-        lblTotalFacturado = new javax.swing.JLabel();
         lblTituloReporte = new javax.swing.JLabel();
-        lblFecha1 = new javax.swing.JLabel();
-        lblHasta1 = new javax.swing.JLabel();
-        btnVer = new javax.swing.JButton();
-        txtFecha1 = new com.toedter.calendar.JDateChooser();
-        txtFecha2 = new com.toedter.calendar.JDateChooser();
-        Btnfecha1 = new javax.swing.JButton();
-        btnFecha2 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tbMonto = new javax.swing.JTable();
         PanelMenuRPro = new javax.swing.JPanel();
         BtnMenu = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -84,6 +74,19 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtUsuarioVentas = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblFecha1 = new javax.swing.JLabel();
+        txtFecha1 = new com.toedter.calendar.JDateChooser();
+        lblHasta1 = new javax.swing.JLabel();
+        txtFecha2 = new com.toedter.calendar.JDateChooser();
+        jPanel5 = new javax.swing.JPanel();
+        BtnVerProductos = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        Btnfecha1 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        btnFecha2 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbMonto = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -152,67 +155,14 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbprod);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 740, 280));
-
-        lblTotalFacturado.setBackground(new java.awt.Color(0, 0, 0));
-        lblTotalFacturado.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
-        lblTotalFacturado.setText("Total en productos:");
-        jPanel1.add(lblTotalFacturado, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 600, -1, 40));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 890, 440));
 
         lblTituloReporte.setBackground(new java.awt.Color(0, 0, 0));
         lblTituloReporte.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
         lblTituloReporte.setText("Reporte de productos");
-        jPanel1.add(lblTituloReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, -1, -1));
+        jPanel1.add(lblTituloReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, -1, -1));
 
-        lblFecha1.setBackground(new java.awt.Color(0, 0, 0));
-        lblFecha1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
-        lblFecha1.setText("Fecha:");
-        jPanel1.add(lblFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, -1, 30));
-
-        lblHasta1.setBackground(new java.awt.Color(0, 0, 0));
-        lblHasta1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
-        lblHasta1.setText("Hasta:");
-        jPanel1.add(lblHasta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, -1, 40));
-
-        btnVer.setText("Ver");
-        btnVer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 90, -1));
-        jPanel1.add(txtFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 160, 31));
-        jPanel1.add(txtFecha2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 170, 160, 31));
-
-        Btnfecha1.setText("Una fecha");
-        Btnfecha1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btnfecha1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Btnfecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 160, -1));
-
-        btnFecha2.setText("Dos fechas");
-        btnFecha2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFecha2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnFecha2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 210, 160, -1));
-
-        tbMonto.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane2.setViewportView(tbMonto);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 590, 160, 50));
-
-        PanelMenuRPro.setBackground(new java.awt.Color(204, 204, 255));
+        PanelMenuRPro.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuRPro.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuRPro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -305,6 +255,110 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
 
         jPanel1.add(PanelMenuRPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
+        jPanel2.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel2.setForeground(new java.awt.Color(51, 102, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblFecha1.setBackground(new java.awt.Color(0, 0, 0));
+        lblFecha1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
+        lblFecha1.setForeground(new java.awt.Color(255, 255, 255));
+        lblFecha1.setText("Fecha Inicial:");
+        jPanel2.add(lblFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 30));
+        jPanel2.add(txtFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 160, 31));
+
+        lblHasta1.setBackground(new java.awt.Color(255, 255, 255));
+        lblHasta1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
+        lblHasta1.setForeground(new java.awt.Color(255, 255, 255));
+        lblHasta1.setText("Fecha Final:");
+        jPanel2.add(lblHasta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 40));
+        jPanel2.add(txtFecha2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 160, 31));
+
+        jPanel5.setBackground(new java.awt.Color(204, 204, 255));
+
+        BtnVerProductos.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        BtnVerProductos.setText("Ver todos");
+        BtnVerProductos.setContentAreaFilled(false);
+        BtnVerProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVerProductosActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BtnVerProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BtnVerProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 140, -1));
+
+        jPanel6.setBackground(new java.awt.Color(255, 204, 51));
+
+        Btnfecha1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        Btnfecha1.setText("Filtrar por fecha");
+        Btnfecha1.setContentAreaFilled(false);
+        Btnfecha1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btnfecha1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Btnfecha1, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Btnfecha1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 160, 30));
+
+        jPanel4.setBackground(new java.awt.Color(255, 204, 51));
+
+        btnFecha2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnFecha2.setText("Filtrar por rango");
+        btnFecha2.setContentAreaFilled(false);
+        btnFecha2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFecha2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnFecha2, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnFecha2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 160, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 160, 200, 440));
+
+        tbMonto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(tbMonto);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 620, 150, 50));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -344,19 +398,30 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
         m.txtUsuarioIniciado.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_btnMenúMouseClicked
 
-    private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
-        mostrarProductos("");
-        mostrarProductosMonto("");
-    }//GEN-LAST:event_btnVerActionPerformed
-
     private void Btnfecha1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btnfecha1ActionPerformed
-        mostrarProductos1fecha("");
-        mostrarProductosMontoFecha1("");
+
+        try {
+            txtFecha2.setEnabled(false);
+            txtFecha2.setDate(null);
+
+            mostrarProductos1fecha("");
+            mostrarProductosMontoFecha1("");
+
+        } catch (Exception i) {
+
+        }
     }//GEN-LAST:event_Btnfecha1ActionPerformed
 
     private void btnFecha2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecha2ActionPerformed
-        mostrarProductos1fecha("");
-        mostrarProductosMontoFecha2("");
+
+        try {
+            txtFecha2.setEnabled(true);
+            mostrarProductos1fecha("");
+            mostrarProductosMontoFecha2("");
+
+        } catch (Exception i) {
+
+        }
     }//GEN-LAST:event_btnFecha2ActionPerformed
 
     private void BtnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMenuMouseClicked
@@ -395,6 +460,11 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
     private void BtnIRegistrarClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIRegistrarClienteMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnIRegistrarClienteMouseEntered
+
+    private void BtnVerProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVerProductosActionPerformed
+        mostrarProductos("");
+        mostrarProductosMonto("");
+    }//GEN-LAST:event_BtnVerProductosActionPerformed
 
     public void mostrarProductos(String valor) {
 
@@ -687,11 +757,11 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
     private javax.swing.JPanel BtnProforma;
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel BtnVentas;
+    private javax.swing.JButton BtnVerProductos;
     private javax.swing.JButton Btnfecha1;
     private javax.swing.JPanel PanelMenuRPro;
     private javax.swing.JButton btnFecha2;
     private javax.swing.JLabel btnSubMenu;
-    private javax.swing.JButton btnVer;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -700,13 +770,16 @@ public class JF_ReporteProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblFecha1;
     private javax.swing.JLabel lblHasta1;
     private javax.swing.JLabel lblTituloReporte;
-    private javax.swing.JLabel lblTotalFacturado;
     private javax.swing.JTable tbMonto;
     private javax.swing.JTable tbprod;
     private com.toedter.calendar.JDateChooser txtFecha1;

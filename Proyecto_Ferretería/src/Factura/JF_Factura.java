@@ -57,7 +57,7 @@ public class JF_Factura extends javax.swing.JFrame {
             modelo.addColumn("ID Factura");
             modelo.addColumn("Nombre");
             modelo.addColumn("Apellido");
-            modelo.addColumn("id_cliente");
+            modelo.addColumn("Cédula");
             modelo.addColumn("Correo");
 
             while (rs.next()) {
@@ -87,16 +87,17 @@ public class JF_Factura extends javax.swing.JFrame {
 //            ps = con.conectar().prepareStatement("SELECT id_Factura,Cantidad,Impuesto,Descuento,TotalPagar,Fecha "
 //                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)order by Id_Factura desc limit 1");
 
-            ps = con.conectar().prepareStatement("SELECT DISTINCTROW id_Factura,Fecha,Subtotal,Impuesto,Descuento, TotalPagar"
-                    + " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) where Id_Factura = '" + txtCodigoFac.getText() + "'");
+            ps = con.conectar().prepareStatement("SELECT DISTINCTROW Fecha,Hora,Subtotal,Impuesto,Descuento, TotalPagar"
+                    + " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente) "
+                    + "where Id_Factura = '" + txtCodigoFac.getText() + "'");
             rs = ps.executeQuery();
 
             ResultSetMetaData rsmt = rs.getMetaData();
             int cantcolum = rsmt.getColumnCount();
 
-            modelo2.addColumn("ID Factura");
             modelo2.addColumn("Fecha");
-            modelo2.addColumn("subtotal");
+            modelo2.addColumn("Hora");
+            modelo2.addColumn("Subtotal");
             modelo2.addColumn("Impuesto");
             modelo2.addColumn("Descuento");
             modelo2.addColumn("Total");
@@ -128,7 +129,7 @@ public class JF_Factura extends javax.swing.JFrame {
 //            ps = con.conectar().prepareStatement("SELECT id_Factura,Cantidad,Impuesto,Descuento,TotalPagar,Fecha "
 //                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)order by Id_Factura desc limit 1");
 
-            ps = con.conectar().prepareStatement("SELECT id_Factura, Id_Orden, b.Cantidad, d.Nombre"
+            ps = con.conectar().prepareStatement("SELECT Id_Orden, b.Cantidad, d.Nombre"
                     + " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)"
                     + " INNER Join producto d on (b.Fk_Producto = d.Id_Producto) where Id_Factura ='" + txtCodigoFac.getText() + "'");
 
@@ -137,10 +138,9 @@ public class JF_Factura extends javax.swing.JFrame {
             ResultSetMetaData rsmt = rs.getMetaData();
             int cantcolum = rsmt.getColumnCount();
 
-            modelo3.addColumn("ID Factura");
-            modelo3.addColumn("id orden");
-            modelo3.addColumn("cantidad");
-            modelo3.addColumn("nombre");
+            modelo3.addColumn("ID Orden");
+            modelo3.addColumn("Cantidad");
+            modelo3.addColumn("Producto");
 
             while (rs.next()) {
                 Object[] filas = new Object[cantcolum];
@@ -191,10 +191,8 @@ public class JF_Factura extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtCodigoFac = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtHora = new com.toedter.calendar.JDateChooser();
-        jLabel13 = new javax.swing.JLabel();
+        txtCodigoFac = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -208,7 +206,7 @@ public class JF_Factura extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelMenuFac.setBackground(new java.awt.Color(204, 204, 255));
+        PanelMenuFac.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuFac.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuFac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -368,7 +366,7 @@ public class JF_Factura extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tbCompra);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 308, 650, 51));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 308, 760, 51));
 
         tbCliente.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         tbCliente.setModel(new javax.swing.table.DefaultTableModel(
@@ -384,11 +382,11 @@ public class JF_Factura extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbCliente);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 650, 60));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 760, 60));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("--------Ultima linea---------");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 520, 197, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 520, 197, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logo reducido.jpeg"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 173, 147));
@@ -397,24 +395,28 @@ public class JF_Factura extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("ALmacen 3B");
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 35, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Tel:2710-84-84");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 66, -1, -1));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Correo Electronico:Almacenes3b@almacen3b.com");
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 114, -1, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Direccion: 50 mts sur de la universidad Latina de Costa Rica");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 92, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setText("Código");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, -1));
 
         txtCodigoFac.setEditable(false);
         txtCodigoFac.addActionListener(new java.awt.event.ActionListener() {
@@ -422,20 +424,9 @@ public class JF_Factura extends javax.swing.JFrame {
                 txtCodigoFacActionPerformed(evt);
             }
         });
-        jPanel4.add(txtCodigoFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 118, -1));
+        jPanel4.add(txtCodigoFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 118, -1));
 
-        jLabel9.setText("Código");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, -1, -1));
-
-        txtHora.setDateFormatString("h:mm");
-        txtHora.setEnabled(false);
-        txtHora.setFocusCycleRoot(true);
-        jPanel4.add(txtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 120, 20));
-
-        jLabel13.setText("Hora");
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, -1, -1));
-
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 520, 150));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 610, 150));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -447,8 +438,8 @@ public class JF_Factura extends javax.swing.JFrame {
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 286, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel10.setText("Producto");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 366, -1, -1));
+        jLabel10.setText("Producto:");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, -1, -1));
 
         tbProducto.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         tbProducto.setModel(new javax.swing.table.DefaultTableModel(
@@ -464,9 +455,9 @@ public class JF_Factura extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tbProducto);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 399, 650, 110));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 399, 760, 110));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 750, 550));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 840, 550));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -511,6 +502,7 @@ public class JF_Factura extends javax.swing.JFrame {
         m.setVisible(true);
         dispose();
         m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
+        m.mostrardatosProducto("");
     }//GEN-LAST:event_BtnVentasMouseClicked
 
     private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked
@@ -583,7 +575,6 @@ public class JF_Factura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -608,7 +599,6 @@ public class JF_Factura extends javax.swing.JFrame {
     private javax.swing.JTable tbCompra;
     private javax.swing.JTable tbProducto;
     public javax.swing.JTextField txtCodigoFac;
-    public com.toedter.calendar.JDateChooser txtHora;
     public javax.swing.JTextField txtUsuarioVentas;
     // End of variables declaration//GEN-END:variables
 

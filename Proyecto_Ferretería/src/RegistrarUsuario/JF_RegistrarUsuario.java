@@ -12,9 +12,20 @@ import javax.swing.JOptionPane;
 
 public class JF_RegistrarUsuario extends javax.swing.JFrame {
 
+    int cont;
+
     public JF_RegistrarUsuario() {
         initComponents();
         setLocationRelativeTo(null);
+
+        lblRequeridoNombre.setVisible(false);
+        lblRequeridoAP1.setVisible(false);
+        lblRequeridoAP2.setVisible(false);
+        lblRequeridoCedula.setVisible(false);
+        lblRequeridoEmail.setVisible(false);
+
+        lblRequeridoUsuario.setVisible(false);
+        lblRequeridoContraseña.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -40,29 +51,36 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        txtUsuario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         txtPrimerP = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         txtcedula = new javax.swing.JTextField();
-        txtContraseña = new javax.swing.JPasswordField();
-        chVerContra = new javax.swing.JCheckBox();
-        jLabel4 = new javax.swing.JLabel();
-        cmbTipoUsuario = new javax.swing.JComboBox();
-        jLabel15 = new javax.swing.JLabel();
         txtSegundoP = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         BtnIngresar1 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        lblRequeridoAP1 = new javax.swing.JLabel();
+        lblRequeridoAP2 = new javax.swing.JLabel();
+        lblRequeridoCedula = new javax.swing.JLabel();
+        lblRequeridoEmail = new javax.swing.JLabel();
+        lblRequeridoNombre = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtContraseña = new javax.swing.JPasswordField();
+        chVerContra = new javax.swing.JCheckBox();
+        jLabel20 = new javax.swing.JLabel();
+        cmbTipoUsuario = new javax.swing.JComboBox();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lblRequeridoContraseña = new javax.swing.JLabel();
+        lblRequeridoUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -117,7 +135,7 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 50));
 
-        PanelMenuRU.setBackground(new java.awt.Color(204, 204, 255));
+        PanelMenuRU.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuRU.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuRU.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -214,78 +232,38 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 120, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cédula");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
-        jPanel2.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 145, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, -1, -1));
+        jPanel2.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 145, -1));
 
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel9.setText("Primer");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("Apellido");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
-        jPanel2.add(txtPrimerP, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 145, -1));
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel11.setText("Contraseña");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, -1, -1));
-        jPanel2.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 145, -1));
-        jPanel2.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, 120, -1));
-
-        chVerContra.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                chVerContraMouseClicked(evt);
-            }
-        });
-        chVerContra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chVerContraActionPerformed(evt);
-            }
-        });
-        jPanel2.add(chVerContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 130, -1, 30));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("1. Administrador 2. Empleado");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, -1, -1));
-
-        cmbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2" }));
-        jPanel2.add(cmbTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 120, -1));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel15.setText("Usuario");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, -1, -1));
-        jPanel2.add(txtSegundoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 145, -1));
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Primer Apellido");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, 20));
+        jPanel2.add(txtPrimerP, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 145, -1));
+        jPanel2.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 145, -1));
+        jPanel2.add(txtSegundoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 140, -1));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel19.setText("Segundo");
-        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("Apellido");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Segundo Apellido");
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setText("Email");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, -1, -1));
-        jPanel2.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 141, -1));
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel10.setText("Usuario");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, -1, -1));
-
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel20.setText("Tipo de ");
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, -1, -1));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 860, 480));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Información del empleado");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
+        jPanel2.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 141, -1));
 
         BtnIngresar1.setBackground(new java.awt.Color(255, 204, 51));
         BtnIngresar1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -300,7 +278,92 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
         jLabel22.setText("Agregar");
         BtnIngresar1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 100, 40));
 
-        jPanel1.add(BtnIngresar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 630, 190, -1));
+        jPanel2.add(BtnIngresar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 190, -1));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Email");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
+
+        lblRequeridoAP1.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoAP1.setText("Requerido");
+        jPanel2.add(lblRequeridoAP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
+
+        lblRequeridoAP2.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoAP2.setText("Requerido");
+        jPanel2.add(lblRequeridoAP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, -1, -1));
+
+        lblRequeridoCedula.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoCedula.setText("Requerido");
+        jPanel2.add(lblRequeridoCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
+
+        lblRequeridoEmail.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoEmail.setText("Requerido");
+        jPanel2.add(lblRequeridoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, -1, -1));
+
+        lblRequeridoNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoNombre.setText("Requerido");
+        jPanel2.add(lblRequeridoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 640, 330));
+
+        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel4.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Usuario");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        jPanel4.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 120, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Contraseña");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+        jPanel4.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 120, -1));
+
+        chVerContra.setBackground(new java.awt.Color(51, 51, 51));
+        chVerContra.setForeground(new java.awt.Color(51, 102, 255));
+        chVerContra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chVerContraMouseClicked(evt);
+            }
+        });
+        chVerContra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chVerContraActionPerformed(evt);
+            }
+        });
+        jPanel4.add(chVerContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, 20));
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Tipo de Usuario ");
+        jPanel4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+
+        cmbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2" }));
+        jPanel4.add(cmbTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 120, -1));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("1. Administrador ");
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("2. Empleado");
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+
+        lblRequeridoContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoContraseña.setText("Requerido");
+        jPanel4.add(lblRequeridoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
+
+        lblRequeridoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoUsuario.setText("Requerido");
+        jPanel4.add(lblRequeridoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 170, 190, 380));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -374,37 +437,95 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
 
     private void BtnIngresar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIngresar1MouseClicked
 
-        try {
-            datosP cc = new datosP();
-            Connection cn = cc.conexion();
+        cont = 0;
 
-            PreparedStatement pst = cn.prepareStatement("INSERT INTO registro_usuario(Usuario,"
-                    + "Contraseña,Cédula,Nombre,PrimerApellido,SegundoApellido,CorreoElectronico,Fk_TipoUsuario) VALUES (?,?,?,?,?,?,?,?)");
-            pst.setString(1, txtUsuario.getText());
-            pst.setString(2, txtContraseña.getText());
-            pst.setString(3, txtcedula.getText());
-            pst.setString(4, txtnombre.getText());
-            pst.setString(5, txtPrimerP.getText());
-            pst.setString(6, txtSegundoP.getText());
-            pst.setString(7, txtEmail.getText());
-            pst.setString(8, (String) cmbTipoUsuario.getSelectedItem());
+        if (txtcedula.getText().equals("")) {
+            lblRequeridoCedula.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoCedula.setVisible(false);
 
-            pst.executeUpdate();
+        }
+        if (txtnombre.getText().equals("")) {
+            lblRequeridoNombre.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoNombre.setVisible(false);
 
-        } catch (Exception e) {
-            System.out.print(e);
         }
 
-        txtUsuario.setText("");
-        txtContraseña.setText("");
-        txtcedula.setText("");
-        txtnombre.setText("");
-        txtPrimerP.setText("");
-        txtSegundoP.setText("");
-        txtEmail.setText("");
-        JOptionPane.showMessageDialog(this, "Guardado con exito");
+        if (txtPrimerP.getText().equals("")) {
+            lblRequeridoAP1.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoAP1.setVisible(false);
 
+        }
 
+        if (txtSegundoP.getText().equals("")) {
+            lblRequeridoAP2.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoAP2.setVisible(false);
+
+        }
+
+        if (txtEmail.getText().equals("")) {
+            lblRequeridoEmail.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoEmail.setVisible(false);
+
+        }
+
+        if (txtUsuario.getText().equals("")) {
+            lblRequeridoUsuario.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoUsuario.setVisible(false);
+
+        }
+        if (txtContraseña.getText().equals("")) {
+            lblRequeridoContraseña.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoContraseña.setVisible(false);
+
+        }
+
+        if (cont == 0) {
+
+            try {
+                datosP cc = new datosP();
+                Connection cn = cc.conexion();
+
+                PreparedStatement pst = cn.prepareStatement("INSERT INTO registro_usuario(Usuario,"
+                        + "Contraseña,Cédula,Nombre,PrimerApellido,SegundoApellido,CorreoElectronico,Fk_TipoUsuario) VALUES (?,?,?,?,?,?,?,?)");
+                pst.setString(1, txtUsuario.getText());
+                pst.setString(2, txtContraseña.getText());
+                pst.setString(3, txtcedula.getText());
+                pst.setString(4, txtnombre.getText());
+                pst.setString(5, txtPrimerP.getText());
+                pst.setString(6, txtSegundoP.getText());
+                pst.setString(7, txtEmail.getText());
+                pst.setString(8, (String) cmbTipoUsuario.getSelectedItem());
+
+                pst.executeUpdate();
+
+            } catch (Exception e) {
+                System.out.print(e);
+            }
+
+            txtUsuario.setText("");
+            txtContraseña.setText("");
+            txtcedula.setText("");
+            txtnombre.setText("");
+            txtPrimerP.setText("");
+            txtSegundoP.setText("");
+            txtEmail.setText("");
+            JOptionPane.showMessageDialog(this, "Guardado con exito");
+
+        }
     }//GEN-LAST:event_BtnIngresar1MouseClicked
 
     private void chVerContraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chVerContraMouseClicked
@@ -470,6 +591,7 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -484,12 +606,18 @@ public class JF_RegistrarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lblRequeridoAP1;
+    private javax.swing.JLabel lblRequeridoAP2;
+    private javax.swing.JLabel lblRequeridoCedula;
+    private javax.swing.JLabel lblRequeridoContraseña;
+    private javax.swing.JLabel lblRequeridoEmail;
+    private javax.swing.JLabel lblRequeridoNombre;
+    private javax.swing.JLabel lblRequeridoUsuario;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtPrimerP;

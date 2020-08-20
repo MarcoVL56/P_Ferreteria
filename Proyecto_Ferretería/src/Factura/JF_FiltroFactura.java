@@ -54,20 +54,19 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
 
     }
 
-    void mostrardatos(String valor) {
+    public void mostrardatos(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID FACTURA");
-        modelo.addColumn("NOMBRE");
-        modelo.addColumn("APELLIDO");
-        modelo.addColumn("CEDULA");
-        modelo.addColumn("CORREO");
-        modelo.addColumn("FECHA");
-        modelo.addColumn("SUBTOTAL");
-        modelo.addColumn("IMPUESTO");
-        modelo.addColumn("DESCUENTO");
-        modelo.addColumn("TOTAL");
-        
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Cédula");
+        modelo.addColumn("Correo");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Subtotal");
+        modelo.addColumn("Impuesto");
+        modelo.addColumn("Descuento");
+        modelo.addColumn("Total");
 
         tbDatos.setModel(modelo);
         String sql = "";
@@ -76,12 +75,8 @@ public class JF_FiltroFactura extends javax.swing.JFrame {
             //Cambié Nombre_cliente y Cedula_cliente
 //            sql = "SELECT Id_Factura,Nombre,Cédula,FK_Producto,Cantidad,TotalPagar,Fecha "
 //                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)";
-
-sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElectronico,Fecha,Subtotal,Impuesto,Descuento, TotalPagar"+
-                   " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)";
-
-
-
+            sql = "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElectronico,Fecha,Subtotal,Impuesto,Descuento, TotalPagar"
+                    + " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)";
 
         }
 
@@ -101,7 +96,6 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
                 datos[7] = rs.getString(8);
                 datos[8] = rs.getString(9);
                 datos[9] = rs.getString(10);
-               
 
                 modelo.addRow(datos);
             }
@@ -116,16 +110,16 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
 
         DefaultTableModel modelo = new DefaultTableModel();
 
-      modelo.addColumn("ID FACTURA");
-        modelo.addColumn("NOMBRE");
-        modelo.addColumn("APELLIDO");
-        modelo.addColumn("CEDULA");
-        modelo.addColumn("CORREO");
-        modelo.addColumn("FECHA");
-        modelo.addColumn("SUBTOTAL");
-        modelo.addColumn("IMPUESTO");
-        modelo.addColumn("DESCUENTO");
-        modelo.addColumn("TOTAL");
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Cédula");
+        modelo.addColumn("Correo");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Subtotal");
+        modelo.addColumn("Impuesto");
+        modelo.addColumn("Descuento");
+        modelo.addColumn("Total");
 
         tbDatos.setModel(modelo);
         processCalendar();
@@ -136,10 +130,9 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
 //            sql = "SELECT Nombre,Cédula,FK_Producto,Cantidad,TotalPagar,Fecha "
 //                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)"
 //                    + " AND Fecha='" + date + "'";
-            
-            
-          sql=  "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElectronico,Fecha,Subtotal,Impuesto,Descuento, TotalPagar"+
-                   " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)"  + " AND Fecha='" + date + "'";
+
+            sql = "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElectronico,Fecha,Subtotal,Impuesto,Descuento, TotalPagar"
+                    + " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)" + " AND Fecha='" + date + "'";
 
         }
 
@@ -149,7 +142,7 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
 
-                 datos[0] = rs.getString(1);
+                datos[0] = rs.getString(1);
                 datos[1] = rs.getString(2);
                 datos[2] = rs.getString(3);
                 datos[3] = rs.getString(4);
@@ -172,16 +165,16 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
     void mostrarFiltro2Fechas(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
-      modelo.addColumn("ID FACTURA");
-        modelo.addColumn("NOMBRE");
-        modelo.addColumn("APELLIDO");
-        modelo.addColumn("CEDULA");
-        modelo.addColumn("CORREO");
-        modelo.addColumn("FECHA");
-        modelo.addColumn("SUBTOTAL");
-        modelo.addColumn("IMPUESTO");
-        modelo.addColumn("DESCUENTO");
-        modelo.addColumn("TOTAL");
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Cédula");
+        modelo.addColumn("Correo");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Subtotal");
+        modelo.addColumn("Impuesto");
+        modelo.addColumn("Descuento");
+        modelo.addColumn("Total");
 
         tbDatos.setModel(modelo);
         processCalendar();
@@ -193,13 +186,10 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
 //            sql = "SELECT Nombre,Cédula,FK_Producto,Cantidad,TotalPagar,Fecha "
 //                    + "FROM factura a INNER JOIN orden b on (b.Id_Orden = a.Fk_orden) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)"
 //                    + " AND Fecha between'" + date + "' and '" + date2 + "'  ";
-            
-               
-          sql=  "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElectronico,Fecha,Subtotal,Impuesto,Descuento, TotalPagar"+
-                   " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)" 
-                  + " AND Fecha between'" + date + "' and '" + date2 + "'  ";
-            
-            
+
+            sql = "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElectronico,Fecha,Subtotal,Impuesto,Descuento, TotalPagar"
+                    + " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)"
+                    + " AND Fecha between'" + date + "' and '" + date2 + "'  ";
 
         }
 
@@ -208,7 +198,7 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
- datos[0] = rs.getString(1);
+                datos[0] = rs.getString(1);
                 datos[1] = rs.getString(2);
                 datos[2] = rs.getString(3);
                 datos[3] = rs.getString(4);
@@ -232,24 +222,24 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
 
         DefaultTableModel modelo = new DefaultTableModel();
 
-  modelo.addColumn("ID FACTURA");
-        modelo.addColumn("NOMBRE");
-        modelo.addColumn("APELLIDO");
-        modelo.addColumn("CEDULA");
-        modelo.addColumn("CORREO");
-        modelo.addColumn("FECHA");
-        modelo.addColumn("SUBTOTAL");
-        modelo.addColumn("IMPUESTO");
-        modelo.addColumn("DESCUENTO");
-        modelo.addColumn("TOTAL");
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Cédula");
+        modelo.addColumn("Correo");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Subtotal");
+        modelo.addColumn("Impuesto");
+        modelo.addColumn("Descuento");
+        modelo.addColumn("Total");
 
         tbDatos.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
 
             //Cambié Nombre_cliente y Cedula_cliente
-            sql=  "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElectronico,Fecha,Subtotal,Impuesto,Descuento, TotalPagar"+
-                   " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)" 
+            sql = "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElectronico,Fecha,Subtotal,Impuesto,Descuento, TotalPagar"
+                    + " FROM factura a INNER JOIN orden b on (a.Id_Factura = b.Fk_Factura) INNER Join registro_cliente c on (c.Id_Cliente = b.Fk_Cliente)"
                     + " AND Id_Cliente='" + txtCedula.getText() + "'";
 
         }
@@ -260,7 +250,7 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
 
-                 datos[0] = rs.getString(1);
+                datos[0] = rs.getString(1);
                 datos[1] = rs.getString(2);
                 datos[2] = rs.getString(3);
                 datos[3] = rs.getString(4);
@@ -301,20 +291,24 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
         jLabel8 = new javax.swing.JLabel();
         txtUsuarioVentas = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        btnListar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbDatos = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         txtCedula = new javax.swing.JTextField();
-        btnFiltrarporcedula = new javax.swing.JButton();
         txtFecha1 = new com.toedter.calendar.JDateChooser();
         txtFecha3 = new com.toedter.calendar.JDateChooser();
-        btnFiltrarporrango = new javax.swing.JButton();
-        btnFiltrarporfecha = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        btnFiltrarporfecha = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        btnFiltrarporrango = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        btnFiltrarporcedula = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         BtnImprimir = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        BtnVerFacturas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -371,7 +365,7 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 50));
 
-        PanelMenuFFac.setBackground(new java.awt.Color(204, 204, 255));
+        PanelMenuFFac.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuFFac.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuFFac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -461,16 +455,6 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
 
         jPanel1.add(PanelMenuFFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
-        btnListar.setBackground(new java.awt.Color(0, 102, 255));
-        btnListar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        btnListar.setText("Listar Facturas");
-        btnListar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
-
         tbDatos.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         tbDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -486,7 +470,7 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
         tbDatos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(tbDatos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 1040, 340));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 1200, 340));
 
         jPanel6.setBackground(new java.awt.Color(0, 102, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -494,54 +478,114 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
         txtCedula.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         txtCedula.setForeground(new java.awt.Color(204, 204, 204));
         txtCedula.setText("Ingrese la cedula");
-        jPanel6.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 205, 35));
+        jPanel6.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 180, 35));
+        jPanel6.add(txtFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 160, 31));
+        jPanel6.add(txtFecha3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 160, 31));
 
-        btnFiltrarporcedula.setBackground(new java.awt.Color(0, 204, 0));
-        btnFiltrarporcedula.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        btnFiltrarporcedula.setText("Buscar");
-        btnFiltrarporcedula.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnFiltrarporcedula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFiltrarporcedulaActionPerformed(evt);
-            }
-        });
-        jPanel6.add(btnFiltrarporcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, -1, 35));
-        jPanel6.add(txtFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 160, 31));
-        jPanel6.add(txtFecha3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 160, 31));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/iconfinder_search_322497 (1).png"))); // NOI18N
+        jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 80, -1));
 
-        btnFiltrarporrango.setBackground(new java.awt.Color(255, 255, 102));
-        btnFiltrarporrango.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        btnFiltrarporrango.setText("Filtrar por rango");
-        btnFiltrarporrango.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnFiltrarporrango.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFiltrarporrangoActionPerformed(evt);
-            }
-        });
-        jPanel6.add(btnFiltrarporrango, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 160, -1));
+        jPanel4.setBackground(new java.awt.Color(255, 204, 51));
+        jPanel4.setForeground(new java.awt.Color(51, 102, 255));
 
-        btnFiltrarporfecha.setBackground(new java.awt.Color(255, 255, 102));
+        btnFiltrarporfecha.setBackground(new java.awt.Color(255, 255, 255));
         btnFiltrarporfecha.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnFiltrarporfecha.setText("Filtrar por fecha");
+        btnFiltrarporfecha.setBorder(null);
+        btnFiltrarporfecha.setContentAreaFilled(false);
         btnFiltrarporfecha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnFiltrarporfecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFiltrarporfechaActionPerformed(evt);
             }
         });
-        jPanel6.add(btnFiltrarporfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 160, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/iconfinder_search_322497 (1).png"))); // NOI18N
-        jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 80, -1));
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnFiltrarporfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnFiltrarporfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 1050, 100));
+        jPanel6.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 160, -1));
+
+        jPanel5.setBackground(new java.awt.Color(255, 204, 51));
+        jPanel5.setForeground(new java.awt.Color(51, 102, 255));
+
+        btnFiltrarporrango.setBackground(new java.awt.Color(255, 255, 255));
+        btnFiltrarporrango.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnFiltrarporrango.setText("Filtrar por rango");
+        btnFiltrarporrango.setBorder(null);
+        btnFiltrarporrango.setContentAreaFilled(false);
+        btnFiltrarporrango.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnFiltrarporrango.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiltrarporrangoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnFiltrarporrango, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnFiltrarporrango, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel6.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, -1, -1));
+
+        jPanel7.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel7.setForeground(new java.awt.Color(51, 102, 255));
+
+        btnFiltrarporcedula.setBackground(new java.awt.Color(255, 255, 255));
+        btnFiltrarporcedula.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnFiltrarporcedula.setForeground(new java.awt.Color(255, 255, 255));
+        btnFiltrarporcedula.setText("Buscar");
+        btnFiltrarporcedula.setBorder(null);
+        btnFiltrarporcedula.setContentAreaFilled(false);
+        btnFiltrarporcedula.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnFiltrarporcedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiltrarporcedulaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnFiltrarporcedula, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnFiltrarporcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel6.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 180, -1));
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 1040, 100));
 
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
         jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
         jLabel14.setText("Reporte de facturas ");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, -1, -1));
 
-        BtnImprimir.setBackground(new java.awt.Color(255, 204, 51));
+        BtnImprimir.setBackground(new java.awt.Color(204, 204, 255));
         BtnImprimir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BtnImprimirMouseClicked(evt);
@@ -555,6 +599,34 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
         BtnImprimir.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 100, 40));
 
         jPanel1.add(BtnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 660, 160, -1));
+
+        jPanel2.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel2.setForeground(new java.awt.Color(51, 102, 255));
+
+        BtnVerFacturas.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        BtnVerFacturas.setForeground(new java.awt.Color(255, 255, 255));
+        BtnVerFacturas.setText("Ver todos ");
+        BtnVerFacturas.setContentAreaFilled(false);
+        BtnVerFacturas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVerFacturasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BtnVerFacturas, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(BtnVerFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 160, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 712));
 
@@ -590,6 +662,7 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
         m.setVisible(true);
         dispose();
         m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
+        m.mostrardatosProducto("");
     }//GEN-LAST:event_BtnVentasMouseClicked
 
     private void BtnProformaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnProformaMouseClicked
@@ -605,10 +678,6 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
         dispose();
         m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
-
-    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        mostrardatos("");
-    }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnFiltrarporcedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarporcedulaActionPerformed
         mostrarDatosPorCedula("");
@@ -648,31 +717,34 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
 
     private void BtnImprimirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnImprimirMouseClicked
 
-   Conexion3 cn = new Conexion3();
-        try{
+        Conexion3 cn = new Conexion3();
+        try {
             cn.conn();
-        }catch(Exception ex){
-            Logger.getLogger(JF_FiltroFactura.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(JF_FiltroFactura.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         URL archivo = this.getClass().getResource("/Reportes/Reporte_V1.jasper");
         JasperReport jr = null;
-        
-        try{
-            
-            jr=(JasperReport) JRLoader.loadObject(archivo);
-            JasperPrint jp = JasperFillManager.fillReport(jr, null, cn.getConn() );
+
+        try {
+
+            jr = (JasperReport) JRLoader.loadObject(archivo);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, cn.getConn());
             JasperViewer jv = new JasperViewer(jp);
             jv.setVisible(true);
             jv.setTitle("Visor de Reportes");
-            
-        }catch(JRException ex){
-           Logger.getLogger(JF_FiltroFactura.class.getName()).log(Level.SEVERE,null, ex);
+
+        } catch (JRException ex) {
+            Logger.getLogger(JF_FiltroFactura.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_BtnImprimirMouseClicked
+
+    private void BtnVerFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVerFacturasActionPerformed
+        mostrardatos("");
+    }//GEN-LAST:event_BtnVerFacturasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -717,11 +789,11 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
     private javax.swing.JPanel BtnProforma;
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel BtnVentas;
+    private javax.swing.JButton BtnVerFacturas;
     private javax.swing.JPanel PanelMenuFFac;
     private javax.swing.JButton btnFiltrarporcedula;
     private javax.swing.JButton btnFiltrarporfecha;
     private javax.swing.JButton btnFiltrarporrango;
-    private javax.swing.JButton btnListar;
     private javax.swing.JLabel btnSubMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -733,8 +805,12 @@ sql= "SELECT DISTINCTROW id_Factura,Nombre,PrimerApellido,Id_Cliente,CorreoElect
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbDatos;
     private javax.swing.JTextField txtCedula;

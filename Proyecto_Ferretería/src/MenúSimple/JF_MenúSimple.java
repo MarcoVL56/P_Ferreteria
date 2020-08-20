@@ -121,7 +121,7 @@ public class JF_MenúSimple extends javax.swing.JFrame {
         btnFiltroFacturas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
-        jLabel17.setText("Registro de facturas");
+        jLabel17.setText("Reporte de facturas");
         btnFiltroFacturas.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 180, 30));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-comportamiento-de-las-ventas-50.png"))); // NOI18N
@@ -203,7 +203,7 @@ public class JF_MenúSimple extends javax.swing.JFrame {
         jLabel1.setText("Bienvenido ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, -1, -1));
 
-        PanelMenuI.setBackground(new java.awt.Color(204, 204, 255));
+        PanelMenuI.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuI.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -291,8 +291,8 @@ public class JF_MenúSimple extends javax.swing.JFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Accedido por un: Empleado");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 60, -1, -1));
+        jLabel3.setText("Usuario ingresado: Empleado");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -354,12 +354,7 @@ public class JF_MenúSimple extends javax.swing.JFrame {
 
         m.mostrardatosProducto("");
 
-        int posicion2 = m.PanelPermiso.getX();
-        if (posicion2 > -1) {
-            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, m.PanelPermiso);
-        } else {
-            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, m.PanelPermiso);
-        }
+    
     }//GEN-LAST:event_btnVentasMouseClicked
 
     private void btnReporteProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReporteProductosMouseClicked

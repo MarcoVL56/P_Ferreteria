@@ -14,10 +14,13 @@ public class Proveedor extends javax.swing.JFrame {
     Conexion.Conexion con = new Conexion.Conexion();
     PreparedStatement ps;
     ResultSet rs;
+    int cont;
 
     public Proveedor() {
         initComponents();
         setLocationRelativeTo(null);
+         lblRequeridoProveedor.setVisible(false);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -44,6 +47,7 @@ public class Proveedor extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txtproveedor = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        lblRequeridoProveedor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -100,7 +104,7 @@ public class Proveedor extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelMenuProveed.setBackground(new java.awt.Color(204, 204, 255));
+        PanelMenuProveed.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuProveed.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuProveed.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -166,6 +170,7 @@ public class Proveedor extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 102, 255));
 
         jLabel7.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Nombre Proveedor");
 
         btningresar.setBackground(new java.awt.Color(255, 204, 51));
@@ -178,11 +183,14 @@ public class Proveedor extends javax.swing.JFrame {
 
         jLabel11.setBackground(new java.awt.Color(67, 81, 141));
         jLabel11.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
-        jLabel11.setText("Ingresar");
-        btningresar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 100, 40));
+        jLabel11.setText("        Ingresar");
+        btningresar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 40));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8-crear-nuevo-64.png"))); // NOI18N
+
+        lblRequeridoProveedor.setForeground(new java.awt.Color(255, 255, 255));
+        lblRequeridoProveedor.setText("Requerido");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -192,9 +200,13 @@ public class Proveedor extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblRequeridoProveedor)
+                                .addGap(12, 12, 12))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(159, 159, 159)
                         .addComponent(btningresar, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -208,13 +220,18 @@ public class Proveedor extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(txtproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(btningresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(btningresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(lblRequeridoProveedor)))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 510, 450));
@@ -252,18 +269,31 @@ public class Proveedor extends javax.swing.JFrame {
 
     private void btningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btningresarMouseClicked
 
-        //---------------------Ingreso de un nuevo Proveedor.....
-        try {
-            ps = con.conectar().prepareStatement("INSERT INTO proveedor (NombreProveedor) "
-                    + "VALUES(?)");
-            ps.setString(1, txtproveedor.getText());
-            ps.execute();
-            JOptionPane.showMessageDialog(null, "Proveedor Ingresado...");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error en la base de datos...");
+        cont = 0;
+
+        if (txtproveedor.getText().equals("")) {
+            lblRequeridoProveedor.setVisible(true);
+            cont++;
+        } else {
+            lblRequeridoProveedor.setVisible(false);
 
         }
-        txtproveedor.setText("");
+
+        if (cont == 0) {
+
+            try {
+                ps = con.conectar().prepareStatement("INSERT INTO proveedor (NombreProveedor) "
+                        + "VALUES(?)");
+                ps.setString(1, txtproveedor.getText());
+                ps.execute();
+                JOptionPane.showMessageDialog(null, "Proveedor Ingresado...");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error en la base de datos...");
+
+            }
+            txtproveedor.setText("");
+            
+        }
     }//GEN-LAST:event_btningresarMouseClicked
 
     private void txtUsuarioProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioProveedorActionPerformed
@@ -332,6 +362,7 @@ public class Proveedor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblRequeridoProveedor;
     public javax.swing.JTextField txtUsuarioProveedor;
     private javax.swing.JTextField txtproveedor;
     // End of variables declaration//GEN-END:variables

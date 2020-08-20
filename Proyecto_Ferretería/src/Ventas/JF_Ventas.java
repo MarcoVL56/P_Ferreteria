@@ -29,6 +29,7 @@ public class JF_Ventas extends javax.swing.JFrame {
 
     TableRowSorter trsfiltro;
     String date;
+    String Hora;
     int cont;
 
     public JF_Ventas() {
@@ -41,8 +42,15 @@ public class JF_Ventas extends javax.swing.JFrame {
         lblRequeridoSubtotal.setVisible(false);
         lblRequeridoTotal.setVisible(false);
 
-        Calendar c2 = new GregorianCalendar();
-        txtFechaFact.setCalendar(c2);
+        lblComprobacion.setVisible(false);
+        lblusuario.setVisible(false);
+        lblcontraseña.setVisible(false);
+        BtnIngresar.setVisible(false);
+        lblPorcentaje.setVisible(false);
+        BtnPorcentaje.setVisible(false);
+        txtUsuario.setVisible(false);
+        txtContraseña.setVisible(false);
+        PanelPermiso.setVisible(false);
 
     }
 
@@ -81,24 +89,32 @@ public class JF_Ventas extends javax.swing.JFrame {
 
     }
 
+    public void processHora() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+        //yyyy-MM-dd
+        Hora = dateFormat.format(txtHora.getDate());
+
+    }
+
     public void mostrardatosProducto(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Id");
-        modelo.addColumn("Nombre");
+        modelo.addColumn("N.I");
+        modelo.addColumn("Identificador");
+        modelo.addColumn("Producto");
         modelo.addColumn("Presentación");
-        modelo.addColumn("Precio unitario");
+        modelo.addColumn("Precio");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Proveedor");
 
         tbProductoInventario.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT Id_Disponibilidad , Nombre , Presentacion, PrecioUnitario, Cantidad, NombreProveedor "
+            sql = "SELECT Id_Disponibilidad , Id_Producto, Nombre , Presentacion, PrecioUnitario, Cantidad, NombreProveedor "
                     + "FROM inventario a INNER JOIN producto b on (b.Id_Producto = a.Fk_Productos) INNER Join proveedor c on (c.Id_Proveedor = a.Fk_Proveedor)";
 
         }
-        String[] datos = new String[6];
+        String[] datos = new String[7];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -110,6 +126,7 @@ public class JF_Ventas extends javax.swing.JFrame {
                 datos[3] = rs.getString(4);
                 datos[4] = rs.getString(5);
                 datos[5] = rs.getString(6);
+                datos[6] = rs.getString(7);
 
                 modelo.addRow(datos);
             }
@@ -123,21 +140,22 @@ public class JF_Ventas extends javax.swing.JFrame {
     public void mostrarBusquedaProducto(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Id");
-        modelo.addColumn("Nombre");
+        modelo.addColumn("N.I");
+        modelo.addColumn("Identificador");
+        modelo.addColumn("Producto");
         modelo.addColumn("Presentación");
-        modelo.addColumn("Precio unitario");
+        modelo.addColumn("Precio");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Proveedor");
 
         tbProductoInventario.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT Id_Disponibilidad , Nombre , Presentacion, PrecioUnitario, Cantidad, NombreProveedor FROM inventario a INNER JOIN producto b on (b.Id_Producto = a.Fk_Productos) "
+            sql = "SELECT Id_Disponibilidad ,Id_Producto, Nombre , Presentacion, PrecioUnitario, Cantidad, NombreProveedor FROM inventario a INNER JOIN producto b on (b.Id_Producto = a.Fk_Productos) "
                     + "INNER Join proveedor c on (c.Id_Proveedor = a.Fk_Proveedor)";
 
         }
-        String[] datos = new String[6];
+        String[] datos = new String[7];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -149,6 +167,7 @@ public class JF_Ventas extends javax.swing.JFrame {
                 datos[3] = rs.getString(4);
                 datos[4] = rs.getString(5);
                 datos[5] = rs.getString(6);
+                datos[6] = rs.getString(7);
 
                 modelo.addRow(datos);
             }
@@ -331,9 +350,6 @@ public class JF_Ventas extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbProductoInventario = new javax.swing.JTable();
-        BtnProf = new javax.swing.JButton();
-        BtnPagar = new javax.swing.JButton();
-        VerSubtotal = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -351,16 +367,13 @@ public class JF_Ventas extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         btnAplicarDescuento = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
-        BtnVerificar = new javax.swing.JButton();
         txtnombre = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
-        BtnAgregar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbProductosSelec = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
@@ -370,7 +383,6 @@ public class JF_Ventas extends javax.swing.JFrame {
         lblRequerdioCantidad = new javax.swing.JLabel();
         lblRequeridoCodigo = new javax.swing.JLabel();
         lblRequeridoCedula = new javax.swing.JLabel();
-        txtStock = new javax.swing.JTextField();
         PanelMenuV = new javax.swing.JPanel();
         BtnMenu = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -381,17 +393,30 @@ public class JF_Ventas extends javax.swing.JFrame {
         txtUsuarioVentas = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        txtStock = new javax.swing.JTextField();
         PanelPermiso = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
+        lblComprobacion = new javax.swing.JLabel();
+        lblusuario = new javax.swing.JLabel();
+        lblPorcentaje = new javax.swing.JLabel();
+        lblcontraseña = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JPasswordField();
         BtnPorcentaje = new javax.swing.JComboBox<>();
         txtUsuario = new javax.swing.JTextField();
         BtnIngresar = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        BtnVerificar = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        BtnProf = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        BtnPagar = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        BtnAgregar = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        VerSubtotal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -447,9 +472,9 @@ public class JF_Ventas extends javax.swing.JFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 50));
 
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
-        jLabel14.setText("Monto");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 310, -1, -1));
+        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel14.setText("Monto general");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 320, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Nombre del producto");
@@ -500,85 +525,61 @@ public class JF_Ventas extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 620, 310));
 
-        BtnProf.setText("Guardar como proforma");
-        BtnProf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnProfActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtnProf, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 600, 250, 30));
-
-        BtnPagar.setText("Pagar ");
-        BtnPagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnPagarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 650, 250, 30));
-
-        VerSubtotal.setText("Ver total");
-        VerSubtotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VerSubtotalActionPerformed(evt);
-            }
-        });
-        jPanel1.add(VerSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 410, 110, -1));
-
         jPanel4.setBackground(new java.awt.Color(0, 102, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Hora");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Descuento");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Total a pagar ");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+        jLabel7.setText("Total a pagar");
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 90, -1));
 
         txtImpuesto.setEditable(false);
-        jPanel4.add(txtImpuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 100, -1));
+        jPanel4.add(txtImpuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 140, -1));
 
         txtDescuento.setEditable(false);
-        jPanel4.add(txtDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 100, -1));
+        jPanel4.add(txtDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 140, -1));
 
         txtTotalPagar.setEditable(false);
-        jPanel4.add(txtTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 100, 20));
+        jPanel4.add(txtTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 140, 20));
 
         txtSubTotal.setEditable(false);
-        jPanel4.add(txtSubTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 100, -1));
+        jPanel4.add(txtSubTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 140, -1));
 
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Impuesto");
-        jPanel4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        jPanel4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Subtotal");
-        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         lblRequeridoSubtotal.setForeground(new java.awt.Color(255, 255, 255));
         lblRequeridoSubtotal.setText("Requerido");
-        jPanel4.add(lblRequeridoSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 60, -1));
+        jPanel4.add(lblRequeridoSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 60, -1));
 
         lblRequeridoTotal.setForeground(new java.awt.Color(255, 255, 255));
         lblRequeridoTotal.setText("Requerido");
-        jPanel4.add(lblRequeridoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
+        jPanel4.add(lblRequeridoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
 
         txtFechaFact.setEnabled(false);
         txtFechaFact.setFocusCycleRoot(true);
-        jPanel4.add(txtFechaFact, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 100, 20));
+        jPanel4.add(txtFechaFact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 100, 20));
 
-        txtHora.setDateFormatString("h:mm");
+        txtHora.setDateFormatString("hh:mm:ss");
         txtHora.setEnabled(false);
         txtHora.setFocusCycleRoot(true);
-        jPanel4.add(txtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 100, 20));
+        jPanel4.add(txtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 100, 20));
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Fecha");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 300, 260, 290));
 
@@ -594,26 +595,13 @@ public class JF_Ventas extends javax.swing.JFrame {
                 btnAplicarDescuentoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAplicarDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 590, 230, -1));
-
-        jLabel9.setBackground(new java.awt.Color(0, 102, 204));
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel9.setText("Administrador");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 660, -1, -1));
+        jPanel1.add(btnAplicarDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Cédula");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
         jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 200, 30));
-
-        BtnVerificar.setText("Verificar");
-        BtnVerificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnVerificarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtnVerificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 200, -1));
 
         txtnombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -634,14 +622,6 @@ public class JF_Ventas extends javax.swing.JFrame {
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 640, -1, -1));
         jPanel1.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 640, 70, -1));
 
-        BtnAgregar.setText("Agregar al carrito");
-        BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAgregarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 670, 140, -1));
-
         tbProductosSelec.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -659,6 +639,7 @@ public class JF_Ventas extends javax.swing.JFrame {
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 100, 540, 190));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Cliente");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 150, -1, -1));
 
@@ -684,7 +665,7 @@ public class JF_Ventas extends javax.swing.JFrame {
         jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 350, 110, 50));
 
         txtCodigoBarras.setEditable(false);
-        jPanel1.add(txtCodigoBarras, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 70, 110, -1));
+        jPanel1.add(txtCodigoBarras, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 70, 120, -1));
 
         lblRequerdioCantidad.setForeground(new java.awt.Color(0, 102, 255));
         lblRequerdioCantidad.setText("Requerido");
@@ -694,14 +675,11 @@ public class JF_Ventas extends javax.swing.JFrame {
         lblRequeridoCodigo.setText("Requerido");
         jPanel1.add(lblRequeridoCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 600, 60, -1));
 
-        lblRequeridoCedula.setForeground(new java.awt.Color(0, 102, 255));
+        lblRequeridoCedula.setForeground(new java.awt.Color(255, 255, 255));
         lblRequeridoCedula.setText("Requerido");
         jPanel1.add(lblRequeridoCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 60, -1));
 
-        txtStock.setEditable(false);
-        jPanel1.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 640, 30, -1));
-
-        PanelMenuV.setBackground(new java.awt.Color(204, 204, 255));
+        PanelMenuV.setBackground(new java.awt.Color(204, 204, 204));
         PanelMenuV.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenuV.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -775,36 +753,39 @@ public class JF_Ventas extends javax.swing.JFrame {
 
         jPanel1.add(PanelMenuV, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 660));
 
+        txtStock.setEditable(false);
+        jPanel1.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 640, 30, -1));
+
         PanelPermiso.setBackground(new java.awt.Color(0, 102, 204));
         PanelPermiso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel22.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("Comprobación  ");
-        PanelPermiso.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        lblComprobacion.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        lblComprobacion.setForeground(new java.awt.Color(255, 255, 255));
+        lblComprobacion.setText("Comprobación  ");
+        PanelPermiso.add(lblComprobacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
-        jLabel23.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("Usuario");
-        PanelPermiso.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
+        lblusuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblusuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblusuario.setText("Usuario");
+        PanelPermiso.add(lblusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
-        jLabel24.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("Porcentaje");
-        PanelPermiso.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, -1));
+        lblPorcentaje.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblPorcentaje.setForeground(new java.awt.Color(255, 255, 255));
+        lblPorcentaje.setText("Porcentaje");
+        PanelPermiso.add(lblPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, -1, -1));
 
-        jLabel25.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setText("Contraseña");
-        PanelPermiso.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
-        PanelPermiso.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 160, -1));
+        lblcontraseña.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblcontraseña.setForeground(new java.awt.Color(255, 255, 255));
+        lblcontraseña.setText("Contraseña");
+        PanelPermiso.add(lblcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+        PanelPermiso.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 140, 30));
 
         BtnPorcentaje.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "21", "22", "23", "24", "25" }));
-        PanelPermiso.add(BtnPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 60, -1));
+        PanelPermiso.add(BtnPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 60, -1));
 
         txtUsuario.setBackground(new java.awt.Color(245, 245, 245));
         txtUsuario.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        PanelPermiso.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 160, -1));
+        PanelPermiso.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 209, 140, 30));
 
         BtnIngresar.setBackground(new java.awt.Color(255, 204, 51));
         BtnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -817,23 +798,158 @@ public class JF_Ventas extends javax.swing.JFrame {
         jLabel13.setBackground(new java.awt.Color(67, 81, 141));
         jLabel13.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         jLabel13.setText("Comprobar");
-        BtnIngresar.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 100, 30));
+        BtnIngresar.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 100, 30));
 
-        PanelPermiso.add(BtnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 160, 30));
+        PanelPermiso.add(BtnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 140, 30));
 
-        jPanel1.add(PanelPermiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 180, 560));
+        jPanel1.add(PanelPermiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 170, 560));
 
-        jLabel27.setBackground(new java.awt.Color(0, 102, 204));
-        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel27.setText("Es necesario un usuario");
-        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 630, -1, -1));
+        jLabel9.setBackground(new java.awt.Color(0, 102, 204));
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel9.setText("Requiere un administrador");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 530, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel10.setBackground(new java.awt.Color(255, 204, 51));
+
+        BtnVerificar.setText("Verificar");
+        BtnVerificar.setContentAreaFilled(false);
+        BtnVerificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVerificarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BtnVerificar, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addComponent(BtnVerificar)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 100, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 630, 110));
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel22.setText("Código de factura");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 50, 120, -1));
+
+        jPanel5.setBackground(new java.awt.Color(51, 102, 255));
+
+        BtnProf.setForeground(new java.awt.Color(255, 255, 255));
+        BtnProf.setText("Guardar como proforma");
+        BtnProf.setContentAreaFilled(false);
+        BtnProf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnProfActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BtnProf, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(BtnProf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 610, 200, 30));
+
+        jPanel8.setBackground(new java.awt.Color(255, 204, 51));
+
+        BtnPagar.setText("Pagar ");
+        BtnPagar.setContentAreaFilled(false);
+        BtnPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPagarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BtnPagar, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(BtnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 650, 200, -1));
+
+        jPanel7.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel7.setForeground(new java.awt.Color(0, 102, 255));
+
+        BtnAgregar.setBackground(new java.awt.Color(0, 102, 255));
+        BtnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAgregar.setText("Agregar al carrito");
+        BtnAgregar.setContentAreaFilled(false);
+        BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAgregarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BtnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BtnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 670, 140, 30));
+
+        jPanel9.setBackground(new java.awt.Color(0, 102, 255));
+
+        VerSubtotal.setForeground(new java.awt.Color(255, 255, 255));
+        VerSubtotal.setText("Ver total");
+        VerSubtotal.setContentAreaFilled(false);
+        VerSubtotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerSubtotalActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(VerSubtotal, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(VerSubtotal, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 410, 130, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -851,11 +967,15 @@ public class JF_Ventas extends javax.swing.JFrame {
             Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenuV);
         }
 
-        int posicion2 = PanelPermiso.getX();
-        if (posicion2 > -1) {
-            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelPermiso);
-
-        }
+        lblComprobacion.setVisible(false);
+        lblusuario.setVisible(false);
+        lblcontraseña.setVisible(false);
+        BtnIngresar.setVisible(false);
+        lblPorcentaje.setVisible(false);
+        BtnPorcentaje.setVisible(false);
+        txtUsuario.setVisible(false);
+        txtContraseña.setVisible(false);
+        PanelPermiso.setVisible(false);
 
     }//GEN-LAST:event_btnSubMenuMouseClicked
 
@@ -877,15 +997,15 @@ public class JF_Ventas extends javax.swing.JFrame {
             Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenuV);
         }
 
-        int posicion2 = PanelPermiso.getX();
-        if (posicion2 > -1) {
-
-            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelPermiso);
-
-        } else {
-
-            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelPermiso);
-        }
+        lblComprobacion.setVisible(true);
+        lblusuario.setVisible(true);
+        lblcontraseña.setVisible(true);
+        BtnIngresar.setVisible(true);
+        lblPorcentaje.setVisible(true);
+        BtnPorcentaje.setVisible(true);
+        txtUsuario.setVisible(true);
+        txtContraseña.setVisible(true);
+        PanelPermiso.setVisible(true);
 
 
     }//GEN-LAST:event_btnAplicarDescuentoActionPerformed
@@ -915,7 +1035,7 @@ public class JF_Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnIRegistrarClienteMouseClicked
 
     private void filtro() {
-        int columnatb = 1;
+        int columnatb = 2;
         trsfiltro.setRowFilter(RowFilter.regexFilter(txtnombre.getText(), columnatb));
 
     }
@@ -952,9 +1072,10 @@ public class JF_Ventas extends javax.swing.JFrame {
                 datosP cc = new datosP();
                 Connection cn = cc.conexion();
                 processCalendar();
+                processHora();
 
                 PreparedStatement pst = cn.prepareStatement("INSERT INTO factura(Id_Factura, Fecha, Subtotal, Impuesto, "
-                        + "Descuento, TotalPagar, Fk_Usuario) VALUES (?,?,?,?,?,?,?)");
+                        + "Descuento, TotalPagar, Fk_Usuario, Hora) VALUES (?,?,?,?,?,?,?,?)");
 
                 pst.setString(1, txtCodigoBarras.getText());
                 pst.setString(2, date);
@@ -963,6 +1084,7 @@ public class JF_Ventas extends javax.swing.JFrame {
                 pst.setString(5, txtDescuento.getText());
                 pst.setString(6, txtTotalPagar.getText());
                 pst.setString(7, txtUsuarioVentas.getText());
+                pst.setString(8, Hora);
 
                 pst.executeUpdate();
 
@@ -990,7 +1112,6 @@ public class JF_Ventas extends javax.swing.JFrame {
 
             m.txtUsuarioVentas.setText(txtUsuarioVentas.getText());
 
-              m.txtHora.setCalendar(txtHora.getCalendar());
         }
 
     }//GEN-LAST:event_BtnPagarActionPerformed
@@ -1054,7 +1175,7 @@ public class JF_Ventas extends javax.swing.JFrame {
                 }
 
                 try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE producto SET Cantidad=" + NuevoStock + " where Id_Producto = 1");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE producto SET Cantidad=" + NuevoStock + " where Id_Producto = " + txtCodigo.getText() + "");
                     pst.executeUpdate();
 
                 } catch (Exception e) {
@@ -1112,6 +1233,9 @@ public class JF_Ventas extends javax.swing.JFrame {
 
             btnAplicarDescuento.setEnabled(true);
 
+            Calendar c2 = new GregorianCalendar();
+            txtFechaFact.setCalendar(c2);
+
             Calendar fa = new GregorianCalendar();
             txtHora.setCalendar(fa);
         }
@@ -1127,10 +1251,10 @@ public class JF_Ventas extends javax.swing.JFrame {
 
     private void tbProductoInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductoInventarioMouseClicked
         int seleccionar = tbProductoInventario.rowAtPoint(evt.getPoint());
-        txtCodigo.setText(String.valueOf(tbProductoInventario.getValueAt(seleccionar, 0)));
+        txtCodigo.setText(String.valueOf(tbProductoInventario.getValueAt(seleccionar, 1)));
 
         int seleccionar2 = tbProductoInventario.rowAtPoint(evt.getPoint());
-        txtStock.setText(String.valueOf(tbProductoInventario.getValueAt(seleccionar2, 4)));
+        txtStock.setText(String.valueOf(tbProductoInventario.getValueAt(seleccionar2, 5)));
     }//GEN-LAST:event_tbProductoInventarioMouseClicked
 
     private void BtnProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnProfActionPerformed
@@ -1150,9 +1274,10 @@ public class JF_Ventas extends javax.swing.JFrame {
                 datosP cc = new datosP();
                 Connection cn = cc.conexion();
                 processCalendar();
+                processHora();
 
                 PreparedStatement pst = cn.prepareStatement("INSERT INTO factura(Id_Factura, Fecha, Subtotal, Impuesto, "
-                        + "Descuento, TotalPagar, Fk_Usuario) VALUES (?,?,?,?,?,?,?)");
+                        + "Descuento, TotalPagar, Fk_Usuario, Hora) VALUES (?,?,?,?,?,?,?,?)");
 
                 pst.setString(1, txtCodigoBarras.getText());
                 pst.setString(2, date);
@@ -1161,6 +1286,7 @@ public class JF_Ventas extends javax.swing.JFrame {
                 pst.setString(5, txtDescuento.getText());
                 pst.setString(6, txtTotalPagar.getText());
                 pst.setString(7, txtUsuarioVentas.getText());
+                pst.setString(8, Hora);
 
                 pst.executeUpdate();
 
@@ -1181,6 +1307,9 @@ public class JF_Ventas extends javax.swing.JFrame {
             txtDescuento.setText("");
             txtTotalPagar.setText("");
             txtCodigoBarras.setText("");
+
+            txtFechaFact.setCalendar(null);
+            txtHora.setCalendar(null);
 
             DefaultTableModel tb = (DefaultTableModel) tbProductosSelec.getModel();
             int a = tbProductosSelec.getRowCount() - 1;
@@ -1223,22 +1352,30 @@ public class JF_Ventas extends javax.swing.JFrame {
                     Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelMenuV);
                 }
 
-                int posicion2 = PanelPermiso.getX();
-                if (posicion2 > -1) {
-                    Animacion.Animacion.mover_izquierda(0, -264, 2, 2, PanelPermiso);
-                } else {
-                    Animacion.Animacion.mover_derecha(-264, 0, 2, 2, PanelPermiso);
-                }
+                lblComprobacion.setVisible(false);
+                lblusuario.setVisible(false);
+                lblcontraseña.setVisible(false);
+                BtnIngresar.setVisible(false);
+                lblPorcentaje.setVisible(false);
+                BtnPorcentaje.setVisible(false);
+                txtUsuario.setVisible(false);
+                txtContraseña.setVisible(false);
+                PanelPermiso.setVisible(false);
+
                 txtUsuario.setText("");
                 txtContraseña.setText("");
 
             } else if (cap.equals("2")) {
 
                 JOptionPane.showMessageDialog(null, "No concedido");
+                txtUsuario.setText("");
+                txtContraseña.setText("");
 
             }
             if ((!cap.equals("1")) && (!cap.equals("2"))) {
                 JOptionPane.showMessageDialog(this, "No concedido");
+                txtUsuario.setText("");
+                txtContraseña.setText("");
             }
         } catch (SQLException ex) {
             Logger.getLogger(JF_Login.class.getName()).log(Level.SEVERE, null, ex);
@@ -1354,11 +1491,7 @@ public class JF_Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1367,17 +1500,27 @@ public class JF_Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel lblComprobacion;
+    private javax.swing.JLabel lblPorcentaje;
     private javax.swing.JLabel lblRequerdioCantidad;
     private javax.swing.JLabel lblRequeridoCedula;
     private javax.swing.JLabel lblRequeridoCodigo;
     private javax.swing.JLabel lblRequeridoSubtotal;
     private javax.swing.JLabel lblRequeridoTotal;
+    private javax.swing.JLabel lblcontraseña;
+    private javax.swing.JLabel lblusuario;
     private javax.swing.JTable tbCliente;
     public javax.swing.JTable tbProductoInventario;
     private javax.swing.JTable tbProductosSelec;
